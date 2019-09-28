@@ -20,7 +20,9 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    frame: false
+    frame: false,
+    minWidth: 1100,
+    minHeight: 600
   });
 
   if (serve) {

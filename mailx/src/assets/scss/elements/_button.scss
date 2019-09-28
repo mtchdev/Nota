@@ -1,0 +1,39 @@
+// Button
+
+button {
+    background-color: $primary;
+    color: $white;
+    font-weight: 300;
+    font-size: 1rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.button {
+    &--is-large {
+        height: 2.5rem;
+        width: 8rem;
+    }
+
+    &--is-long {
+        width: 14rem;
+    }
+
+    &--auto-width {
+        width: auto !important;
+    }
+
+    &__gradient {
+        background-image: linear-gradient(to left, #5F65F4 0%, #B95FF4 100%);
+    }
+}
+

@@ -2,8 +2,12 @@ html, body {
     margin: 0;
     background-color: $almost-white;
     color: $almost-black;
-    user-select: none;
+    // user-select: none;
     font-family: 'Open Sans';
+}
 
-    -webkit-app-region: drag; // for now, until we add a titlebar
+#drag-area {
+    height: 50px;
+    width: 100%;
+    -webkit-app-region: drag;
 }

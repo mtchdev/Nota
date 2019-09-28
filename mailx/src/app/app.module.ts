@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
  * Components
  */
 import { AppComponent } from './app.component';
-import { OnboardingComponent } from './components/onboarding/onboarding.component'; // MAIN APP
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
 
 @NgModule({
   declarations: [AppComponent, OnboardingComponent],

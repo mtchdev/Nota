@@ -11,4 +11,8 @@ export class OnboardingComponent implements OnInit {
   ngOnInit() {
   }
 
+  public button(): void {
+    // TODO: go to next page
+  }
+
 }
