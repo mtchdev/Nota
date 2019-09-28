@@ -4,4 +4,6 @@ html, body {
     color: $almost-black;
     user-select: none;
     font-family: 'Open Sans';
+
+    -webkit-app-region: drag; // for now, until we add a titlebar
 }

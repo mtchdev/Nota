@@ -15,11 +15,12 @@ function createWindow() {
   win = new BrowserWindow({
     x: 0,
     y: 0,
-    width: size.width,
-    height: size.height,
+    width: size.width - (size.width / 4),
+    height: size.height - (size.height / 4),
     webPreferences: {
       nodeIntegration: true,
     },
+    frame: false
   });
 
   if (serve) {
