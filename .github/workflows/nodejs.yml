@@ -17,6 +17,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Enter working directory
+      run: cd ./mailx
     - name: Install dependencies
       run: npm install
     - name: Lint
