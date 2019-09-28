@@ -17,13 +17,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Enter working directory
-      run: cd ./mailx
     - name: Install dependencies
+      working-directory: ./mailx
       run: npm install
     - name: Lint
+      working-directory: ./mailx
       run: npm run lint
     - name: Build
+      working-directory: ./mailx
       run: npm run build:prod
     - name: Test
+      working-directory: ./mailx
       run: ng test --configuration=ci
