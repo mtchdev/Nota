@@ -1,0 +1,30 @@
+// app/components/onboarding/*
+
+.onboarding {
+
+    &__container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+
+        text-align: center;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 3.8rem;
+        margin-bottom: .5rem;
+    }
+
+    &__subtitle {
+        font-size: 1.2rem;
+        color: $grey;
+    }
+
+    &__icon {
+        width: 300px;
+        margin-bottom: -4.5rem;
+    }
+
+}

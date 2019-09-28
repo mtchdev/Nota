@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
+
 const routes: Routes = [
+  {
+    path: '',
+    component: OnboardingComponent
+  }
 ];
 
 @NgModule({

@@ -14,10 +14,11 @@ import { AppRoutingModule } from './app-routing.module';
 /**
  * Components
  */
-import { AppComponent } from './app.component'; // MAIN APP
+import { AppComponent } from './app.component';
+import { OnboardingComponent } from './components/onboarding/onboarding.component'; // MAIN APP
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, OnboardingComponent],
   imports: [
     BrowserModule,
     FormsModule,
