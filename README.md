@@ -4,7 +4,9 @@
 ![Size](https://img.shields.io/github/repo-size/spliitzx/mailx)
 ![License](https://img.shields.io/github/license/spliitzx/mailx)
 
-An open-source smart, optimized, and clean email desktop application designed with **[Electron](https://github.com/atom/electron)**, **[Angular](https://github.com/angular/angular)**, and **[Flask](https://palletsprojects.com/p/flask/)**. With the option of having your own MailX account, you can have multiple mail accounts accessible from anywhere in the world.
+An open-source smart, optimized, and clean email desktop application designed with **[Electron](https://github.com/atom/electron)**, **[Angular](https://github.com/angular/angular)**, and **[Flask](https://palletsprojects.com/p/flask/)**. With the option of having your own MailX account, you can have multiple mail accounts accessible from anywhere in the world.  
+
+**Trello** (track our progress!): [https://trello.com/b/FCZa1QZr/mailx](https://trello.com/b/FCZa1QZr/mailx)
 
 ## Setup
 ⚠️ **MailX is in a very early development stage.** We're still designing!  
