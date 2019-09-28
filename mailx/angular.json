@@ -105,6 +105,13 @@
               "src/favicon.256x256.png",
               "src/favicon.512x512.png"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "watch": false,
+              "progress": false,
+              "browsers": "ChromeHeadlessCI"
+            }
           }
         },
         "lint": {
