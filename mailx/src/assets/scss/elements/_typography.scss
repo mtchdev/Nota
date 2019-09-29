@@ -1,23 +1,38 @@
 // Base Typography
 
 h1 {
-    font-size: 56px;
-    font-weight: bold;
-}
-
-h2 {
     font-size: 46px;
     font-weight: bold;
 }
 
-h3 {
+h2 {
     font-size: 36px;
+    font-weight: bold;
 }
 
-h4 {
+h3 {
     font-size: 26px;
 }
 
+h4 {
+    font-size: 16px;
+}
+
 p {
-    font-size: 18;
+    font-size: 16px;
+}
+
+span {
+    color: $grey;
+}
+
+a {
+    text-decoration: underline;
+    color: $primary;
+    transition: 0.2s linear;
+
+    &:hover {
+        color: lighten($primary, $color-coef);
+        cursor: pointer;
+    }
 }

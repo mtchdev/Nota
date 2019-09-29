@@ -1,13 +1,14 @@
 // Button
 
 button {
-    background-color: $primary;
     color: $white;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1rem;
     border-radius: 10px;
     box-sizing: border-box;
     border: none;
+    height: 40px;
+    width: 100%;
 
     &:focus {
         outline: none;
@@ -34,6 +35,18 @@ button {
 
     &__gradient {
         background-image: linear-gradient(to left, #5F65F4 0%, #B95FF4 100%);
+    }
+
+    &__grey {
+        background-color: $grey;
+    }
+
+    &__primary {
+        background-color: $primary;
+    }
+
+    &__almost-black {
+        background-color: $almost-black;
     }
 }
 

@@ -1,0 +1,48 @@
+.form {
+    display: flex;
+
+    &--is-row {
+        flex-direction: row;        
+    }
+
+    &--is-column {
+        flex-direction: column;
+    }
+
+    &--button-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__row {
+        margin: .5rem 0 .5rem 0;
+    }
+}
+
+input {
+    background-color: $light;
+    height: 2.5rem;
+    font-size: 1rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    border-radius: 0.5rem;
+    transition: 0.2s linear;
+    border: 1px solid transparent;
+    
+    &:focus {
+        outline: none;
+        background-color: lighten($light, $color-coef);
+        border: 1px solid $primary;
+    }
+}
+
+.input {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+
+    &--has-error {
+        border: 1px solid $error;
+    }
+}
