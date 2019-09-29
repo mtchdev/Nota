@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container container--is-center">
+    <h1 class="auth__title">Welcome back!</h1>
+    <p><span>Sign into your account and get back on track.</span></p>
+
+    <div class="form form--is-column">
+        <div class="form__row">
+            <input type="text" class="input" placeholder="Username" />
+        </div>
+        <div class="form__row">
+            <input type="password" class="input" placeholder="Password" />
+        </div>
+
+        <div class="form--button-group margin-top--xl">
+            <button id="register-button" class="button__grey margin-right--lg" (click)="register()">Register</button> <button id="login-button" class="button__primary">Log In</button>
+        </div>
+    </div>
+</div>
