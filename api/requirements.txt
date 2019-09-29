@@ -3,3 +3,6 @@ pytest
 sqlalchemy
 flask-pymongo
 python-dotenv
+bcrypt
+pyjwt
+

@@ -1,7 +1,7 @@
 import sys
 from flask import Flask
-from db.extensions import mongo
-from routes import http
+from api.db.extensions import mongo
+from api.routes import http
 
 def create_app(config="config"):
     app = Flask(__name__)
