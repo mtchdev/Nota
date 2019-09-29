@@ -1,4 +1,5 @@
 flask
 pytest
 sqlalchemy
-
+flask-pymongo
+python-dotenv
