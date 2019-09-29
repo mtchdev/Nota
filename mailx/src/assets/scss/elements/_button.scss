@@ -39,14 +39,26 @@ button {
 
     &__grey {
         background-color: $grey;
+        transition: 0.15s linear;
+        &:hover {
+            background-color: darken($grey, $color-coef);
+        }
     }
 
     &__primary {
         background-color: $primary;
+        transition: 0.15s linear;
+        &:hover {
+            background-color: darken($primary, $color-coef);
+        }
     }
 
     &__almost-black {
         background-color: $almost-black;
+        transition: 0.15s linear;
+        &:hover {
+            background-color: darken($almost-black, $color-coef);
+        }
     }
 }
 
