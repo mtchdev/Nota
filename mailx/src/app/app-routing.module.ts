@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: OnboardingComponent
+  },
+  {
+    path: 'auth/register',
+    component: RegisterComponent
   }
 ];
 

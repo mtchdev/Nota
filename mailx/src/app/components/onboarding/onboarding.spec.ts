@@ -1,16 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { OnboardingComponent } from './onboarding.component';
 import { DebugElement } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Location } from '@angular/common';
+import { routes } from '../../app-routing.module';
+import { RegisterComponent } from '../auth/register/register.component';
+import { Router } from '@angular/router';
 
 describe('OnboardingComponent', () => {
   let component: OnboardingComponent;
   let fixture: ComponentFixture<OnboardingComponent>;
   let de: DebugElement;
+  let location: Location;
+  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnboardingComponent ]
+      declarations: [ OnboardingComponent, RegisterComponent ],
+      imports: [ RouterTestingModule.withRoutes(routes) ]
     })
     .compileComponents();
   }));
@@ -19,6 +26,9 @@ describe('OnboardingComponent', () => {
     fixture = TestBed.createComponent(OnboardingComponent);
     component = fixture.componentInstance;
     de = fixture.debugElement;
+    location = TestBed.get(Location);
+    router = TestBed.get(Router);
+    router.initialNavigation();
     fixture.detectChanges();
   });
 
@@ -26,9 +36,13 @@ describe('OnboardingComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call `button`', (): void => {
+  it('should to go auth/register`', fakeAsync(() => {
+    fixture.ngZone.run(() => {
       spyOn(component, 'button').and.callThrough();
       de.nativeElement.querySelector('button').click();
       expect(component.button).toHaveBeenCalled();
-  });
+      tick();
+      expect(location.path()).toBe('/auth/register');
+    });
+  }));
 });
