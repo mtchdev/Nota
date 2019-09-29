@@ -15,12 +15,12 @@ import { AppRoutingModule } from './app-routing.module';
  * Components
  */
 import { AppComponent } from './app.component';
-import { OnboardingComponent } from './components/onboarding/onboarding.component';
-import { RegisterComponent } from './components/auth/register/register.component';
-import { LoginComponent } from './components/auth/login/login.component';
+import { MODULES } from './shared.module';
 
 @NgModule({
-  declarations: [AppComponent, OnboardingComponent, RegisterComponent, LoginComponent],
+  declarations: [
+    ...MODULES
+  ],
   imports: [
     BrowserModule,
     FormsModule,

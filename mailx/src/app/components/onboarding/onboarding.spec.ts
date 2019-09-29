@@ -4,7 +4,7 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from '../../app-routing.module';
-import { RegisterComponent } from '../auth/register/register.component';
+import { MODULES } from '../../shared.module';
 import { Router } from '@angular/router';
 
 describe('OnboardingComponent', () => {
@@ -16,7 +16,7 @@ describe('OnboardingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnboardingComponent, RegisterComponent ],
+      declarations: [...MODULES],
       imports: [ RouterTestingModule.withRoutes(routes) ]
     })
     .compileComponents();
