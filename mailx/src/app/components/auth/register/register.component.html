@@ -1,19 +1,27 @@
-<div class="container container--is-center">
+<div class="container container--is-center auth__container">
     <h1 class="auth__title">Create Account</h1>
     <p><span>Sync your accounts anywhere and everywhere.</span></p>
 
     <div class="form form--is-column">
-        <div class="form__row">
+        <div class="form__item">
             <input type="text" class="input" placeholder="Username" />
         </div>
-        <div class="form__row">
+        <div class="form__item">
             <input type="text" class="input" placeholder="Email Address" />
         </div>
-        <div class="form__row">
+        <div class="form__item">
             <input type="password" class="input" placeholder="Password" />
         </div>
+        <label class="form__item flex input__label input__checkbox margin-top" for="terms">
+            <input id="terms" type="checkbox" class="margin-right--sm" />
+            I agree with the Terms &amp; Conditions.
+        </label>
+        <label class="form__item flex input__label input__checkbox margin-bot" style="margin-top:-0.25rem;" for="privacy">
+            <input id="privacy" type="checkbox" class="margin-right--sm" />
+            I agree with the Privacy Policy.
+        </label>
 
-        <div class="form--button-group margin-top--xl">
+        <div class="form--button-group margin-top">
             <button id="login-button" class="button__grey margin-right--lg" (click)="login()">Log In</button> <button id="register-button" class="button__primary">Register</button>
         </div>
     </div>
