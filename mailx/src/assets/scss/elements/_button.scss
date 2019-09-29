@@ -17,48 +17,47 @@ button {
     &:hover {
         cursor: pointer;
     }
+
+    &.button {
+        &--is-large {
+            height: 2.5rem;
+            width: 8rem;
+        }
+    
+        &--is-long {
+            width: 14rem;
+        }
+    
+        &--auto-width {
+            width: auto !important;
+        }
+    
+        &__gradient {
+            background-image: linear-gradient(to left, #5F65F4 0%, #B95FF4 100%);
+        }
+    
+        &__grey {
+            background-color: $grey;
+            transition: 0.15s linear;
+            &:hover {
+                background-color: darken($grey, $color-coef);
+            }
+        }
+    
+        &__primary {
+            background-color: $primary;
+            transition: 0.15s linear;
+            &:hover {
+                background-color: darken($primary, $color-coef);
+            }
+        }
+    
+        &__almost-black {
+            background-color: $almost-black;
+            transition: 0.15s linear;
+            &:hover {
+                background-color: darken($almost-black, $color-coef);
+            }
+        }
+    }
 }
-
-.button {
-    &--is-large {
-        height: 2.5rem;
-        width: 8rem;
-    }
-
-    &--is-long {
-        width: 14rem;
-    }
-
-    &--auto-width {
-        width: auto !important;
-    }
-
-    &__gradient {
-        background-image: linear-gradient(to left, #5F65F4 0%, #B95FF4 100%);
-    }
-
-    &__grey {
-        background-color: $grey;
-        transition: 0.15s linear;
-        &:hover {
-            background-color: darken($grey, $color-coef);
-        }
-    }
-
-    &__primary {
-        background-color: $primary;
-        transition: 0.15s linear;
-        &:hover {
-            background-color: darken($primary, $color-coef);
-        }
-    }
-
-    &__almost-black {
-        background-color: $almost-black;
-        transition: 0.15s linear;
-        &:hover {
-            background-color: darken($almost-black, $color-coef);
-        }
-    }
-}
-

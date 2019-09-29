@@ -1,0 +1,13 @@
+// Some easy-to-access styles go here, more intricate styles that require customs can have their own classes.
+
+.flex {
+    display: flex;
+
+    &.row {
+        flex-direction: row;
+    }
+
+    &.col {
+        flex-direction: column;
+    }
+}
