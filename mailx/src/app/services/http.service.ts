@@ -4,7 +4,7 @@ import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 const BASE_CONFIG: AxiosRequestConfig = {
   headers: {
     'Authorization': 'Basic $TOKEN',
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/json'
   }
 };
 
@@ -28,7 +28,7 @@ export class HttpService {
   public get<T = any>(target: string, config?: AxiosRequestConfig): Promise<Response<T>> {
     return new Promise(async (resolve, reject) => {
       try {
-        let response: AxiosResponse<Response<T>> = await axios.get(target, config ? config : this.config);
+        const response: AxiosResponse<Response<T>> = await axios.get(target, config ? config : this.config);
         if (!this.validateStatusCode(response.data.status)) {
           reject(response.data);
         }

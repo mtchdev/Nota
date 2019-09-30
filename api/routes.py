@@ -13,11 +13,11 @@ def index():
 
 @http.route('/auth/register', methods=['POST'])
 def auth_register():
-    return response(api.controllers.auth.register(request.form))
+    return response(api.controllers.auth.register(request.json))
 
 @http.route('/auth/login', methods=['POST'])
 def auth_login():
-    return response(api.controllers.auth.login(request.form))
+    return response(api.controllers.auth.login(request.form.to_dict()))
 
 @http.route('/self', methods=['GET'])
 @auth

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { MODULES } from '../../../shared.module';
+import { MODULES, PROVIDERS, IMPORTS } from '../../../shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from '../../../app-routing.module';
 
@@ -18,8 +18,10 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ...MODULES ],
       imports: [
-        RouterTestingModule.withRoutes(routes)
-      ]
+        RouterTestingModule.withRoutes(routes),
+        ...IMPORTS
+      ],
+      providers: [ ...PROVIDERS ]
     })
     .compileComponents();
   }));

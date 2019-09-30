@@ -11,6 +11,16 @@ import { LoginComponent } from './components/auth/login/login.component';
  */
 import { AuthService } from './components/auth/auth.service';
 import { HttpService } from './services/http.service';
+import { AppService } from './app.service';
+
+/**
+ * Imports
+ */
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 export const MODULES: Array<any> = [
     AppComponent,
     OnboardingComponent,
@@ -20,5 +30,13 @@ export const MODULES: Array<any> = [
 
 export const PROVIDERS: Array<any> = [
     AuthService,
-    HttpService
+    HttpService,
+    AppService
+];
+
+export const IMPORTS: Array<any> = [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
 ];

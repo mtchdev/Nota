@@ -3,7 +3,7 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from '../../../app-routing.module';
-import { MODULES } from '../../../shared.module';
+import { MODULES, PROVIDERS, IMPORTS } from '../../../shared.module';
 import { RegisterComponent } from './register.component';
 import { By } from '@angular/platform-browser';
 
@@ -16,7 +16,8 @@ describe('RegisterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ...MODULES ],
-      imports: [ RouterTestingModule.withRoutes(routes) ]
+      imports: [ RouterTestingModule.withRoutes(routes), ...IMPORTS ],
+      providers: [ ...PROVIDERS ]
     })
     .compileComponents();
   }));

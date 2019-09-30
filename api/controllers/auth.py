@@ -56,6 +56,7 @@ def login(form):
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')
+    delattr(user, 'secret')
     return user
 
 def auth(f) -> Users:
