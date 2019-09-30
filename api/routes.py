@@ -10,16 +10,19 @@ http = Blueprint('api', __name__)
 
 @http.route('/')
 def index():
-    res = api.controllers.auth.register({
-        'username': 'spliitzx',
-        'email': 'eee',
-        'password': '1'
-    })
-    
-    return response(res)
+    return jsonify({})
 
-@http.route('/someauthwall', methods=['POST'])
+@http.route('/auth/register', methods=['POST'])
+def auth_register():
+    return response(api.controllers.auth.register(request.form))
+
+@http.route('/auth/login', methods=['POST'])
+def auth_login():
+    return response(api.controllers.auth.login(request.form))
+
+@http.route('/self', methods=['GET'])
 @auth
-def test(user):
-    print(user)
-    return jsonify([])
+def get_self(user):
+    return response({
+        'user': api.controllers.auth.serialize_user_dict(user)
+    })
