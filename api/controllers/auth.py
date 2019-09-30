@@ -67,7 +67,7 @@ def auth(f) -> Users:
         except KeyError:
             return response({'message': 'NO_AUTH'}, 403)
 
-        ret = Users.objects(id=ObjectId(data['user']))[0]
+        ret = Users.objects(secret=data['personal_secret'])[0]
         return f(serialize_user_dict(ret)) if ret else response({'message': 'NOT_FOUND'}, 404)
     
     return decorated
