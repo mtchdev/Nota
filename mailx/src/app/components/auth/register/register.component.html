@@ -4,13 +4,13 @@
 
     <div class="form form--is-column">
         <div class="form__item">
-            <input type="text" class="input" placeholder="Username" />
+            <input type="text" class="input" [(ngModel)]="username" placeholder="Username" />
         </div>
         <div class="form__item">
-            <input type="text" class="input" placeholder="Email Address" />
+            <input type="text" class="input" [(ngModel)]="email" placeholder="Email Address" />
         </div>
         <div class="form__item">
-            <input type="password" class="input" placeholder="Password" />
+            <input type="password" class="input" [(ngModel)]="password" placeholder="Password" />
         </div>
         <label class="form__item flex input__label input__checkbox margin-top" for="terms">
             <input id="terms" type="checkbox" class="margin-right--sm" />
@@ -22,7 +22,8 @@
         </label>
 
         <div class="form--button-group margin-top">
-            <button id="login-button" class="button__grey margin-right--lg" (click)="login()">Log In</button> <button id="register-button" class="button__primary">Register</button>
+            <button id="login-button" class="button__grey margin-right--lg" (click)="login()">Log In</button>
+            <button id="register-button" class="button__primary" (click)="submit()">Register</button>
         </div>
     </div>
 

@@ -5,4 +5,5 @@ flask-pymongo
 python-dotenv
 bcrypt
 pyjwt
-
+flask-cors
+flask_mongoengine
