@@ -1,14 +1,13 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick, inject } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from '../../../app-routing.module';
-import { MODULES, PROVIDERS, IMPORTS } from '../../../shared.module';
+import { MODULES, IMPORTS } from '../../../shared.module';
 import { RegisterComponent } from './register.component';
 import { By } from '@angular/platform-browser';
 import { User } from '../../../models/auth/User';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -29,7 +28,7 @@ describe('RegisterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    service = TestBed.get(AuthService)
+    service = TestBed.get(AuthService);
     location = TestBed.get(Location);
     debug = fixture.debugElement;
     fixture.detectChanges();
