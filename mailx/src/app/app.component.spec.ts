@@ -3,12 +3,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ElectronService } from './services/electron.service';
+import { PROVIDERS } from './shared.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      providers: [ElectronService],
+      providers: [ElectronService, ...PROVIDERS],
       imports: [RouterTestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   }));

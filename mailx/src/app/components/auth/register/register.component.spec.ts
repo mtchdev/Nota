@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick, inject } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
@@ -6,18 +6,22 @@ import { routes } from '../../../app-routing.module';
 import { MODULES, PROVIDERS, IMPORTS } from '../../../shared.module';
 import { RegisterComponent } from './register.component';
 import { By } from '@angular/platform-browser';
+import { User } from '../../../models/auth/User';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let location: Location;
   let debug: DebugElement;
+  let service: MockAuthService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ...MODULES ],
       imports: [ RouterTestingModule.withRoutes(routes), ...IMPORTS ],
-      providers: [ ...PROVIDERS ]
+      providers: [ {provide: AuthService, useClass: MockAuthService} ]
     })
     .compileComponents();
   }));
@@ -25,9 +29,16 @@ describe('RegisterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
+    service = TestBed.get(AuthService)
     location = TestBed.get(Location);
     debug = fixture.debugElement;
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.removeItem('authToken');
+    service = null;
+    component = null;
   });
 
   it('should create', () => {
@@ -43,4 +54,39 @@ describe('RegisterComponent', () => {
       expect(location.path()).toBe('/auth/login');
     });
   }));
+
+  it('should return instanceof Promise<User> on submit', (() => {
+    spyOn(service, 'register').and.callThrough();
+    spyOn(component, 'submit').and.callThrough();
+    component.email = 'me@miitch.io';
+    component.username = 'spliitzx';
+    component.password = 'hunter2';
+    debug.query(By.css('#register-button')).nativeElement.click();
+    expect(service.register).toHaveBeenCalled();
+
+    // test mock class
+    let stub = service.register({
+      username: 'spliitzx',
+      email: 'me@miitch.io',
+      password: 'hunter2'
+    });
+    expect(stub).toEqual(jasmine.any(Promise));
+  }));
 });
+
+class MockAuthService {
+
+  public register(form: RegisterForm): Promise<User> {
+    let user = new User({});
+    user.username = form.username;
+    user.email = form.password;
+    return new Promise((resolve, reject) => resolve(user));
+  }
+
+}
+
+interface RegisterForm {
+  username: string;
+  email: string;
+  password: string;
+}
