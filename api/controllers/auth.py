@@ -16,12 +16,12 @@ Authentication Routes
 """
 
 def register(form) -> str:
+    print(form)
     username = form['username']
     email = form['email']
     password = form['password']
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()) # bcrypt hashed password
     user_secret = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
-    print(user_secret)
 
     try:
         user = Users()
