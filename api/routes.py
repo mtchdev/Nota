@@ -1,5 +1,4 @@
 from flask import Blueprint, jsonify, request
-from api.db.extensions import mongo
 from bson import json_util
 from api.controllers.response import response
 from api.controllers.auth import auth
@@ -23,6 +22,4 @@ def auth_login():
 @http.route('/self', methods=['GET'])
 @auth
 def get_self(user):
-    return response({
-        'user': api.controllers.auth.serialize_user_dict(user)
-    })
+    return response({'user': user})

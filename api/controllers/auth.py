@@ -1,12 +1,15 @@
 import bcrypt
 import base64
-from api.db.extensions import mongo
+from api.server import db
 import jwt
 from api.config import JWT_SECRET
 from functools import wraps
 from flask import request, jsonify
 from bson.objectid import ObjectId
 from api.controllers.response import response
+from api.model.users import Users
+import random
+import string
 
 """
 Authentication Routes
@@ -17,21 +20,23 @@ def register(form) -> str:
     email = form['email']
     password = form['password']
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()) # bcrypt hashed password
+    user_secret = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
+    print(user_secret)
 
     try:
-        user = mongo.db.users.insert({
-            'username': username,
-            'email': email,
-            'password': hashed
-        })
+        user = Users()
+        user.username = username
+        user.email = email
+        user.password = hashed
+        user.secret = user_secret
+        user.save()
 
-        # token = jwt.encode({'user': str(user)}, JWT_SECRET)
         return login(form)
     
     except Exception as e:
         print(e)
         return {
-            'status': 500,
+            'status': 509,
             'data': str(e)
         }
 
@@ -39,27 +44,21 @@ def login(form):
     username = form['username']
     password = form['password']
 
-    user = mongo.db.users.find_one({'username': username})
+    user = Users.objects(username=username)[0]
     if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
-        token = jwt.encode({'user': str(user['_id'])}, JWT_SECRET)
+        token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
         return {
             'token': token.decode('utf-8'),
             'user': serialize_user_dict(user)
         }
     else:
-        return {
-            'status': 404
-        }
+        return { 'status': 404 }
 
-def serialize_user_dict(user) -> dict:
-    ret = {
-        'username': user.get('username', None),
-        'email': user.get('email', None)
-    }
+def serialize_user_dict(user) -> Users:
+    delattr(user, 'password')
+    return user
 
-    return ret
-
-def auth(f):
+def auth(f) -> Users:
     @wraps(f)
     def decorated(*args, **kwargs):
         form = request.form
@@ -68,7 +67,7 @@ def auth(f):
         except KeyError:
             return response({'message': 'NO_AUTH'}, 403)
 
-        ret = mongo.db.users.find_one({'_id': ObjectId(data['user'])})
-        return f(ret) if ret else response({'message': 'NOT_FOUND'}, 404)
+        ret = Users.objects(id=ObjectId(data['user']))[0]
+        return f(serialize_user_dict(ret)) if ret else response({'message': 'NOT_FOUND'}, 404)
     
     return decorated
