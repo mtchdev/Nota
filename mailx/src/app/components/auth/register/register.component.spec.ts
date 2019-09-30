@@ -71,6 +71,14 @@ describe('RegisterComponent', () => {
     });
     expect(stub).toEqual(jasmine.any(Promise));
   }));
+
+  it('should produce errors when values are null', () => {
+    component.submit();
+    // https://github.com/adobe/brackets/pull/5492
+    expect(component.errors.username).toBeTruthy();
+    expect(component.errors.email).toBeTruthy();
+    expect(component.errors.password).toBeTruthy();
+  });
 });
 
 class MockAuthService {

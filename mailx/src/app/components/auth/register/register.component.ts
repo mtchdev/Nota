@@ -13,15 +13,33 @@ export class RegisterComponent implements OnInit {
   public email: string;
   public password: string;
 
+  public errors = {
+    username: null,
+    email: null,
+    password: null
+  };
+
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   public submit(): void {
-    if (!this.username) { return; }
-    if (!this.email) { return; }
-    if (!this.password) { return; }
+    if (!this.username) {
+      this.errors.username = 'Please enter a username.';
+    }
+    if (!this.email) {
+      this.errors.email = 'Please enter an email address.';
+    }
+    if (!this.password) {
+      this.errors.password = 'Please enter a password.';
+    }
+
+    for (let i in this.errors) {
+      if (this.errors[i]) {
+        return;
+      }
+    }
 
     let form: any = {
       username: this.username,
