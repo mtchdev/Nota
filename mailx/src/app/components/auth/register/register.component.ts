@@ -19,12 +19,18 @@ export class RegisterComponent implements OnInit {
     password: null
   };
 
+  public registerLoading = false;
+
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   public submit(): void {
+    for (let i in this.errors) {
+      this.errors[i] = null;
+    }
+
     if (!this.username) {
       this.errors.username = 'Please enter a username.';
     }
@@ -41,6 +47,8 @@ export class RegisterComponent implements OnInit {
       }
     }
 
+    this.registerLoading = true;
+
     let form: any = {
       username: this.username,
       email: this.email,
@@ -49,6 +57,7 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(form).then((user: User) => {
       console.log(user);
+      this.registerLoading = false;
     });
   }
 

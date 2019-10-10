@@ -57,9 +57,7 @@ describe('RegisterComponent', () => {
   it('should return instanceof Promise<User> on submit', (() => {
     spyOn(service, 'register').and.callThrough();
     spyOn(component, 'submit').and.callThrough();
-    component.email = 'me@miitch.io';
-    component.username = 'spliitzx';
-    component.password = 'hunter2';
+    fakeFields();
     debug.query(By.css('#register-button')).nativeElement.click();
     expect(service.register).toHaveBeenCalled();
 
@@ -72,13 +70,29 @@ describe('RegisterComponent', () => {
     expect(stub).toEqual(jasmine.any(Promise));
   }));
 
+  it('should indicate loading on submit', (() => {
+    fakeFields();
+    component.submit();
+    expect(component.registerLoading).toBeTruthy();
+  }));
+
   it('should produce errors when values are null', () => {
     component.submit();
     // https://github.com/adobe/brackets/pull/5492
     expect(component.errors.username).toBeTruthy();
     expect(component.errors.email).toBeTruthy();
     expect(component.errors.password).toBeTruthy();
+    expect(component.registerLoading).toBeFalsy();
   });
+
+  /**
+   * Helpers
+   */
+  function fakeFields() {
+    component.email = 'me@miitch.io';
+    component.username = 'spliitzx';
+    component.password = 'hunter2';
+  }
 });
 
 class MockAuthService {

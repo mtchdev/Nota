@@ -23,7 +23,7 @@
 
         <div class="form--button-group margin-top">
             <button id="login-button" class="button__grey margin-right--lg" (click)="login()">Log In</button>
-            <button id="register-button" class="button__primary" (click)="submit()">Register</button>
+            <button id="register-button" class="button__primary" (click)="submit()" [disabled]="registerLoading">{{ registerLoading ? 'Loading...' : 'Register' }}</button>
         </div>
     </div>
 

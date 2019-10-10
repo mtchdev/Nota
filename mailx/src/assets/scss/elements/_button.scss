@@ -18,6 +18,11 @@ button {
         cursor: pointer;
     }
 
+    &:disabled {
+        cursor: not-allowed;
+        filter: opacity(60%);
+    }
+
     &.button {
         &--is-large {
             height: 2.5rem;
