@@ -1,4 +1,5 @@
 export const AppConfig = {
   production: true,
-  environment: 'PROD'
+  environment: 'PROD',
+  apiUrl: '127.0.0.1:5000'
 };
