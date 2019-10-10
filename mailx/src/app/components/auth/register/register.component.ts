@@ -55,10 +55,16 @@ export class RegisterComponent implements OnInit {
       password: this.password
     };
 
-    this.authService.register(form).then((user: User) => {
-      console.log(user);
-      this.registerLoading = false;
-    });
+    this.authService.register(form).subscribe(
+      data => {
+        console.log(data.data);
+        this.registerLoading = false;
+      },
+      error => {
+        console.log(error);
+        this.registerLoading = false;
+      }
+    );
   }
 
   public login(): void {

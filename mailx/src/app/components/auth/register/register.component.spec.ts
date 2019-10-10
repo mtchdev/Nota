@@ -8,6 +8,7 @@ import { RegisterComponent } from './register.component';
 import { By } from '@angular/platform-browser';
 import { User } from '../../../models/auth/User';
 import { AuthService } from '../auth.service';
+import { Observable, of } from 'rxjs';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -54,26 +55,13 @@ describe('RegisterComponent', () => {
     });
   }));
 
-  it('should return instanceof Promise<User> on submit', (() => {
+  it('should successfully register a new mock user on submit', (() => {
     spyOn(service, 'register').and.callThrough();
     spyOn(component, 'submit').and.callThrough();
     fakeFields();
     debug.query(By.css('#register-button')).nativeElement.click();
     expect(service.register).toHaveBeenCalled();
-
-    // test mock class
-    let stub = service.register({
-      username: 'spliitzx',
-      email: 'me@miitch.io',
-      password: 'hunter2'
-    });
-    expect(stub).toEqual(jasmine.any(Promise));
-  }));
-
-  it('should indicate loading on submit', (() => {
-    fakeFields();
-    component.submit();
-    expect(component.registerLoading).toBeTruthy();
+    expect(component.registerLoading).toBeFalsy();
   }));
 
   it('should produce errors when values are null', () => {
@@ -97,11 +85,14 @@ describe('RegisterComponent', () => {
 
 class MockAuthService {
 
-  public register(form: RegisterForm): Promise<User> {
+  public register(form: RegisterForm): Observable<AuthResponse> {
     let user = new User({});
     user.username = form.username;
     user.email = form.password;
-    return new Promise((resolve, reject) => resolve(user));
+    return of({
+      token: '1',
+      user: user
+    });
   }
 
 }
@@ -110,4 +101,9 @@ interface RegisterForm {
   username: string;
   email: string;
   password: string;
+}
+
+interface AuthResponse {
+  token: string;
+  user: User;
 }

@@ -8,6 +8,11 @@ export abstract class API {
     }
 }
 
+export abstract class AppVariables {
+    public static authTokenIdentifier = 'authToken';
+    public static defaultContentTypeHeader = 'application/json';
+}
+
 export enum Metadata {
     Version = '0.0.1-pre',
     Name = 'MailX'

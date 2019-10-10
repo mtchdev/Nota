@@ -22,21 +22,8 @@ export class AuthService {
 
     constructor(private http: HttpService) { }
 
-    public register(form: RegisterForm): Promise<User> {
-        return new Promise((resolve, reject) => {
-            this.http.post<AuthResponse>(API.format('auth/register'), form).then(res => {
-                if (res.data.user) {
-                    let user = new User(res.data.user);
-
-                    // Since register is calling login on the backend, we're already authenticated:
-                    this.token = res.data.token;
-                    this.user = user;
-                    resolve(user);
-                }
-            }).catch(e => {
-                reject(e);
-            });
-        });
+    public register(form: RegisterForm) {
+        return this.http.post<AuthResponse>(API.format('auth/register'), form);
     }
 
     public set token(token: string) {

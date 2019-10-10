@@ -10,8 +10,9 @@ import { LoginComponent } from './components/auth/login/login.component';
  * Providers
  */
 import { AuthService } from './components/auth/auth.service';
-import { HttpService } from './services/http.service';
 import { AppService } from './app.service';
+import { HttpService } from './services/http.service';
+import { HttpErrorInterceptor } from './services/http.interceptor';
 
 /**
  * Imports
@@ -19,7 +20,7 @@ import { AppService } from './app.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 export const MODULES: Array<any> = [
     AppComponent,
@@ -31,7 +32,13 @@ export const MODULES: Array<any> = [
 export const PROVIDERS: Array<any> = [
     AuthService,
     HttpService,
-    AppService
+    AppService,
+    HttpService,
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: HttpErrorInterceptor,
+        multi: true
+    }
 ];
 
 export const IMPORTS: Array<any> = [
