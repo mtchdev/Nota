@@ -13,11 +13,11 @@
             <input type="password" id="password" class="input" [(ngModel)]="password" (keyup.enter)="submit()" (keydown)="errors.password = null" placeholder="Password" />
         </div>
         <label class="form__item flex input__label input__checkbox margin-top" for="terms">
-            <input id="terms" type="checkbox" class="margin-right--sm" />
+            <input id="terms" type="checkbox" class="margin-right--sm" [(ngModel)]="termsConditions" />
             I agree with the Terms &amp; Conditions.
         </label>
         <label class="form__item flex input__label input__checkbox margin-bot" style="margin-top:-0.25rem;" for="privacy">
-            <input id="privacy" type="checkbox" class="margin-right--sm" />
+            <input id="privacy" type="checkbox" class="margin-right--sm" [(ngModel)]="privacyPolicy" />
             I agree with the Privacy Policy.
         </label>
 

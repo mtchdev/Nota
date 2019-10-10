@@ -13,11 +13,15 @@ export class RegisterComponent implements OnInit {
   public username: string;
   public email: string;
   public password: string;
+  public termsConditions = false;
+  public privacyPolicy = false;
 
   public errors = {
     username: null,
     email: null,
-    password: null
+    password: null,
+    terms: null,
+    privacy: null
   };
 
   public registerLoading = false;
@@ -40,6 +44,12 @@ export class RegisterComponent implements OnInit {
     }
     if (!this.password) {
       this.errors.password = 'Please enter a password.';
+    }
+    if (!this.termsConditions) {
+      this.errors.terms = 'You need to agree with the Terms & Conditions.';
+    }
+    if (!this.privacyPolicy) {
+      this.errors.privacy = 'You need to agree with the Privacy Policy.';
     }
 
     for (let i in this.errors) {

@@ -59,6 +59,8 @@ describe('RegisterComponent', () => {
     spyOn(service, 'register').and.callThrough();
     spyOn(component, 'submit').and.callThrough();
     fakeFields();
+    component.termsConditions = true;
+    component.privacyPolicy = true;
     debug.query(By.css('#register-button')).nativeElement.click();
     expect(service.register).toHaveBeenCalled();
     expect(component.registerLoading).toBeFalsy();
@@ -67,14 +69,16 @@ describe('RegisterComponent', () => {
     expect(service.token).not.toBeUndefined();
   }));
 
-  it('should produce errors when values are null', () => {
+  it('should produce errors when values are null', (() => {
     component.submit();
     // https://github.com/adobe/brackets/pull/5492
     expect(component.errors.username).toBeTruthy();
     expect(component.errors.email).toBeTruthy();
     expect(component.errors.password).toBeTruthy();
     expect(component.registerLoading).toBeFalsy();
-  });
+    expect(component.errors.terms).not.toBeNull();
+    expect(component.errors.privacy).not.toBeNull();
+  }));
 
   /**
    * Helpers
