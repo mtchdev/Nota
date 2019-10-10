@@ -12,4 +12,7 @@ def response(obj, code=200):
         "data": obj if obj else {}
     }
 
-    return jsonify(resp)
+    if code > 399:
+        return jsonify(resp), code
+    else:
+        return jsonify(resp)

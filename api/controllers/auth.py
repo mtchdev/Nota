@@ -44,12 +44,12 @@ def login(form):
     user = Users.objects(username=username)[0]
     if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
         token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
-        return {
+        return response({
             'token': token.decode('utf-8'),
             'user': serialize_user_dict(user)
-        }
+        })
     else:
-        abort(404, 'USER_NOT_FOUND')
+        return response({'message': 'USER_NOT_FOUND'}, 404)
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')
@@ -66,6 +66,6 @@ def auth(f) -> Users:
             return response({'message': 'NO_AUTH'}, 403)
 
         ret = Users.objects(secret=data['personal_secret'])[0]
-        return f(serialize_user_dict(ret)) if ret else response({'message': 'NOT_FOUND'}, 404)
+        return f(serialize_user_dict(ret)) if ret else response({'message': 'USER_NOT_FOUND'}, 404)
     
     return decorated
