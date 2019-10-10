@@ -7,6 +7,15 @@ import api.controllers.auth
 
 http = Blueprint('api', __name__)
 
+@http.errorhandler(Exception)
+def handle_error(e):
+    print(e.code)
+    print(e.description)
+    message = e.description if e.description else ""
+    ret = jsonify({'status': e.code, 'data': {'message': message}})
+
+    return ret, e.code
+
 @http.route('/')
 def index():
     return jsonify({})

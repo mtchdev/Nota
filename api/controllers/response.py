@@ -1,5 +1,6 @@
 from flask import jsonify
 
+
 def response(obj, code=200):
     if 'status' in obj:
         code = obj['status']
@@ -7,7 +8,7 @@ def response(obj, code=200):
         print(obj)
 
     resp = {
-        "status": code,
+        "code": code,
         "data": obj if obj else {}
     }
 

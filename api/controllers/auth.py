@@ -4,7 +4,7 @@ from api.server import db
 import jwt
 from api.config import JWT_SECRET
 from functools import wraps
-from flask import request, jsonify
+from flask import request, jsonify, abort
 from bson.objectid import ObjectId
 from api.controllers.response import response
 from api.model.users import Users
@@ -35,10 +35,7 @@ def register(form) -> str:
     
     except Exception as e:
         print(e)
-        return {
-            'status': 509,
-            'data': str(e)
-        }
+        abort(500, str(e))
 
 def login(form):
     username = form['username']
@@ -52,7 +49,7 @@ def login(form):
             'user': serialize_user_dict(user)
         }
     else:
-        return { 'status': 404 }
+        abort(404, 'USER_NOT_FOUND')
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')
