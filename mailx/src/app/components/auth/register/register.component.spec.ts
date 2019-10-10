@@ -62,6 +62,9 @@ describe('RegisterComponent', () => {
     debug.query(By.css('#register-button')).nativeElement.click();
     expect(service.register).toHaveBeenCalled();
     expect(component.registerLoading).toBeFalsy();
+
+    expect(service.user).not.toBeUndefined();
+    expect(service.token).not.toBeUndefined();
   }));
 
   it('should produce errors when values are null', () => {
@@ -85,13 +88,18 @@ describe('RegisterComponent', () => {
 
 class MockAuthService {
 
+  user;
+  token;
+
   public register(form: RegisterForm): Observable<AuthResponse> {
     let user = new User({});
     user.username = form.username;
     user.email = form.password;
     return of({
-      token: '1',
-      user: user
+      data: {
+        token: '1',
+        user: user
+      }
     });
   }
 
@@ -104,6 +112,8 @@ interface RegisterForm {
 }
 
 interface AuthResponse {
-  token: string;
-  user: User;
+  data: {
+    token: string;
+    user: User;
+  };
 }

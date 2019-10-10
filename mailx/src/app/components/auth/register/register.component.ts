@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { User } from '../../../models/auth/User';
+import { AppVariables } from '../../../../constants';
 
 @Component({
   selector: 'app-register',
@@ -57,12 +58,17 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(form).subscribe(
       data => {
-        console.log(data.data);
         this.registerLoading = false;
+
+        // set active context
+        localStorage.setItem(AppVariables.authTokenIdentifier, data.data.token);
+        this.authService.user = data.data.user;
+        this.authService.token = data.data.token;
       },
       error => {
         console.log(error);
         this.registerLoading = false;
+        alert('An error occurred, try again later.');
       }
     );
   }
