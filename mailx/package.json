@@ -37,7 +37,8 @@
     "e2e": "npm run build:prod && mocha --timeout 300000 --require ts-node/register e2e/**/*.spec.ts",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "lint": "ng lint",
-    "test:ci": "ng test --configuration=ci"
+    "test:ci": "ng test --configuration=ci",
+    "ci": "ng lint && ng test"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.802.2",
