@@ -4,13 +4,13 @@
 
     <div class="form form--is-column">
         <div class="form__item">
-            <input type="text" class="input" [(ngModel)]="username" placeholder="Username" />
+            <input type="text" id="username" class="input" [(ngModel)]="username" (keyup.enter)="submit()" (keydown)="errors.username = null" placeholder="Username" />
         </div>
         <div class="form__item">
-            <input type="text" class="input" [(ngModel)]="email" placeholder="Email Address" />
+            <input type="text" id="email" class="input" [(ngModel)]="email" (keyup.enter)="submit()" (keydown)="errors.email = null" placeholder="Email Address" />
         </div>
         <div class="form__item">
-            <input type="password" class="input" [(ngModel)]="password" placeholder="Password" />
+            <input type="password" id="password" class="input" [(ngModel)]="password" (keyup.enter)="submit()" (keydown)="errors.password = null" placeholder="Password" />
         </div>
         <label class="form__item flex input__label input__checkbox margin-top" for="terms">
             <input id="terms" type="checkbox" class="margin-right--sm" />
