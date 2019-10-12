@@ -44,3 +44,8 @@ Unless you're building from source, you want to run the application in a develop
 Or, likewise in a production environment:  
 
 `npm run start:prod`  
+
+To run the **API**, you will need to set the `FLASK_APP` variable in `PATH` and run the following:
+
+`python3 -m flask run`
+
