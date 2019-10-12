@@ -1,16 +1,10 @@
-export class Model {
-    constructor(props?: any) {
-        for (let key in props) {
-            this[key] = props[key];
-        }
-    }
-}
-
+import { Model } from '../Model';
 export class User extends Model {
     public username: string;
     public email: string;
 
-    constructor(user: any) {
+    constructor(user: User | object) {
         super(user);
     }
+
 }

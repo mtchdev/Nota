@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '../../services/http.service';
+import { HttpService, APIResponse } from '../../providers/http.service';
 import { User } from '../../models/auth/User';
 import { API } from '../../../constants';
+import { Observable } from 'rxjs';
 
 interface RegisterForm {
     username: string;
@@ -22,7 +23,7 @@ export class AuthService {
 
     constructor(private http: HttpService) { }
 
-    public register(form: RegisterForm) {
+    public register(form: RegisterForm): Observable<APIResponse<AuthResponse>> {
         return this.http.post<AuthResponse>(API.format('auth/register'), form);
     }
 
@@ -33,6 +34,10 @@ export class AuthService {
 
     public set user(user: User) {
         this._user = user;
+    }
+
+    public get token(): string {
+        return this._token;
     }
 
     public get user(): User {

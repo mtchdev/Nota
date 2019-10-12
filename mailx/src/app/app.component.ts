@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronService } from './services/electron.service';
+import { ElectronService } from './providers/electron.service';
 import { Metadata } from '../constants';
 import { AppService } from './app.service';
 

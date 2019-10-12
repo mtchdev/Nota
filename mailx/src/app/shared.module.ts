@@ -11,8 +11,8 @@ import { LoginComponent } from './components/auth/login/login.component';
  */
 import { AuthService } from './components/auth/auth.service';
 import { AppService } from './app.service';
-import { HttpService } from './services/http.service';
-import { HttpErrorInterceptor } from './services/http.interceptor';
+import { HttpService } from './providers/http.service';
+import { HttpErrorInterceptor } from './providers/http.interceptor';
 
 /**
  * Imports
