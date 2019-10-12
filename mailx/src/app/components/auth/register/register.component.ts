@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { User } from '../../../models/auth/User';
-import { AppVariables } from '../../../../constants';
+import { AppVariables } from 'app/app.constants';
 
 @Component({
   selector: 'app-register',
@@ -76,7 +75,6 @@ export class RegisterComponent implements OnInit {
         this.authService.token = data.data.token;
       },
       error => {
-        console.log(error);
         this.registerLoading = false;
         alert('An error occurred, try again later.');
       }

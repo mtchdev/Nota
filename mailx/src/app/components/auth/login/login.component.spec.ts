@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { MODULES, PROVIDERS, IMPORTS } from '../../../shared.module';
+import { MODULES, PROVIDERS, IMPORTS } from 'app/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { routes } from '../../../app-routing.module';
+import { routes } from 'app/app-routing.module';
 
 import { LoginComponent } from './login.component';
 import { Location } from '@angular/common';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronService } from './providers/electron.service';
-import { Metadata } from '../constants';
-import { AppService } from './app.service';
+import { ElectronService } from 'providers/electron.service';
+import { Metadata } from 'app/app.constants';
+import { AppService } from 'app/app.service';
 
 @Component({
   selector: 'app-root',

@@ -2,11 +2,11 @@ import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
-import { routes } from '../../../app-routing.module';
-import { MODULES, IMPORTS } from '../../../shared.module';
+import { routes } from 'app/app-routing.module';
+import { MODULES, IMPORTS } from 'app/shared.module';
 import { RegisterComponent } from './register.component';
 import { By } from '@angular/platform-browser';
-import { User } from '../../../models/auth/User';
+import { User } from 'models/auth/User';
 import { AuthService } from '../auth.service';
 import { Observable, of } from 'rxjs';
 

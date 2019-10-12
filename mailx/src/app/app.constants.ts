@@ -1,4 +1,4 @@
-import { AppConfig } from './environments/environment';
+import { AppConfig } from '../environments/environment';
 
 export abstract class API {
     public static PROTOCOL = 'http://';

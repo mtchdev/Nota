@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService, APIResponse } from '../../providers/http.service';
-import { User } from '../../models/auth/User';
-import { API } from '../../../constants';
+import { User } from 'models/auth/User';
+import { API } from 'app/app.constants';
 import { Observable } from 'rxjs';
 
 interface RegisterForm {

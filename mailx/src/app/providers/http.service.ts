@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppVariables } from '../../constants';
+import { AppVariables } from 'app/app.constants';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export interface APIResponse<T> {

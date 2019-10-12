@@ -16,7 +16,14 @@
       "es2016",
       "es2015",
       "dom"
-    ]
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "app/*": [ "app/*" ],
+      "components/*": [ "app/components/*" ],
+      "models/*": [ "app/models/*" ],
+      "providers/*": [ "app/providers/*" ] 
+    }
   },
   "include": [
     "main.ts",
