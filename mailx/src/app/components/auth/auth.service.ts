@@ -4,12 +4,6 @@ import { User } from 'models/auth/User';
 import { API } from 'app/app.constants';
 import { Observable } from 'rxjs';
 
-interface RegisterForm {
-    username: string;
-    email: string;
-    password: string;
-}
-
 interface AuthResponse {
     token: string;
     user: User;
@@ -23,8 +17,12 @@ export class AuthService {
 
     constructor(private http: HttpService) { }
 
-    public register(form: RegisterForm): Observable<APIResponse<AuthResponse>> {
+    public register(form: object): Observable<APIResponse<AuthResponse>> {
         return this.http.post<AuthResponse>(API.format('auth/register'), form);
+    }
+
+    public login(form: object): Observable<APIResponse<AuthResponse>> {
+        return this.http.post<AuthResponse>(API.format('auth/login'), form);
     }
 
     public set token(token: string) {

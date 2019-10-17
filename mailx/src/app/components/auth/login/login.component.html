@@ -4,14 +4,15 @@
 
     <div class="form form--is-column">
         <div class="form__item">
-            <input type="text" class="input" placeholder="Username" />
+            <input type="text" class="input" placeholder="Username" [(ngModel)]="username" />
         </div>
         <div class="form__item">
-            <input type="password" class="input" placeholder="Password" />
+            <input type="password" class="input" placeholder="Password" [(ngModel)]="password" />
         </div>
 
         <div class="form--button-group margin-top--xl">
-            <button id="register-button" class="button__grey margin-right--lg" (click)="register()">Register</button> <button id="login-button" class="button__primary">Log In</button>
+            <button id="register-button" class="button__grey margin-right--lg" (click)="register()">Register</button>
+            <button id="login-button" class="button__primary" (click)="submit()" [disabled]="loginLoading">{{ loginLoading ? 'Loading...' : 'Log In' }}</button>
         </div>
     </div>
 </div>
