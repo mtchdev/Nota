@@ -1,6 +1,5 @@
 from flask import jsonify
 
-
 def response(obj, code=200):
     if 'status' in obj:
         code = obj['status']

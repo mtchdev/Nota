@@ -6,8 +6,9 @@ from api.config import JWT_SECRET
 from functools import wraps
 from flask import request, jsonify, abort
 from bson.objectid import ObjectId
-from api.controllers.response import response
+from api.util.response import response
 from api.model.users import Users
+from api.util.validate import validate
 import random
 import string
 
@@ -16,7 +17,13 @@ Authentication Routes
 """
 
 def register(form) -> str:
-    print(form)
+    if not validate(form, [
+        'username',
+        'email',
+        'password'
+    ]):
+        return response({'message': 'FORM_INVALID'}, 422)
+
     username = form['username']
     email = form['email']
     password = form['password']
