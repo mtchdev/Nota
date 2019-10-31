@@ -18,14 +18,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
-      working-directory: ./mailx
+      working-directory: ./nota
       run: npm install
     - name: Lint
-      working-directory: ./mailx
+      working-directory: ./nota
       run: npm run lint
     - name: Build
-      working-directory: ./mailx
+      working-directory: ./nota
       run: npm run build:prod
     - name: Test
-      working-directory: ./mailx
+      working-directory: ./nota
       run: npm run test:ci

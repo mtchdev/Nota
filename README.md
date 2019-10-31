@@ -1,12 +1,12 @@
 # Nota
-[![Actions Status](https://github.com/spliitzx/mailx/workflows/Client%20(Node%20CI)/badge.svg)](https://github.com/spliitzx/mailx/actions)
-[![Actions Status](https://github.com/spliitzx/mailx/workflows/API/badge.svg)](https://github.com/spliitzx/mailx/actions)
-![Size](https://img.shields.io/github/repo-size/spliitzx/mailx)
-![License](https://img.shields.io/github/license/spliitzx/mailx)
+[![Actions Status](https://github.com/spliitzx/nota/workflows/Client%20(Node%20CI)/badge.svg)](https://github.com/spliitzx/nota/actions)
+[![Actions Status](https://github.com/spliitzx/nota/workflows/API/badge.svg)](https://github.com/spliitzx/nota/actions)
+![Size](https://img.shields.io/github/repo-size/spliitzx/nota)
+![License](https://img.shields.io/github/license/spliitzx/nota)
 
 An open-source smart, optimized, and modern note-taking desktop application designed with **[Electron](https://github.com/atom/electron)**, **[Angular](https://github.com/angular/angular)**, and **[Flask](https://palletsprojects.com/p/flask/)**. With the option of having your own Nota account, you can synchronize your notes wherever you are.
 
-**Trello** (track our progress!): [https://trello.com/b/FCZa1QZr/mailx](https://trello.com/b/FCZa1QZr/mailx)
+**Trello** (track our progress!): [https://trello.com/b/FCZa1QZr/nota](https://trello.com/b/FCZa1QZr/nota)
 
 ## Setup
 ⚠️ **Nota is in a very early development stage.** We're still designing!  
