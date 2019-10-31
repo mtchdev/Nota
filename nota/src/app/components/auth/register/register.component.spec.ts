@@ -80,6 +80,20 @@ describe('RegisterComponent', () => {
     expect(component.errors.privacy).not.toBeNull();
   }));
 
+  it('should produce an error with an invalid email address', (() => {
+    fakeFields();
+    component.email = 'invalid@emailaddress';
+    component.submit();
+    expect(component.errors.email).toBeTruthy();
+  }));
+
+  it('should produce an error if the username is less than 3 characters', (() => {
+    fakeFields();
+    component.username = 'us';
+    component.submit();
+    expect(component.errors.username).toBeTruthy();
+  }));
+
   /**
    * Helpers
    */
