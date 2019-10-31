@@ -13,6 +13,8 @@ export abstract class API {
 export abstract class AppVariables {
     public static authTokenIdentifier = 'authToken';
     public static defaultContentTypeHeader = 'application/json';
+
+    public static minimumUsernameLength = 3;
 }
 
 export enum Metadata {
