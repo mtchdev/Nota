@@ -7,7 +7,7 @@ db = None
 
 def init_db(app):
     app.config['MONGODB_SETTINGS'] = {
-        'db': 'mailx',
+        'db': 'nota',
         'host': 'localhost',
         'port': 27017,
         'username': 'root',

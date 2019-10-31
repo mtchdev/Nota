@@ -1,15 +1,15 @@
-# MailX
+# Nota
 [![Actions Status](https://github.com/spliitzx/mailx/workflows/Client%20(Node%20CI)/badge.svg)](https://github.com/spliitzx/mailx/actions)
 [![Actions Status](https://github.com/spliitzx/mailx/workflows/API/badge.svg)](https://github.com/spliitzx/mailx/actions)
 ![Size](https://img.shields.io/github/repo-size/spliitzx/mailx)
 ![License](https://img.shields.io/github/license/spliitzx/mailx)
 
-An open-source smart, optimized, and clean email desktop application designed with **[Electron](https://github.com/atom/electron)**, **[Angular](https://github.com/angular/angular)**, and **[Flask](https://palletsprojects.com/p/flask/)**. With the option of having your own MailX account, you can have multiple mail accounts accessible from anywhere in the world.  
+An open-source smart, optimized, and modern note-taking desktop application designed with **[Electron](https://github.com/atom/electron)**, **[Angular](https://github.com/angular/angular)**, and **[Flask](https://palletsprojects.com/p/flask/)**. With the option of having your own Nota account, you can synchronize your notes wherever you are.
 
 **Trello** (track our progress!): [https://trello.com/b/FCZa1QZr/mailx](https://trello.com/b/FCZa1QZr/mailx)
 
 ## Setup
-⚠️ **MailX is in a very early development stage.** We're still designing!  
+⚠️ **Nota is in a very early development stage.** We're still designing!  
 
 ### Prerequisites
 * Node 8.0+
@@ -19,13 +19,13 @@ An open-source smart, optimized, and clean email desktop application designed wi
 
 ### Installation
 ```
-$ git clone https://github.com/spliitzx/mailx && cd mailx
+$ git clone https://github.com/spliitzx/Nota && cd Nota
 ```
-Once you have cloned MailX, run the following commands:
+Once you have cloned Nota, run the following commands:
 
 **Client** (Desktop Application):
 ```
-cd mailx
+cd nota
 npm install
 ```
 
@@ -37,7 +37,7 @@ python3 -m pip install -r requirements.txt
 
 ## Running
 
-Unless you're building from source, you want to run the application in a development environment. To do so, you will need to compile Electron &amp; Angular together, through the following command (in the `/mailx` subdirectory):  
+Unless you're building from source, you want to run the application in a development environment. To do so, you will need to compile Electron &amp; Angular together, through the following command (in the `/nota` subdirectory):  
 
 `npm run start:dev`
 

@@ -1,3 +1,3 @@
-# MailX API
+# Nota API
 
-The **API** is the Cloud Service for the MailX Client, providing authentication, syncing, and cloud-based caching.
+The **API** is the Cloud Service for the Nota Client, providing authentication, syncing, and cloud-based caching.

@@ -17,5 +17,5 @@ export abstract class AppVariables {
 
 export enum Metadata {
     Version = '0.0.1-pre',
-    Name = 'MailX'
+    Name = 'Nota'
 }
