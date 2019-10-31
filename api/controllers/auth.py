@@ -11,6 +11,7 @@ from api.model.users import Users
 from api.util.validate import validate
 import random
 import string
+import re
 
 """
 Authentication Routes
@@ -27,6 +28,13 @@ def register(form) -> str:
     username = form['username']
     email = form['email']
     password = form['password']
+
+    if len(username) < 3:
+        return response({'message': 'USERNAME_TOO_SHORT'}, 422)
+    
+    if not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+        return response({'message': 'INVALID_EMAIL'}, 422)
+
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()) # bcrypt hashed password
     user_secret = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
 
