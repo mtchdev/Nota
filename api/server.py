@@ -10,8 +10,8 @@ def init_db(app):
         'db': 'nota',
         'host': 'localhost',
         'port': 27017,
-        'username': 'root',
-        'password': 'root'
+        # 'username': 'root',
+        # 'password': 'root'
     }
     global db
     db = MongoEngine(app)

@@ -12,6 +12,7 @@ from api.util.validate import validate
 import random
 import string
 import re
+import traceback
 
 """
 Authentication Routes
@@ -49,8 +50,8 @@ def register(form) -> str:
         return login(form)
     
     except Exception as e:
-        print(e)
-        abort(500, str(e))
+        traceback.print_exc()
+        return response({'message': str(e)}, 500)
 
 def login(form):
     username = form['username']
