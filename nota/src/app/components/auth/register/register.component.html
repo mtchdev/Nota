@@ -4,13 +4,16 @@
 
     <div class="form form--is-column">
         <div class="form__item">
-            <input type="text" id="username" class="input" [(ngModel)]="username" (keyup.enter)="submit()" (keydown)="errors.username = null" placeholder="Username" />
+            <input type="text" id="username" class="input" [(ngModel)]="username" [ngClass]="{'input--has-error': errors.username}" (keyup.enter)="submit()" (keydown)="errors.username = null" placeholder="Username" />
+            <span *ngIf="errors.username" class="input__validation input__validation--error">{{ errors.username }}</span>
         </div>
         <div class="form__item">
-            <input type="text" id="email" class="input" [(ngModel)]="email" (keyup.enter)="submit()" (keydown)="errors.email = null" placeholder="Email Address" />
+            <input type="text" id="email" class="input" [(ngModel)]="email" [ngClass]="{'input--has-error': errors.email}" (keyup.enter)="submit()" (keydown)="errors.email = null" placeholder="Email Address" />
+            <span *ngIf="errors.email" class="input__validation input__validation--error">{{ errors.email }}</span>
         </div>
         <div class="form__item">
-            <input type="password" id="password" class="input" [(ngModel)]="password" (keyup.enter)="submit()" (keydown)="errors.password = null" placeholder="Password" />
+            <input type="password" id="password" class="input" [(ngModel)]="password" [ngClass]="{'input--has-error': errors.password}" (keyup.enter)="submit()" (keydown)="errors.password = null" placeholder="Password" />
+            <span *ngIf="errors.password" class="input__validation input__validation--error">{{ errors.password }}</span>
         </div>
         <label class="form__item flex input__label input__checkbox margin-top" for="terms">
             <input id="terms" type="checkbox" class="margin-right--sm" [(ngModel)]="termsConditions" />

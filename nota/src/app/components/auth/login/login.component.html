@@ -1,16 +1,21 @@
-<div class="container container--is-center">
+<div class="container container--is-center auth__container">
     <h1 class="auth__title">Welcome back!</h1>
     <p><span>Sign into your account and get back on track.</span></p>
 
     <div class="form form--is-column">
         <div class="form__item">
-            <input type="text" class="input" placeholder="Username" [(ngModel)]="username" />
+            <input type="text" id="username" class="input" [(ngModel)]="username" [ngClass]="{'input--has-error': errors.username}" (keyup.enter)="submit()" (keydown)="errors.username = null" placeholder="Username" />
+            <span *ngIf="errors.username" class="input__validation input__validation--error">{{ errors.username }}</span>
         </div>
         <div class="form__item">
-            <input type="password" class="input" placeholder="Password" [(ngModel)]="password" />
+            <input type="password" id="password" class="input" [(ngModel)]="password" [ngClass]="{'input--has-error': errors.password}" (keyup.enter)="submit()" (keydown)="errors.password = null" placeholder="Password" />
+            <span *ngIf="errors.password" class="input__validation input__validation--error">{{ errors.password }}</span>
+        </div>
+        <div class="form__item">
+            <a class="form__link">Forgot password?</a>
         </div>
 
-        <div class="form--button-group margin-top--xl">
+        <div class="form--button-group margin-top--lg">
             <button id="register-button" class="button__grey margin-right--lg" (click)="register()">Register</button>
             <button id="login-button" class="button__primary" (click)="submit()" [disabled]="loginLoading">{{ loginLoading ? 'Loading...' : 'Log In' }}</button>
         </div>

@@ -18,6 +18,11 @@
     &__item {
         margin: .5rem 0 .5rem 0;
     }
+
+    &__link {
+        float: left;
+        font-size: 15px;
+    }
 }
 
 input {
@@ -34,7 +39,6 @@ input[type="text"], input[type="password"] {
     padding-right: 1.2rem;
     border-radius: 0.5rem;
     transition: 0.2s linear;
-    border: 1px solid transparent;
     
     &:focus {
         background-color: lighten($light, $color-coef);
@@ -46,6 +50,7 @@ input[type="text"], input[type="password"] {
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid transparent;
 
     &--has-error {
         border: 1px solid $error;
@@ -57,6 +62,18 @@ input[type="text"], input[type="password"] {
 
     &__checkbox {
         cursor: pointer;
+    }
+
+    &__validation {
+        display: block;
+        font-weight: normal;
+        float: left;
+        font-size: 14px;
+        margin-bottom: -5px;
+
+        &--error {
+            color: $error;
+        }
     }
 }
 
