@@ -3,4 +3,4 @@
 
 # Nota Client
 
-The **Nota Client** is the core of NNota, the primary desktop application.
+The **Nota Client** is the core of Nota, the primary desktop application.
