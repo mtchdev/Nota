@@ -5,12 +5,6 @@ import { NgModule } from '@angular/core';
 /**
  * Components
  */
-// import { AppComponent } from './app.component';
-import { MODULES, PROVIDERS, IMPORTS } from './shared.module';
-
-/**
- * Components
- */
 import { AppComponent } from './app.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { RegisterComponent } from './components/auth/register/register.component';
@@ -31,8 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {

@@ -4,8 +4,8 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from '../../app-routing.module';
-import { MODULES, PROVIDERS, IMPORTS } from '../../shared.module';
 import { Router } from '@angular/router';
+import { AppModule } from 'app/app.module';
 
 describe('OnboardingComponent', () => {
   let component: OnboardingComponent;
@@ -16,9 +16,7 @@ describe('OnboardingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [...MODULES],
-      imports: [ RouterTestingModule.withRoutes(routes), ...IMPORTS ],
-      providers: [ ...PROVIDERS ]
+      imports: [ RouterTestingModule.withRoutes(routes), AppModule ],
     })
     .compileComponents();
   }));

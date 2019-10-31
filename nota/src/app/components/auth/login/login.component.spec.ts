@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { MODULES, PROVIDERS, IMPORTS } from 'app/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from 'app/app-routing.module';
 import { User } from 'models/auth/User';
@@ -9,6 +8,7 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { AuthService } from '../auth.service';
 import { Observable, of } from 'rxjs';
+import { AppModule } from 'app/app.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -19,11 +19,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ...MODULES ],
-      imports: [
-        RouterTestingModule.withRoutes(routes),
-        ...IMPORTS
-      ],
+      imports: [ AppModule, RouterTestingModule.withRoutes(routes) ],
       providers: [ {provide: AuthService, useClass: MockAuthService} ]
     })
     .compileComponents();

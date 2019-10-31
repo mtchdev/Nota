@@ -3,12 +3,12 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from 'app/app-routing.module';
-import { MODULES, IMPORTS } from 'app/shared.module';
 import { RegisterComponent } from './register.component';
 import { By } from '@angular/platform-browser';
 import { User } from 'models/auth/User';
 import { AuthService } from '../auth.service';
 import { Observable, of } from 'rxjs';
+import { AppModule } from 'app/app.module';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -19,8 +19,7 @@ describe('RegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ...MODULES ],
-      imports: [ RouterTestingModule.withRoutes(routes), ...IMPORTS ],
+      imports: [ AppModule, RouterTestingModule.withRoutes(routes) ],
       providers: [ {provide: AuthService, useClass: MockAuthService} ]
     })
     .compileComponents();

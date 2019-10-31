@@ -1,18 +1,16 @@
 {
-  "name": "angular-electron",
-  "version": "6.1.0",
-  "description": "Angular 8 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
-  "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
-  },
+  "name": "nota",
+  "version": "0.0.1-pre",
+  "description": "open source note-taking and todo list desktop application",
+  "homepage": "https://github.com/spliitzx/Nota",
   "keywords": [
-    "angular",
-    "angular 8",
     "electron",
-    "typescript",
-    "sass"
+    "angular",
+    "desktop-application",
+    "note-taking",
+    "notes",
+    "todo",
+    "todolist"
   ],
   "main": "main.js",
   "private": true,
@@ -38,7 +36,8 @@
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "lint": "ng lint",
     "test:ci": "ng test --configuration=ci",
-    "ci": "ng lint && ng test"
+    "test:watch": "ng test --watch",
+    "ci": "ng lint && npm run test:ci"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.802.2",
