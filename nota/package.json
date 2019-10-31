@@ -20,11 +20,15 @@
     "postinstall:electron": "node postinstall",
     "ng": "ng",
     "start": "npm run postinstall:electron && npm-run-all -p ng:serve electron:serve",
+    "start:dev": "npm run postinstall:electron && npm-run-all -p ng:serve:dev electron:serve",
+    "start:prod": "npm run postinstall:electron && npm-run-all -p ng:serve:prod electron:serve",
     "build": "npm run postinstall:electron && npm run electron:serve-tsc && ng build",
     "build:dev": "npm run build -- -c dev",
     "build:prod": "npm run build -- -c production",
     "ng:serve": "ng serve -c dev",
     "ng:serve:web": "npm run postinstall:web && ng serve -o",
+    "ng:serve:dev": "ng serve -c dev",
+    "ng:serve:prod": "ng serve -c production",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
@@ -37,7 +41,7 @@
     "lint": "ng lint",
     "test:ci": "ng test --configuration=ci",
     "test:watch": "ng test --watch",
-    "ci": "ng lint && npm run test:ci"
+    "ci": "ng lint && npm run test:ci && npm run e2e"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.802.2",
