@@ -38,7 +38,7 @@ describe('NotebookComponent', () => {
     expect(onboardingService.notebook.title).toBeNull();
     component.notebook = 'English Homework';
     component.submit();
-    expect(onboardingService.notebook.tasks).toBeTruthy();
+    expect(onboardingService.notebook.title).toBeTruthy();
   }));
 
   it('should produce errors if the title is above 30 characters', (() => {
