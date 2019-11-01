@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   };
 
   public registerLoading = false;
+  public showContinueWithoutModal = false;
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -94,6 +95,10 @@ export class RegisterComponent implements OnInit {
   public validateEmail(): boolean {
     let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(this.email);
+  }
+
+  public continueWithoutAccount(): void {
+    // todo
   }
 
 }

@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
     templateUrl: './modal.directive.html'
 })
 export class ModalDirectiveComponent implements OnInit {
-    @Input() title: string;
+    @Input() header: string;
     @Input() message: string;
     @Input() cancelText: string;
     @Input() nextText: string;

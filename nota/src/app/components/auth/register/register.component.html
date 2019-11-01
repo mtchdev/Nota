@@ -34,5 +34,7 @@
         <h2>OR</h2>
     </div>
 
-    <a>Continue without an account.</a>
+    <a (click)="showContinueWithoutModal = true">Continue without an account.</a>
 </div>
+
+<modal-regular [visible]="showContinueWithoutModal" header="Continue Without Account" message="Are you sure you want to continue without an account?" (onCancel)="showContinueWithoutModal = false" (onNext)="continueWithoutAccount()"></modal-regular>
