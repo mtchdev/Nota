@@ -36,6 +36,14 @@ button {
         &--auto-width {
             width: auto !important;
         }
+
+        &--is-square {
+            height: 2.5rem;
+            width: 2.5rem;
+            background-image: linear-gradient(to left, #5F65F4 0%, #B95FF4 100%);
+            color: $white;
+            font-weight: bold;
+        }
     
         &__gradient {
             background-image: linear-gradient(to left, #5F65F4 0%, #B95FF4 100%);

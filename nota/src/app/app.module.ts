@@ -17,11 +17,13 @@ import { AuthService } from './components/auth/auth.service';
 import { AppService } from './app.service';
 import { HttpService } from './providers/http.service';
 import { HttpErrorInterceptor } from './providers/http.interceptor';
+import { OnboardingService } from './components/onboarding/onboarding.service';
 
 /**
  * Imports
  */
 import { AppRoutingModule } from './app-routing.module';
+import { OnboardingRoutingModule } from './components/onboarding/onboarding-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -32,6 +34,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  * Directives
  */
 import { ModalDirectiveComponent } from './directives/modal/modal.directive';
+import { OnboardingNotebookComponent } from './components/onboarding/notebook/notebook.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -43,13 +46,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     OnboardingComponent,
     RegisterComponent,
     LoginComponent,
-    ModalDirectiveComponent
+    ModalDirectiveComponent,
+    OnboardingNotebookComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    OnboardingRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -63,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpService,
     AppService,
     HttpService,
+    OnboardingService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: HttpErrorInterceptor,

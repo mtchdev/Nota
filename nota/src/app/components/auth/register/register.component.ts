@@ -99,6 +99,8 @@ export class RegisterComponent implements OnInit {
 
   public continueWithoutAccount(): void {
     // todo
+    this.showContinueWithoutModal = false;
+    this.router.navigate(['onboarding/notebook']);
   }
 
 }

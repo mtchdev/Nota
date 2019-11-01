@@ -1,0 +1,9 @@
+<div class="container container--is-center auth__container">
+    <h1 class="auth__title">Hey, <strong>{{ username }}</strong>!</h1>
+    <p><span>Create your first notebook! You can add more later.</span></p>
+
+    <div class="form form--is-row margin-top--lg">
+        <input type="text" id="notebook" class="input margin-right--sm" [(ngModel)]="notebook" [ngClass]="{'input--has-error': errors.notebook}" (keyup.enter)="submit()" (keydown)="errors.notebook = null"  placeholder="Notebook Title">
+        <button class="button--is-square" (click)="submit()">></button>
+    </div>
+</div>
