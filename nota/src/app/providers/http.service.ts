@@ -33,7 +33,7 @@ export class HttpService {
   createRequestOptions(): object {
     const headers = new HttpHeaders({
       'Content-Type': AppVariables.defaultContentTypeHeader,
-      'Authorization': localStorage.getItem(AppVariables.authTokenIdentifier) || ''
+      'Authorization': 'Bearer ' + localStorage.getItem(AppVariables.authTokenIdentifier) || 'none'
     });
 
     return {
