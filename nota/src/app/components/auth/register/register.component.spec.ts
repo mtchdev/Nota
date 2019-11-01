@@ -93,6 +93,11 @@ describe('RegisterComponent', () => {
     expect(component.errors.username).toBeTruthy();
   }));
 
+  it('should open modal when continuing without an account', (() => {
+    debug.query(By.css('#no-account')).nativeElement.click();
+    expect(component.showContinueWithoutModal).toBeTruthy();
+  }));
+
   /**
    * Helpers
    */
