@@ -1,0 +1,50 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    &--is-visible {
+        display: block;
+    }
+
+    &__content {
+        background-color: $almost-white;
+        margin: 20% auto;
+        padding: 20px;
+        width: 40%;
+        border-radius: 10px;
+    }
+
+    &__titlebar {
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: $mar-lg;
+
+        &--title {
+            font-weight: bold;
+        }
+
+        &--close {
+            cursor: pointer;
+        }
+    }
+
+    &__button-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: $mar-xl;
+    }
+
+    &__button {
+        width: 35%;
+    }
+}

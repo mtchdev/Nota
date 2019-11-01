@@ -28,6 +28,11 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+/**
+ * Directives
+ */
+import { ModalDirectiveComponent } from './directives/modal/modal.directive';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
 }
@@ -37,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     OnboardingComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ModalDirectiveComponent
   ],
   imports: [
     BrowserModule,
