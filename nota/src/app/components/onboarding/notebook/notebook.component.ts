@@ -25,6 +25,17 @@ export class OnboardingNotebookComponent implements OnInit {
   }
 
   submit(): void {
+    this.errors.notebook = null;
+
+    if (!this.notebook) {
+      this.errors.notebook = 'Please provide a notebook title.';
+    }
+    if (this.notebook && this.notebook.length > 30) {
+      this.errors.notebook = 'The title must be under 30 characters.';
+    }
+
+    if (this.errors.notebook) { return; }
+
     this.onboardingService.notebook.title = this.notebook;
     this.router.navigate(['onboarding/notebook']); // TODO
   }

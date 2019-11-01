@@ -5,17 +5,18 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from 'app/app-routing.module';
 import { Router } from '@angular/router';
+import { OnboardingService } from '../onboarding.service';
 
 describe('NotebookComponent', () => {
   let component: OnboardingNotebookComponent;
   let fixture: ComponentFixture<OnboardingNotebookComponent>;
   let location: Location;
   let router: Router;
+  let onboardingService: OnboardingService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnboardingNotebookComponent ],
-      imports: [ AppModule, RouterTestingModule.withRoutes(routes) ]
+      imports: [ RouterTestingModule.withRoutes(routes), AppModule ]
     })
     .compileComponents();
   }));
@@ -25,10 +26,29 @@ describe('NotebookComponent', () => {
     component = fixture.componentInstance;
     location = TestBed.get(Location);
     router = TestBed.get(Router);
+    onboardingService = TestBed.get(OnboardingService);
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should successfully set a notebook title', (() => {
+    expect(onboardingService.notebook.title).toBeNull();
+    component.notebook = 'English Homework';
+    component.submit();
+    expect(onboardingService.notebook.tasks).toBeTruthy();
+  }));
+
+  it('should produce errors if the title is above 30 characters', (() => {
+    component.notebook = 'shhhhhhhhhdhsadgsahdgsahjdhsajgdasjhgdasjhgdas';
+    component.submit();
+    expect(component.errors.notebook).toBeTruthy();
+  }));
+
+  it('should produce errors when values are null', (() => {
+    component.submit();
+    expect(component.errors.notebook).toBeTruthy();
+  }));
 });
