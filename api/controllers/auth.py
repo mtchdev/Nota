@@ -76,7 +76,7 @@ def auth(f) -> Users:
     @wraps(f)
     def decorated(*args, **kwargs):
         auth = request.headers.get('Authorization')
-        if not auth:
+        if not auth or auth and not auth.startswith('Bearer '):
            return response({'message': 'INVALID_HEADER'}, 403)
 
         token = auth.replace('Bearer ', '')
