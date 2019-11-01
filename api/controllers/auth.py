@@ -75,13 +75,18 @@ def serialize_user_dict(user) -> Users:
 def auth(f) -> Users:
     @wraps(f)
     def decorated(*args, **kwargs):
-        form = request.form
+        auth = request.headers.get('Authorization')
+        if not auth:
+           return response({'message': 'INVALID_HEADER'}, 403)
+
+        token = auth.replace('Bearer ', '')
+
         try:
-            data = jwt.decode(form['token'], JWT_SECRET)
-        except KeyError:
+            data = jwt.decode(token, JWT_SECRET)
+            ret = Users.objects(secret=data['personal_secret'])[0]
+        except Exception:
             return response({'message': 'NO_AUTH'}, 403)
 
-        ret = Users.objects(secret=data['personal_secret'])[0]
         return f(serialize_user_dict(ret)) if ret else response({'message': 'USER_NOT_FOUND'}, 404)
     
     return decorated
