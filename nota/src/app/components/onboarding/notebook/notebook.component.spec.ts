@@ -36,19 +36,19 @@ describe('NotebookComponent', () => {
 
   it('should successfully set a notebook title', (() => {
     expect(onboardingService.notebook.title).toBeNull();
-    component.notebook = 'English Homework';
-    component.submit();
+    component.notebookTitle = 'English Homework';
+    component.createNotebook();
     expect(onboardingService.notebook.title).toBeTruthy();
   }));
 
   it('should produce errors if the title is above 30 characters', (() => {
-    component.notebook = 'shhhhhhhhhdhsadgsahdgsahjdhsajgdasjhgdasjhgdas';
-    component.submit();
+    component.notebookTitle = 'shhhhhhhhhdhsadgsahdgsahjdhsajgdasjhgdasjhgdas';
+    component.createNotebook();
     expect(component.errors.notebook).toBeTruthy();
   }));
 
   it('should produce errors when values are null', (() => {
-    component.submit();
+    component.createNotebook();
     expect(component.errors.notebook).toBeTruthy();
   }));
 });

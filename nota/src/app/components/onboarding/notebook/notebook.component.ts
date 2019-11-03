@@ -3,16 +3,19 @@ import { AuthService } from 'app/components/auth/auth.service';
 import { OnboardingService } from '../onboarding.service';
 import { Router } from '@angular/router';
 
+type Step = 'notebook' | 'color' | 'tasks' | 'finish';
+
 @Component({
   templateUrl: './notebook.component.html'
 })
 export class OnboardingNotebookComponent implements OnInit {
 
   public username: string;
-  public notebook: string;
+  public notebookTitle: string;
   public errors = {
     notebook: null
   };
+  public step: Step = 'notebook';
 
   constructor(private authService: AuthService, private onboardingService: OnboardingService, private router: Router) { }
 
@@ -24,19 +27,19 @@ export class OnboardingNotebookComponent implements OnInit {
     }
   }
 
-  submit(): void {
+  createNotebook(): void {
     this.errors.notebook = null;
 
-    if (!this.notebook) {
+    if (!this.notebookTitle) {
       this.errors.notebook = 'Please provide a notebook title.';
     }
-    if (this.notebook && this.notebook.length > 30) {
+    if (this.notebookTitle && this.notebookTitle.length > 30) {
       this.errors.notebook = 'The title must be under 30 characters.';
     }
 
     if (this.errors.notebook) { return; }
 
-    this.onboardingService.notebook.title = this.notebook;
+    this.onboardingService.notebook.title = this.notebookTitle;
     this.router.navigate(['onboarding/notebook']); // TODO
   }
 
