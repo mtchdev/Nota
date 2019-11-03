@@ -6,7 +6,7 @@
         
             <div class="form form--is-row margin-top--lg">
                 <input type="text" id="notebook" class="input margin-right--sm" [(ngModel)]="notebookTitle" [ngClass]="{'input--has-error': errors.notebook}" (keyup.enter)="createNotebook()" (keydown)="errors.notebook = null"  placeholder="Notebook Title">
-                <button class="button--is-square" (click)="createNotebook()">></button>
+                <button-right-small (click)="createNotebook()"></button-right-small>
             </div>
         </div>
     </ng-container>
@@ -18,7 +18,7 @@
         
             <div class="form form--is-row margin-top--lg">
                 <input type="text" id="notebook" class="input margin-right--sm" [value]="notebookTitle" disabled>
-                <button class="button--is-square" (click)="setColor()">></button>
+                <button-right-small (click)="setColor()"></button-right-small>
             </div>
         </div>
     </ng-container>
@@ -30,7 +30,7 @@
         
             <div class="form form--is-row margin-top--lg">
                 <input type="text" id="notebook" class="input margin-right--sm" [value]="notebookTitle" disabled>
-                <button class="button--is-square" (click)="setColor()">></button>
+                <button-right-small (click)="setColor()"></button-right-small>
             </div>
         </div>
     </ng-container>
