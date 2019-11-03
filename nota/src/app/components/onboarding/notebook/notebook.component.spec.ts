@@ -5,14 +5,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from 'app/app-routing.module';
 import { Router } from '@angular/router';
-import { OnboardingService } from '../onboarding.service';
 
 describe('NotebookComponent', () => {
   let component: OnboardingNotebookComponent;
   let fixture: ComponentFixture<OnboardingNotebookComponent>;
   let location: Location;
   let router: Router;
-  let onboardingService: OnboardingService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,7 +24,6 @@ describe('NotebookComponent', () => {
     component = fixture.componentInstance;
     location = TestBed.get(Location);
     router = TestBed.get(Router);
-    onboardingService = TestBed.get(OnboardingService);
     fixture.detectChanges();
   });
 
@@ -35,10 +32,16 @@ describe('NotebookComponent', () => {
   });
 
   it('should successfully set a notebook title', (() => {
-    expect(onboardingService.notebook.title).toBeNull();
+    expect(component.notebook.title).toBeNull();
     component.notebookTitle = 'English Homework';
     component.createNotebook();
-    expect(onboardingService.notebook.title).toBeTruthy();
+    expect(component.notebook.title).toBeTruthy();
+  }));
+
+  it('should go to the `color` step after setting a notebook title', (() => {
+    component.notebookTitle = 'English Homework';
+    component.createNotebook();
+    expect(component.step).toBe('color');
   }));
 
   it('should produce errors if the title is above 30 characters', (() => {

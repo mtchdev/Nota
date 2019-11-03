@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app/components/auth/auth.service';
-import { OnboardingService } from '../onboarding.service';
 import { Router } from '@angular/router';
+import { Notebook } from 'app/models/core/Notebook';
 
 type Step = 'notebook' | 'color' | 'tasks' | 'finish';
 
@@ -11,13 +11,22 @@ type Step = 'notebook' | 'color' | 'tasks' | 'finish';
 export class OnboardingNotebookComponent implements OnInit {
 
   public username: string;
-  public notebookTitle: string;
-  public errors = {
-    notebook: null
+  public notebook: Notebook = {
+    title: null,
+    content: null,
+    color: null,
+    tasks: []
   };
   public step: Step = 'notebook';
 
-  constructor(private authService: AuthService, private onboardingService: OnboardingService, private router: Router) { }
+  public errors = {
+    notebook: null
+  };
+  public notebookTitle: string;
+  public notebookColor: string;
+  public notebookTasks: string[];
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     if (!this.authService.user) {
@@ -39,8 +48,12 @@ export class OnboardingNotebookComponent implements OnInit {
 
     if (this.errors.notebook) { return; }
 
-    this.onboardingService.notebook.title = this.notebookTitle;
-    this.router.navigate(['onboarding/notebook']); // TODO
+    this.notebook.title = this.notebookTitle;
+    this.step = 'color';
+  }
+
+  setColor(): void {
+    // TODO
   }
 
 }

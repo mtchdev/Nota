@@ -8,7 +8,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 export const routes: Routes = [
   {
     path: '',
-    component: OnboardingComponent
+    redirectTo: '/onboarding',
+    pathMatch: 'full'
   },
   {
     path: 'auth/register',
