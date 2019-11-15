@@ -30,10 +30,12 @@ def register(form) -> str:
     password = form['password']
 
     if len(username) < 3:
-        return response({'message': 'USERNAME_TOO_SHORT'}, 422)
+        return response({'username': ['Username msut be less than 3 characters.']}, 400)
     
     if not re.match(r'[^@]+@[^@]+\.[^@]+', email):
-        return response({'message': 'INVALID_EMAIL'}, 422)
+        return response({
+            'email': ['Email is invalid.']
+        }, 400)
 
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()) # bcrypt hashed password
     user_secret = ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=16))
@@ -57,6 +59,8 @@ def login(form):
     password = form['password']
 
     user = Users.objects(username=username)[0]
+
+    # TODO: validate user AND password separately
     if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
         token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
         return response({
@@ -64,7 +68,9 @@ def login(form):
             'user': serialize_user_dict(user)
         })
     else:
-        return response({'message': 'USER_NOT_FOUND'}, 404)
+        return response({
+            'username': ['We couldn\'t find a user with that username.']
+        }, 400)
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')
