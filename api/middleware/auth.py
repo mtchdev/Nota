@@ -6,6 +6,11 @@ from api.controllers.auth import serialize_user_dict
 from functools import wraps
 from api.config import JWT_SECRET
 
+"""
+Auth Decorator
+Provides a backend auth-wall for incoming requests decorated with this function.
+"""
+
 def auth(f) -> Users:
     @wraps(f)
     def decorated(*args, **kwargs):
