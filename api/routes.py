@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from bson import json_util
 from api.util.response import response
-from api.controllers.auth import auth
+from api.middleware.auth import auth
 # ROUTES
 import api.controllers.auth
 

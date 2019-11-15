@@ -3,7 +3,6 @@ import base64
 from api.server import db
 import jwt
 from api.config import JWT_SECRET
-from functools import wraps
 from flask import request, jsonify, abort
 from bson.objectid import ObjectId
 from api.util.response import response
@@ -72,21 +71,3 @@ def serialize_user_dict(user) -> Users:
     delattr(user, 'secret')
     return user
 
-def auth(f) -> Users:
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        auth = request.headers.get('Authorization')
-        if not auth or auth and not auth.startswith('Bearer '):
-           return response({'message': 'INVALID_HEADER'}, 403)
-
-        token = auth.replace('Bearer ', '')
-
-        try:
-            data = jwt.decode(token, JWT_SECRET)
-            ret = Users.objects(secret=data['personal_secret'])[0]
-        except Exception:
-            return response({'message': 'NO_AUTH'}, 403)
-
-        return f(serialize_user_dict(ret)) if ret else response({'message': 'USER_NOT_FOUND'}, 404)
-    
-    return decorated
