@@ -1,30 +1,25 @@
-import sys
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from flask import Flask
-from flask_mongoengine import MongoEngine
 from flask_cors import CORS
+from dotenv import load_dotenv
 
 db = None
-
-def init_db(app):
-    app.config['MONGODB_SETTINGS'] = {
-        'db': 'nota',
-        'host': 'localhost',
-        'port': 27017,
-        # 'username': 'root',
-        # 'password': 'root'
-    }
-    global db
-    db = MongoEngine(app)
-    # db.init_app(app)
 
 def create_app(config="config"):
     app = Flask(__name__)
     app.config.from_object(config)
+
     CORS(app)
-    init_db(app)
+
     from api.routes import http
-    app.register_blueprint(http, url_prefix='/api/v1')
+    route_prefix = os.getenv('API_PREFIX') or '/api/v1'
+
+    app.register_blueprint(http, url_prefix=route_prefix)
     return app
 
 if __name__ == "__main__":
+    load_dotenv()
     app = create_app()
+    app.run(debug=True, host='0.0.0.0', use_reloader=True)

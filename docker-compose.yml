@@ -1,0 +1,10 @@
+version: '3'
+services:
+  api:
+    container_name: notaapp
+    restart: always
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"

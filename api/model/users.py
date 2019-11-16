@@ -1,7 +1,7 @@
-from api.server import db
+from api.database import Document
 from mongoengine import StringField, BinaryField
 
-class Users(db.Document):
+class Users(Document):
     
     username = StringField(max_length=24)
     email = StringField(max_length=255)

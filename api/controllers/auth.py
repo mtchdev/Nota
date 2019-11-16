@@ -65,7 +65,7 @@ def login(form):
         token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
         return response({
             'token': token.decode('utf-8'),
-            'user': serialize_user_dict(user)
+            'user': serialize_user_dict(user).to_mongo().to_dict()
         })
     else:
         return response({
@@ -76,4 +76,3 @@ def serialize_user_dict(user) -> Users:
     delattr(user, 'password')
     delattr(user, 'secret')
     return user
-

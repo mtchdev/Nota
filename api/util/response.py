@@ -1,4 +1,4 @@
-from flask import jsonify
+from bson import json_util
 
 def response(obj, code=200):
     if 'status' in obj:
@@ -8,10 +8,12 @@ def response(obj, code=200):
 
     resp = {
         "code": code,
-        "data": obj if obj else {}
+        "data": obj or {}
     }
 
+    resp = json_util.dumps(obj)
+
     if code > 399:
-        return jsonify(resp), code
+        return resp, code
     else:
-        return jsonify(resp)
+        return resp

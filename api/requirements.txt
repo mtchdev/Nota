@@ -7,3 +7,4 @@ bcrypt
 pyjwt
 flask-cors
 flask_mongoengine
+mongoengine
