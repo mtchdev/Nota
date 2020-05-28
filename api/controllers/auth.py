@@ -30,7 +30,7 @@ def register(form) -> str:
     password = form['password']
 
     if len(username) < 3:
-        return response({'username': ['Username msut be less than 3 characters.']}, 400)
+        return response({'username': ['Username must be less than 3 characters.']}, 400)
     
     if not re.match(r'[^@]+@[^@]+\.[^@]+', email):
         return response({
