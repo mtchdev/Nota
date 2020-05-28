@@ -125,6 +125,11 @@ class MockAuthService {
     });
   }
 
+  public init(data: any): void {
+    this.user = data.user;
+    this.token = data.token;
+  }
+
 }
 
 interface RegisterForm {
