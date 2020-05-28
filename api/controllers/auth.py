@@ -5,7 +5,7 @@ import jwt
 from api.config import JWT_SECRET
 from flask import request, jsonify, abort
 from bson.objectid import ObjectId
-from api.util.response import response
+from api.util.response import response, error
 from api.model.users import Users
 from api.util.validate import validate
 import random
@@ -52,7 +52,7 @@ def register(form) -> str:
     
     except Exception as e:
         traceback.print_exc()
-        return response({'message': str(e)}, 500)
+        return error(e)
 
 def login(form):
     username = form['username']
@@ -61,16 +61,6 @@ def login(form):
     try:
         user = Users.objects(username=username)[0]
 
-<<<<<<< HEAD
-    # TODO: validate user AND password separately
-    if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
-        token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
-        return response({
-            'token': token.decode('utf-8'),
-            'user': serialize_user_dict(user).to_mongo().to_dict()
-        })
-    else:
-=======
         # TODO: validate user AND password separately
         if bcrypt.checkpw(password.encode('utf-8'), user['password']):
             token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
@@ -84,13 +74,12 @@ def login(form):
             }, 400)
     
     except IndexError:
->>>>>>> e53520cb15aab9f3af4594bb7fb572c0deeab6f0
         return response({
             'username': ['We couldn\'t find a user with that username.']
         }, 400)
     
     except Exception as e:
-        return response({'message': str(e)}, 500)
+        return error(e)
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')

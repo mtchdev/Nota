@@ -17,3 +17,6 @@ def response(obj, code=200):
         return resp, code
     else:
         return resp
+
+def error(data):
+    return response({'message': str(data)}, 500)
