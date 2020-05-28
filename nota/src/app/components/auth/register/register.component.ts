@@ -75,11 +75,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(form).subscribe(
       data => {
         this.registerLoading = false;
-
-        // set active context
-        localStorage.setItem(AppVariables.authTokenIdentifier, data.data.token);
-        this.authService.user = data.data.user;
-        this.authService.token = data.data.token;
+        this.authService.init(data.data);
         this.router.navigate(['onboarding/notebook']);
       },
       error => {

@@ -30,7 +30,7 @@ def register(form) -> str:
     password = form['password']
 
     if len(username) < 3:
-        return response({'username': ['Username msut be less than 3 characters.']}, 400)
+        return response({'username': ['Username must be less than 3 characters.']}, 400)
     
     if not re.match(r'[^@]+@[^@]+\.[^@]+', email):
         return response({
@@ -58,8 +58,10 @@ def login(form):
     username = form['username']
     password = form['password']
 
-    user = Users.objects(username=username)[0]
+    try:
+        user = Users.objects(username=username)[0]
 
+<<<<<<< HEAD
     # TODO: validate user AND password separately
     if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
         token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
@@ -68,9 +70,27 @@ def login(form):
             'user': serialize_user_dict(user).to_mongo().to_dict()
         })
     else:
+=======
+        # TODO: validate user AND password separately
+        if bcrypt.checkpw(password.encode('utf-8'), user['password']):
+            token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
+            return response({
+                'token': token.decode('utf-8'),
+                'user': serialize_user_dict(user)
+            })
+        else:
+            return response({
+                'password': ['Your password is incorrect.']
+            }, 400)
+    
+    except IndexError:
+>>>>>>> e53520cb15aab9f3af4594bb7fb572c0deeab6f0
         return response({
             'username': ['We couldn\'t find a user with that username.']
         }, 400)
+    
+    except Exception as e:
+        return response({'message': str(e)}, 500)
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')

@@ -2,13 +2,13 @@
     <div class="modal__content">
         <div class="modal__titlebar">
             <span class="modal__titlebar--title">{{ header || 'Modal' }}</span>
-            <span class="modal__titlebar--close">X</span>
+            <span class="modal__titlebar--close" (click)="cancel()">X</span>
         </div>
         
         {{ message }}
 
         <div class="modal__button-group">
-            <button class="button__grey modal__button" (click)="cancel()">{{ cancelText || 'Cancel' }}</button>
+            <button class="button__grey modal__button" (click)="cancel()">{{ cancelText || 'Close' }}</button>
             <button class="button__primary modal__button" (click)="next()">{{ nextText || 'Continue' }}</button>
         </div>
     </div>

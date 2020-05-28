@@ -3,6 +3,7 @@ import { HttpService, APIResponse } from '../../providers/http.service';
 import { User } from 'models/auth/User';
 import { API } from 'app/app.constants';
 import { Observable } from 'rxjs';
+import { AppVariables } from 'app/app.constants';
 
 interface AuthResponse {
     token: string;
@@ -40,5 +41,11 @@ export class AuthService {
 
     public get user(): User {
         return this._user;
+    }
+
+    public init(data: AuthResponse): void {
+        localStorage.setItem(AppVariables.authTokenIdentifier, data.token);
+        this.user = data.user;
+        this.token = data.token;
     }
 }
