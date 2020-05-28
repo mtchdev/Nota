@@ -58,19 +58,28 @@ def login(form):
     username = form['username']
     password = form['password']
 
-    user = Users.objects(username=username)[0]
+    try:
+        user = Users.objects(username=username)[0]
 
-    # TODO: validate user AND password separately
-    if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
-        token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
-        return response({
-            'token': token.decode('utf-8'),
-            'user': serialize_user_dict(user)
-        })
-    else:
+        # TODO: validate user AND password separately
+        if bcrypt.checkpw(password.encode('utf-8'), user['password']):
+            token = jwt.encode({'personal_secret': user['secret']}, JWT_SECRET)
+            return response({
+                'token': token.decode('utf-8'),
+                'user': serialize_user_dict(user)
+            })
+        else:
+            return response({
+                'password': ['Your password is incorrect.']
+            }, 400)
+    
+    except IndexError:
         return response({
             'username': ['We couldn\'t find a user with that username.']
         }, 400)
+    
+    except Exception as e:
+        return response({'message': str(e)}, 500)
 
 def serialize_user_dict(user) -> Users:
     delattr(user, 'password')
