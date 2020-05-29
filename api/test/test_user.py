@@ -31,5 +31,4 @@ class TestUser(unittest.TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        response_json = json.loads(response.data.decode("utf-8"))
         self.assertEqual(User.query.count(), 1)
