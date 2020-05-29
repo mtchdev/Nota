@@ -15,7 +15,7 @@ class RegisterResource(Resource):
         Argument("email", location="json", required=True, help="Email."),
         Argument("password", location="json", required=True, help="Password.")
     )
-    @swag_from("../swagger/user/POST.yml")
+    @swag_from("../swagger/auth/register.yml")
     def post(username, email, password):
         user = UserRepository.create(
             username=username, email=email, password=password
@@ -30,7 +30,7 @@ class LoginResource(Resource):
         Argument("username", location="json", required=True, help="Username."),
         Argument("password", location="json", required=True, help="Password.")
     )
-    @swag_from("../swagger/user/POST.yml")
+    @swag_from("../swagger/auth/login.yml")
     def post(username, password):
         user = UserRepository.authenticate(
             username=username, password=password

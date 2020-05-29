@@ -1,0 +1,38 @@
+Register a user with the request data
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    schema:
+      type: object
+      properties:
+        username:
+          type: string
+          description: The username of the user
+        email:
+          type: string
+          description: The email address of the user
+        password:
+          type: string
+          description: The password of the user
+responses:
+  200:
+    description: The user was successfully created
+    schema:
+      example:
+        user:
+          username: foobar
+          email: foo@bar.com
+          token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZXJzb25hbF9zZWNyZXQiOiJ6ZHNiR1FGamRIRlU0a1NmIn0.4fEm4v3kM1mFc_UG5ONCG2IsNxt3hZzfcIb4ixGG-ZU
+  422:
+    description: A user with the requested username already exists
+    schema:
+      example:
+        message: "USER_USERNAME_EXISTS"
+  422:
+    description: A user with the requested email address already exists
+    schema:
+      example:
+        message: "USER_EMAIL_EXISTS"

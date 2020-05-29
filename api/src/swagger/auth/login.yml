@@ -1,7 +1,7 @@
-Create an user based on the sent information
+Authenticate a user with the request data
 ---
 tags:
-  - user
+  - auth
 parameters:
   - name: body
     in: body
@@ -11,18 +11,23 @@ parameters:
         username:
           type: string
           description: The username of the user
-        email:
-          type: string
-          description: The email address of the user
         password:
           type: string
           description: The password of the user
 responses:
   200:
-    description: The user was successfully created
+    description: The user was successfully authenticated
     schema:
       example:
-        user:
-          username: foobar
-          email: foo@bar.com
+        data:
           token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZXJzb25hbF9zZWNyZXQiOiJ6ZHNiR1FGamRIRlU0a1NmIn0.4fEm4v3kM1mFc_UG5ONCG2IsNxt3hZzfcIb4ixGG-ZU
+  403:
+    description: The server could not find a user with the requested username
+    schema:
+      example:
+        message: "USER_USER_NOT_FOUND"
+  403:
+    description: The password is incorrect
+    schema:
+      example:
+        message: "USER_PASSWORD_INCORRECT"
