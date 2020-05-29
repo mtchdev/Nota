@@ -13,9 +13,8 @@ An open-source smart, optimized, and modern note-taking desktop application desi
 
 ### Prerequisites
 * Node 8.0+
-* MongoDB
 * Git
-* Python 3.6+ (only for the API)
+* Docker
 
 ### Installation
 ```
@@ -32,8 +31,12 @@ npm install
 **Server** (API):
 ```
 cd api
-python3 -m pip install -r requirements.txt
+make server.install
+make database.upgrade
+make server.start
 ```
+
+*You will need to rename `.env.example` to `.env` and edit the values to your liking.*
 
 ## Running
 
