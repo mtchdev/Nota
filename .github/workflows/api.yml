@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Create .env
-        run: |
+      run: |
         cd api
         mv .env.example .env
     - name: Install server
