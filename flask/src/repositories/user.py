@@ -3,8 +3,6 @@
 from models import User
 from sqlalchemy.orm import load_only
 import bcrypt
-import base64
-import jwt
 import string
 import random
 
@@ -22,12 +20,10 @@ class UserRepository:
 
         user.save()
 
-        token = jwt.encode({'personal_secret': user.json['secret']}, 'JWT_SECRET')
-
         ret = {
             'username': user.json['username'],
             'email': user.json['email'],
-            'token': token.decode('utf-8')
+            'token': user.generateToken()
         }
 
         return ret
