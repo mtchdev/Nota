@@ -4,9 +4,9 @@ Defines the blueprint for the users
 from flask import Blueprint
 from flask_restful import Api
 
-from resources import UserResource
+from resources import RegisterResource
 
-USER_BLUEPRINT = Blueprint("user", __name__)
-Api(USER_BLUEPRINT).add_resource(
-    UserResource, "/user"
+AUTH_BLUEPRINT = Blueprint("auth", __name__)
+Api(AUTH_BLUEPRINT).add_resource(
+    RegisterResource, "/auth/register"
 )

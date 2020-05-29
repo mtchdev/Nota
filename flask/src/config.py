@@ -2,7 +2,7 @@ import logging
 import os
 
 DEBUG = os.getenv("ENVIRONEMENT") == "DEV"
-APPLICATION_ROOT = os.getenv("APPLICATION_APPLICATION_ROOT", "/application")
+APPLICATION_ROOT = os.getenv("APPLICATION_ROOT", "/application")
 HOST = os.getenv("APPLICATION_HOST")
 PORT = int(os.getenv("APPLICATION_PORT", "3000"))
 SQLALCHEMY_TRACK_MODIFICATIONS = False

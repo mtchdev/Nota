@@ -1,1 +1,1 @@
-from .user import UserResource
+from .register import RegisterResource
