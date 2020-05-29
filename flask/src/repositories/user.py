@@ -5,7 +5,7 @@ from sqlalchemy.orm import load_only
 import bcrypt
 import string
 import random
-from werkzeug.exceptions import UnprocessableEntity
+from werkzeug.exceptions import UnprocessableEntity, Forbidden
 
 
 class UserRepository:
@@ -37,3 +37,19 @@ class UserRepository:
         }
 
         return ret
+    
+    @staticmethod
+    def authenticate(username, password):
+        """ Authenticate a user """
+
+        user = User.query.filter_by(username=username).first()
+
+        if user:
+            if bcrypt.checkpw(password.encode('utf-8'), user.json['password']):
+                return {
+                    'token': user.generateToken()
+                }
+            else:
+                raise Forbidden(description="USER_PASSWORD_INCORRECT")
+        else:
+            raise Forbidden(description="USER_USER_NOT_FOUND")

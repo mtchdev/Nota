@@ -7,18 +7,17 @@ from repositories import UserRepository
 from util import parse_params
 
 
-class RegisterResource(Resource):
+class LoginResource(Resource):
 
     @staticmethod
     @parse_params(
         Argument("username", location="json", required=True, help="Username."),
-        Argument("email", location="json", required=True, help="Email."),
         Argument("password", location="json", required=True, help="Password.")
     )
     @swag_from("../swagger/user/POST.yml")
-    def post(username, email, password):
-        user = UserRepository.create(
-            username=username, email=email, password=password
+    def post(username, password):
+        user = UserRepository.authenticate(
+            username=username, password=password
         )
 
         return jsonify({"data": user})
