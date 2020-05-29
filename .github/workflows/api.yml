@@ -16,7 +16,7 @@ jobs:
       run: make server.install
       working-directory: ./api
     - name: Upgrade database
-      run: make database.Upgrade
+      run: make database.upgrade
       working-directory: ./api
     - name: Run tests
       run: make test
