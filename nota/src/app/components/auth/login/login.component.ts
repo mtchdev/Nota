@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { AppVariables } from 'app/app.constants';
+import { AuthExceptions } from 'app/app.exceptions';
 
 @Component({
   selector: 'app-login',
@@ -59,7 +60,17 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.loginLoading = false;
-        alert('An error occurred, try again later.');
+
+        let errorMessage = AuthExceptions[error.error.message];
+        switch (error.error.message) {
+          case 'USER_USER_NOT_FOUND':
+            this.errors.username = errorMessage;
+            break;
+
+          case 'USER_PASSWORD_INCORRECT':
+            this.errors.password = errorMessage;
+            break;
+        }
       }
     );
   }
