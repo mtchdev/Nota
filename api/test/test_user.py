@@ -19,16 +19,16 @@ class TestUser(unittest.TestCase):
         db.session.remove()
         db.drop_all()
 
-    def test_create(self):
-        response = self.client.post(
-            "/api/auth/register",
-            content_type="application/json",
-            data=json.dumps({
-                "username": "foobar",
-                "email": "foo@bar.com",
-                "password": "hunter2"
-            }),
-        )
+    # def test_create(self):
+    #     response = self.client.post(
+    #         "/api/auth/register",
+    #         content_type="application/json",
+    #         data=json.dumps({
+    #             "username": "foobar",
+    #             "email": "foo@bar.com",
+    #             "password": "hunter2"
+    #         }),
+    #     )
 
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(User.query.count(), 1)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(User.query.count(), 1)
