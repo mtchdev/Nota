@@ -1,0 +1,19 @@
+name: API
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install server
+      run: |
+        cd api
+        make server.Install
+    - name: Upgrade database
+      run: make database.Upgrade
+    - name: Run tests
+      run: make test
