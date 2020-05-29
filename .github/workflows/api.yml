@@ -12,7 +12,7 @@ jobs:
     - name: Install server
       run: |
         cd api
-        make server.Install
+        make server.install
     - name: Upgrade database
       run: make database.Upgrade
     - name: Run tests
