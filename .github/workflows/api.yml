@@ -9,10 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install server
-      run: |
+    - name: Create .env
+        run: |
         cd api
-        make server.install
+        mv .env.example .env
+    - name: Install server
+      run: make server.install
     - name: Upgrade database
       run: make database.Upgrade
     - name: Run tests
