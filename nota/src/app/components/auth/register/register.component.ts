@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { AppVariables } from 'app/app.constants';
+import { AuthExceptions } from 'app/app.exceptions';
 
 @Component({
   selector: 'app-register',
@@ -80,7 +81,17 @@ export class RegisterComponent implements OnInit {
       },
       error => {
         this.registerLoading = false;
-        alert('An error occurred, try again later.');
+
+        let errorMessage = AuthExceptions[error.error.message];
+        switch (error.error.message) {
+          case 'USER_USERNAME_EXISTS':
+            this.errors.username = errorMessage;
+            break;
+
+          case 'USER_EMAIL_EXISTS':
+            this.errors.email = errorMessage;
+            break;
+        }
       }
     );
   }
