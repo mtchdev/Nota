@@ -22,3 +22,18 @@ class RegisterResource(Resource):
         )
 
         return jsonify({"data": user})
+
+class LoginResource(Resource):
+
+    @staticmethod
+    @parse_params(
+        Argument("username", location="json", required=True, help="Username."),
+        Argument("password", location="json", required=True, help="Password.")
+    )
+    @swag_from("../swagger/user/POST.yml")
+    def post(username, password):
+        user = UserRepository.authenticate(
+            username=username, password=password
+        )
+
+        return jsonify({"data": user})

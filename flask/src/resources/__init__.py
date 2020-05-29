@@ -1,2 +1,1 @@
-from .register import RegisterResource
-from .login import LoginResource
+from .authentication import RegisterResource, LoginResource
