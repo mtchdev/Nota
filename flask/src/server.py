@@ -1,6 +1,7 @@
 from flasgger import Swagger
 from flask import Flask
 from flask.blueprints import Blueprint
+from flask_cors import CORS
 
 import config
 import routes
@@ -30,6 +31,7 @@ server.config["SWAGGER"] = {
 }
 
 Swagger(server)
+CORS(server)
 
 server.debug = config.DEBUG
 server.config["SQLALCHEMY_DATABASE_URI"] = config.DB_URI

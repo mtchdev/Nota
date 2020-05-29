@@ -10,3 +10,4 @@ safety==1.9.0
 python-dotenv
 bcrypt
 pyjwt
+flask-cors
