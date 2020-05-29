@@ -45,7 +45,5 @@ Or, likewise in a production environment:
 
 `npm run start:prod`  
 
-To run the **API**, you will need to set the `FLASK_APP` variable in `PATH` and run the following:
-
-`python3 -m flask run`
+To run the **API**, you will need Docker. To view the setup, look at the README file in `/api`
 
