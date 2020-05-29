@@ -10,12 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Create .env
-      run: |
-        cd api
-        mv .env.example .env
+      run: mv .env.example .env
+      working-directory: ./api
     - name: Install server
       run: make server.install
+      working-directory: ./api
     - name: Upgrade database
       run: make database.Upgrade
+      working-directory: ./api
     - name: Run tests
       run: make test
+      working-directory: ./api
