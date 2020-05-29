@@ -25,4 +25,4 @@ class RegisterResource(Resource):
             username=username, email=email, password=password
         )
 
-        return jsonify({"user": user})
+        return jsonify({"data": user})
