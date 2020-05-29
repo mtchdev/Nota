@@ -4,7 +4,7 @@ from flask_restful import Resource
 from flask_restful.reqparse import Argument
 
 from repositories import UserRepository
-from util import parse_params
+from util import parse_params, auth
 
 
 class LoginResource(Resource):
