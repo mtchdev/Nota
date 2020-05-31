@@ -37,9 +37,7 @@ export class HttpService {
     });
 
     return {
-      headers: {
-        headers
-      }
+      headers: headers
     };
   }
 }
