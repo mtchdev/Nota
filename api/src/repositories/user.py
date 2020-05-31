@@ -31,8 +31,10 @@ class UserRepository:
         user.save()
 
         ret = {
-            'username': user.json['username'],
-            'email': user.json['email'],
+            'user': {
+                'username': user.json['username'],
+                'email': user.json['email']
+            },
             'token': user.generateToken()
         }
 
@@ -61,7 +63,9 @@ class UserRepository:
         user = User.query.filter_by(username=user.json['username']).first()
 
         return {
-            'username': user.json['username'],
-            'email': user.json['email'],
+            'user': {
+                'username': user.json['username'],
+                'email': user.json['email']
+            },
             'token': user.generateToken()
         }
