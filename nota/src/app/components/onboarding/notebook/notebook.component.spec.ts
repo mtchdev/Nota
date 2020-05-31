@@ -5,16 +5,19 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { routes } from 'app/app-routing.module';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 describe('NotebookComponent', () => {
   let component: OnboardingNotebookComponent;
   let fixture: ComponentFixture<OnboardingNotebookComponent>;
   let location: Location;
   let router: Router;
+  let service: MockAuthService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule.withRoutes(routes), AppModule ]
+      imports: [ RouterTestingModule.withRoutes(routes), AppModule ],
+      providers: [ {provide: AuthService, useClass: MockAuthService} ]
     })
     .compileComponents();
   }));
@@ -55,3 +58,12 @@ describe('NotebookComponent', () => {
     expect(component.errors.notebook).toBeTruthy();
   }));
 });
+
+class MockAuthService {
+
+  user = {
+    username: 'test',
+    email: 'foo@bar.com'
+  };
+
+}
