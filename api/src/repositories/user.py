@@ -53,3 +53,15 @@ class UserRepository:
                 raise Forbidden(description="USER_PASSWORD_INCORRECT")
         else:
             raise Forbidden(description="USER_USER_NOT_FOUND")
+    
+    @staticmethod
+    def refresh(user):
+        """ Refresh user token """
+
+        user = User.query.filter_by(username=user.json['username']).first()
+
+        return {
+            'username': user.json['username'],
+            'email': user.json['email'],
+            'token': user.generateToken()
+        }

@@ -5,6 +5,7 @@ from flask_restful.reqparse import Argument
 
 from repositories import UserRepository
 from util import parse_params
+from util import auth
 
 
 class RegisterResource(Resource):
@@ -35,5 +36,14 @@ class LoginResource(Resource):
         user = UserRepository.authenticate(
             username=username, password=password
         )
+
+        return jsonify({"data": user})
+
+class RefreshResource(Resource):
+
+    @staticmethod
+    @auth
+    def get(user):
+        user = UserRepository.refresh(user=user)
 
         return jsonify({"data": user})

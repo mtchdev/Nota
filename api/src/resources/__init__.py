@@ -1,1 +1,1 @@
-from .authentication import RegisterResource, LoginResource
+from .authentication import RegisterResource, LoginResource, RefreshResource
