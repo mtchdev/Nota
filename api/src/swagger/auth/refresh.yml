@@ -1,0 +1,21 @@
+Refresh a user token
+---
+tags:
+  - auth
+parameters:
+  - in: header
+    name: Authorization
+    description: Bearer token
+    schema:
+      type: string
+    required: true
+responses:
+  200:
+    description: The token was successfully refreshed
+    schema:
+      example:
+        data:
+          user:
+            username: foobar
+            email: foo@bar.com
+          token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZXJzb25hbF9zZWNyZXQiOiJ6ZHNiR1FGamRIRlU0a1NmIn0.4fEm4v3kM1mFc_UG5ONCG2IsNxt3hZzfcIb4ixGG-ZU

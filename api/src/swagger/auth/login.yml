@@ -20,6 +20,9 @@ responses:
     schema:
       example:
         data:
+          user:
+            username: foobar
+            email: foo@bar.com
           token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZXJzb25hbF9zZWNyZXQiOiJ6ZHNiR1FGamRIRlU0a1NmIn0.4fEm4v3kM1mFc_UG5ONCG2IsNxt3hZzfcIb4ixGG-ZU
   403:
     description: The server could not find a user with the requested username
