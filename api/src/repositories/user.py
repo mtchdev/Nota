@@ -31,10 +31,7 @@ class UserRepository:
         user.save()
 
         ret = {
-            'user': {
-                'username': user.json['username'],
-                'email': user.json['email']
-            },
+            'user': user.serialized(),
             'token': user.generateToken()
         }
 
@@ -49,6 +46,7 @@ class UserRepository:
         if user:
             if bcrypt.checkpw(password.encode('utf-8'), user.json['password']):
                 return {
+                    'user': user.serialized(),
                     'token': user.generateToken()
                 }
             else:
@@ -63,9 +61,6 @@ class UserRepository:
         user = User.query.filter_by(username=user.json['username']).first()
 
         return {
-            'user': {
-                'username': user.json['username'],
-                'email': user.json['email']
-            },
+            'user': user.serialized(),
             'token': user.generateToken()
         }

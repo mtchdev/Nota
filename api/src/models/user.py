@@ -24,3 +24,9 @@ class User(db.Model, BaseModel, metaclass=MetaBaseModel):
 
         ret = jwt.encode({'personal_secret': self.secret}, 'JWT_SECRET')
         return ret.decode('utf-8')
+    
+    def serialized(self):
+        return {
+            'username': self.username,
+            'email': self.email
+        }
