@@ -10,7 +10,6 @@ type Step = 'notebook' | 'color' | 'tasks' | 'finish';
 })
 export class OnboardingNotebookComponent implements OnInit {
 
-  public username: string;
   public notebook: Notebook = {
     title: null,
     content: null,
@@ -26,14 +25,9 @@ export class OnboardingNotebookComponent implements OnInit {
   public notebookColor: string;
   public notebookTasks: string[];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    if (!this.authService.user) {
-      this.username = 'User';
-    } else {
-      this.username = this.authService.user.username;
-    }
   }
 
   createNotebook(): void {

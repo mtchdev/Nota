@@ -1,7 +1,7 @@
 <div id="onboarding">
     <ng-container *ngIf="step === 'notebook'">
         <div class="container container--is-center auth__container">
-            <h1 class="auth__title">Hey, <strong>{{ username }}</strong>!</h1>
+            <h1 class="auth__title">Hey, <strong>{{ authService.user.username }}</strong>!</h1>
             <p><span>Create your first notebook! You can add more later.</span></p>
         
             <div class="form form--is-row margin-top--lg">

@@ -26,6 +26,16 @@ export class AuthService {
         return this.http.post<AuthResponse>(API.format('auth/login'), form);
     }
 
+    public refresh(): void {
+        this.http.get<AuthResponse>(API.format('auth/refresh')).subscribe(
+            data => {
+                localStorage.setItem(AppVariables.authTokenIdentifier, data.data.token);
+                this.user = data.data.user;
+                this.token = data.data.token;
+            }
+        );
+    }
+
     public set token(token: string) {
         localStorage.setItem('authToken', token);
         this._token = token;
