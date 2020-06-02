@@ -34,7 +34,7 @@ export class OnboardingNotebookComponent implements OnInit {
     this.errors.notebook = null;
 
     if (!this.notebookTitle) {
-      this.errors.notebook = 'Please provide a notebook title.';
+      this.errors.notebook = 'Please enter a notebook title.';
     }
     if (this.notebookTitle && this.notebookTitle.length > 30) {
       this.errors.notebook = 'The title must be under 30 characters.';
@@ -47,7 +47,7 @@ export class OnboardingNotebookComponent implements OnInit {
   }
 
   setColor(): void {
-    // TODO
+    this.step = 'tasks';
   }
 
 }

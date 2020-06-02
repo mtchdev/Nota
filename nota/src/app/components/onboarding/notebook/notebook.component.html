@@ -8,6 +8,7 @@
                 <input type="text" id="notebook" class="input margin-right--sm" [(ngModel)]="notebookTitle" [ngClass]="{'input--has-error': errors.notebook}" (keyup.enter)="createNotebook()" (keydown)="errors.notebook = null"  placeholder="Notebook Title">
                 <button-right-small (click)="createNotebook()"></button-right-small>
             </div>
+            <span *ngIf="errors.notebook" class="input__validation input__validation--error">{{ errors.notebook }}</span>
         </div>
     </ng-container>
 
