@@ -16,7 +16,7 @@ export class OnboardingNotebookComponent implements OnInit {
     color: null,
     tasks: []
   };
-  public step: Step = 'notebook';
+  public step: Step = 'color';
 
   public errors = {
     notebook: null
@@ -28,6 +28,7 @@ export class OnboardingNotebookComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.notebook.title = 'Test';
   }
 
   createNotebook(): void {

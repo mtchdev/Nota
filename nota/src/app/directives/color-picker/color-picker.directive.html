@@ -1,3 +1,9 @@
 <div class="color-picker">
-    Color Picker
+    <div class="color-picker--header">
+        <span class="color-picker__title">Default Colors</span>
+    </div>
+
+    <div class="color-picker--container">
+        <div class="color-picker__color" *ngFor="let color of colors" [style.background-color]="[color]"></div>
+    </div>
 </div>

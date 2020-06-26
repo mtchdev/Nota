@@ -1,6 +1,38 @@
 .color-picker {
-    width: 225px;
-    height: 50px;
+    width: 220px;
+    overflow: hidden;
     margin: 0 auto;
-    background-color: $black;
+    background-color: $white;
+    box-shadow: 0 0 .5rem $light;
+    border-radius: 5px;
+
+    &__title {
+        text-transform: uppercase;
+        color: $grey;
+        font-weight: 600;
+        font-size: 11px;
+        float: left;
+        padding-top: .8rem;
+        padding-left: 1.2rem;
+        user-select: none;
+    }
+
+    &--container {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &--header {
+        height: 2.2rem;
+    }
+
+    &__color {
+        height: 28px;
+        width: 28px;
+        border-radius: 100%;
+        margin: 5px;
+        cursor: pointer;
+    }
 }
