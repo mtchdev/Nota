@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { InboxComponent } from './components/app/inbox/inbox.component';
 
 export const routes: Routes = [
   {

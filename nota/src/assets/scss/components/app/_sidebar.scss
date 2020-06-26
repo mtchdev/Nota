@@ -1,0 +1,44 @@
+.sidebar {
+    width: 175px;
+    height: 100%;
+    -webkit-app-region: drag;
+    user-select: none;
+
+    &__big-button {
+        background-color: $primary;
+        width: 100%;
+        height: 80px;
+        cursor: pointer;
+    }
+
+    &__content {
+        padding-top: 1rem;
+        padding-left: .5rem;
+    }
+
+    &__section {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: .5rem;
+
+        &-title {
+            text-transform: uppercase;
+            color: $grey;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        &-item {
+            font-size: 18px;
+            color: $almost-black;
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+            cursor: pointer;
+
+            &--active {
+                color: $primary;
+                font-weight: 600;
+            }
+        }
+    }
+}

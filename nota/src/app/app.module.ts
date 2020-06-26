@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { InboxComponent } from './components/app/inbox/inbox.component';
+import { OnboardingNotebookComponent } from './components/onboarding/notebook/notebook.component';
 
 /**
  * Providers
@@ -33,9 +35,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  * Directives
  */
 import { ModalDirectiveComponent } from './directives/modal/modal.directive';
-import { OnboardingNotebookComponent } from './components/onboarding/notebook/notebook.component';
 import { ButtonRightSmallDirectiveComponent } from './directives/button/button-right-small.directive';
 import { ColorPickerDirectiveComponent } from './directives/color-picker/color-picker.directive';
+import { SidebarDirectiveComponent } from './directives/sidebar/sidebar.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -50,7 +52,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ModalDirectiveComponent,
     OnboardingNotebookComponent,
     ButtonRightSmallDirectiveComponent,
-    ColorPickerDirectiveComponent
+    ColorPickerDirectiveComponent,
+    InboxComponent,
+    SidebarDirectiveComponent
   ],
   imports: [
     BrowserModule,
