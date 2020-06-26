@@ -3,7 +3,7 @@ import { AuthService } from 'app/components/auth/auth.service';
 import { Router } from '@angular/router';
 import { Notebook } from 'app/models/core/Notebook';
 
-type Step = 'notebook' | 'color' | 'tasks' | 'finish';
+type Step = 'notebook' | 'color' | 'finish';
 
 @Component({
   templateUrl: './notebook.component.html'
@@ -47,7 +47,7 @@ export class OnboardingNotebookComponent implements OnInit {
   }
 
   setColor(): void {
-    this.step = 'tasks';
+    this.step = 'finish';
   }
 
 }

@@ -21,18 +21,8 @@
                 <input type="text" id="notebook" class="input margin-right--sm" [value]="notebookTitle" disabled>
                 <button-right-small (click)="setColor()"></button-right-small>
             </div>
-        </div>
-    </ng-container>
 
-    <ng-container *ngIf="step === 'tasks'">
-        <div class="container container--is-center auth__container">
-            <h1 class="auth__title">Where to start?</h1>
-            <p><span>Let's add some stuff to write about.</span></p>
-        
-            <div class="form form--is-row margin-top--lg">
-                <input type="text" id="notebook" class="input margin-right--sm" [value]="notebookTitle" disabled>
-                <button-right-small (click)="setColor()"></button-right-small>
-            </div>
+            <color-picker></color-picker>
         </div>
     </ng-container>
 

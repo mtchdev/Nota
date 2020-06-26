@@ -35,6 +35,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ModalDirectiveComponent } from './directives/modal/modal.directive';
 import { OnboardingNotebookComponent } from './components/onboarding/notebook/notebook.component';
 import { ButtonRightSmallDirectiveComponent } from './directives/button/button-right-small.directive';
+import { ColorPickerDirectiveComponent } from './directives/color-picker/color-picker.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     ModalDirectiveComponent,
     OnboardingNotebookComponent,
-    ButtonRightSmallDirectiveComponent
+    ButtonRightSmallDirectiveComponent,
+    ColorPickerDirectiveComponent
   ],
   imports: [
     BrowserModule,
