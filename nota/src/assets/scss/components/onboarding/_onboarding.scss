@@ -21,14 +21,20 @@
         margin-top: 3.5rem;
     }
 
-    &__welcome-text {
-        font-weight: 300;
-        color: $grey;
-        line-height: 1rem;
+    &__welcome {
+        &-text {
+            font-weight: 300;
+            color: $grey;
+            line-height: 1rem;
 
-        strong {
-            font-weight: 700;
-            color: $primary;
+            strong {
+                font-weight: 700;
+                color: $primary;
+            }
+        }
+
+        p {
+            line-height: .2rem;
         }
     }
 
