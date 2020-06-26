@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app/components/auth/auth.service';
 import { Router } from '@angular/router';
 import { Notebook } from 'app/models/core/Notebook';
-import { shadeColor } from 'app/app.util';
 import * as cl from 'color';
 
 type Step = 'notebook' | 'color' | 'finish';
@@ -18,7 +17,7 @@ export class OnboardingNotebookComponent implements OnInit {
     color: null,
     tasks: []
   };
-  public step: Step = 'finish';
+  public step: Step = 'notebook';
 
   public errors = {
     notebook: null
