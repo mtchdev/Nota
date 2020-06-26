@@ -25,4 +25,19 @@
         margin-top: 2rem;
     }
 
+    &__welcome {
+        margin-top: 4rem;
+
+        &-text {
+            font-weight: 300;
+            color: $grey;
+            line-height: 1rem;
+    
+            strong {
+                font-weight: 700;
+                color: $primary;
+            }
+        }
+    }
+
 }

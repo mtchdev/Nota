@@ -18,7 +18,7 @@ export class OnboardingNotebookComponent implements OnInit {
     color: null,
     tasks: []
   };
-  public step: Step = 'notebook';
+  public step: Step = 'finish';
 
   public errors = {
     notebook: null
