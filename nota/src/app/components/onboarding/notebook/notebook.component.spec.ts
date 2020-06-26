@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { routes } from 'app/app-routing.module';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('NotebookComponent', () => {
   let component: OnboardingNotebookComponent;
@@ -13,6 +15,7 @@ describe('NotebookComponent', () => {
   let location: Location;
   let router: Router;
   let service: MockAuthService;
+  let debug: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,6 +30,7 @@ describe('NotebookComponent', () => {
     component = fixture.componentInstance;
     location = TestBed.get(Location);
     router = TestBed.get(Router);
+    debug = fixture.debugElement;
     fixture.detectChanges();
   });
 
@@ -56,6 +60,13 @@ describe('NotebookComponent', () => {
   it('should produce errors when values are null', (() => {
     component.createNotebook();
     expect(component.errors.notebook).toBeTruthy();
+  }));
+
+  it('should set the color when clicked', (() => {
+    component.step = 'color';
+    fixture.detectChanges();
+    debug.query(By.css('#FF0000')).nativeElement.click();
+    expect(component.notebook.color).toBe('#FF0000');
   }));
 });
 
