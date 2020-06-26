@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app/components/auth/auth.service';
 import { Router } from '@angular/router';
 import { Notebook } from 'app/models/core/Notebook';
+import { shadeColor } from 'app/app.util';
+import * as cl from 'color';
 
 type Step = 'notebook' | 'color' | 'finish';
 
@@ -16,22 +18,19 @@ export class OnboardingNotebookComponent implements OnInit {
     color: null,
     tasks: []
   };
-  public step: Step = 'color';
+  public step: Step = 'notebook';
 
   public errors = {
     notebook: null
   };
   public notebookTitle: string;
-  public notebookColor: string;
-  public notebookTasks: string[];
 
   constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.notebook.title = 'Test';
   }
 
-  createNotebook(): void {
+  public createNotebook(): void {
     this.errors.notebook = null;
 
     if (!this.notebookTitle) {
@@ -47,8 +46,12 @@ export class OnboardingNotebookComponent implements OnInit {
     this.step = 'color';
   }
 
-  setColor(): void {
+  public setColor(): void {
     this.step = 'finish';
+  }
+
+  public lighten(color: string): string {
+    return cl(color).lighten(0.75).hex();
   }
 
 }

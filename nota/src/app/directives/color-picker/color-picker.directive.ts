@@ -6,11 +6,13 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 })
 export class ColorPickerDirectiveComponent implements OnInit {
 
+    @Output() color = new EventEmitter<string>();
+
     public colors: Array<string> = [
         '#FF0000',
         '#FF9100',
         '#F7FF00',
-        '#5BE877',
+        '#00FF31',
         '#00F6FF',
         '#0055FF',
         '#5D00FF',
@@ -20,5 +22,9 @@ export class ColorPickerDirectiveComponent implements OnInit {
     ];
 
     ngOnInit() {
+    }
+
+    selectColor(color: string): void {
+        this.color.emit(color);
     }
 }

@@ -14,15 +14,18 @@
 
     <ng-container *ngIf="step === 'color'">
         <div class="container container--is-center auth__container">
-            <h1 class="auth__title">Notes look good.</h1>
+            <h1 class="auth__title" id="tee">Stand out.</h1>
             <p><span>Make it colorful! No one likes grey.</span></p>
         
             <div class="form form--is-row margin-top--lg">
-                <input type="text" id="notebook" class="input margin-right--sm" [value]="notebookTitle" disabled>
+                <input type="text" id="notebook-color" class="input margin-right--sm" [ngStyle]="{
+                    'background-color': notebook.color ? lighten(notebook.color) : '#E5E5E5',
+                    'border': notebook.color ? '1px solid ' + notebook.color : '1px solid transparent'
+                }" [value]="notebookTitle" disabled>
                 <button-right-small (click)="setColor()"></button-right-small>
             </div>
 
-            <color-picker></color-picker>
+            <color-picker (color)="notebook.color = $event"></color-picker>
         </div>
     </ng-container>
 
