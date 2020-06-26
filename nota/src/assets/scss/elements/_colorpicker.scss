@@ -3,8 +3,8 @@
     overflow: hidden;
     margin: 0 auto;
     background-color: $white;
-    box-shadow: 0 0 .5rem $light;
-    border-radius: 5px;
+    box-shadow: 0 0 .5rem darken($light, 10%);
+    border-radius: 10px;
 
     &__title {
         text-transform: uppercase;
