@@ -25,7 +25,9 @@
                 <button-right-small (click)="setColor()"></button-right-small>
             </div>
 
-            <color-picker (color)="notebook.color = $event"></color-picker>
+            <div class="onboarding__color-picker">
+                <color-picker (color)="notebook.color = $event"></color-picker>
+            </div>
         </div>
     </ng-container>
 
