@@ -4,6 +4,8 @@
     width: 175px;
     height: 100%;
     user-select: none;
+    position: fixed;
+    background-color: $almost-white;
 
     &__big-button {
         background-color: $primary;
@@ -95,7 +97,7 @@
         width: 175px;
         height: 60px;
         position: absolute;
-        bottom: 0;
+        bottom: 30px;
         background-color: $almost-white;
         
         &--avatar {

@@ -1,0 +1,81 @@
+.notes {
+    position: fixed;
+
+    &__pane {
+        background-color: $almost-white;
+        width: 350px;
+        height: 100%;
+        margin-left: 175px;
+    }
+
+    &__search {
+        width: 100%;
+        height: calc(80px - 1px);
+        border-bottom: 1px solid #C7C7C7;
+
+        &--input {
+            width: 90%;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__notes {
+        height: calc(100% - 80px);
+        overflow: scroll;
+
+        &--item {
+            background-color: $white;
+            border-left: 10px solid #1DE04A;
+            height: 110px;
+            width: calc(100% - 10px);
+            margin-bottom: 1px;
+            cursor: pointer;
+            transition: .1s linear;
+
+            &-container {
+                position: relative;
+                left: 20px;
+                top: 10px;
+                width: calc(100% - 35px);
+            }
+
+            &-user {
+                font-weight: 300;
+                font-size: 13px;
+                color: $grey;
+            }
+
+            &-title {
+                font-size: 15px;
+                font-weight: 600;
+                color: $almost-black;
+                padding-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &-description {
+                display: -webkit-box;
+                font-size: 14px;
+                color: $grey;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &:hover {
+                background-color: darken($white, $color-coef);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    #notes-pane {
+        display: none !important;
+    }
+}
