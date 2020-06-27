@@ -29,9 +29,9 @@
 
         &--item {
             background-color: $white;
-            border-left: 10px solid #1DE04A;
+            border-left: 7.5px solid #1DE04A;
             height: 110px;
-            width: calc(100% - 10px);
+            width: calc(100% - 7.5px);
             margin-bottom: 1px;
             cursor: pointer;
             transition: .1s linear;

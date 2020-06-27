@@ -74,11 +74,11 @@
     }
 
     &__notebook {
-        width: calc(100% - 10px);
+        width: calc(100% - 7.5px);
         height: 45px;
         margin-bottom: 2px;
-        background-color: lighten($success, 45%);
-        border-left: 10px solid $success;
+        background-color: lighten($success, 50%);
+        border-left: 7.5px solid $success;
         cursor: pointer;
         line-height: 45px;
         text-overflow: ellipsis;
