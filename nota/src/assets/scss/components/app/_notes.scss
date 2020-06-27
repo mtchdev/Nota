@@ -2,7 +2,7 @@
     position: fixed;
 
     &__pane {
-        background-color: $almost-white;
+        background-color: $white;
         width: 350px;
         height: 100%;
         margin-left: 175px;
@@ -12,6 +12,7 @@
         width: 100%;
         height: calc(80px - 1px);
         border-bottom: 1px solid #C7C7C7;
+        background-color: $almost-white;
 
         &--input {
             width: 90%;
@@ -23,8 +24,8 @@
     }
 
     &__notes {
-        height: calc(100% - 80px);
-        overflow: scroll;
+        height: calc(100% - 80px - 30px);
+        overflow-y: auto;
 
         &--item {
             background-color: $white;
@@ -34,12 +35,25 @@
             margin-bottom: 1px;
             cursor: pointer;
             transition: .1s linear;
+            user-select: none;
 
             &-container {
                 position: relative;
                 left: 20px;
                 top: 10px;
                 width: calc(100% - 35px);
+            }
+
+            &-row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            &-date {
+                margin-left: auto;
+                font-weight: 400;
+                font-size: 13px;
+                color: $grey;
             }
 
             &-user {
