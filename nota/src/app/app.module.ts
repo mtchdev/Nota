@@ -38,6 +38,7 @@ import { ModalDirectiveComponent } from './directives/modal/modal.directive';
 import { ButtonRightSmallDirectiveComponent } from './directives/button/button-right-small.directive';
 import { ColorPickerDirectiveComponent } from './directives/color-picker/color-picker.directive';
 import { SidebarDirectiveComponent } from './directives/sidebar/sidebar.directive';
+import { TitlebarDirectiveComponent } from './directives/titlebar/titlebar.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonRightSmallDirectiveComponent,
     ColorPickerDirectiveComponent,
     InboxComponent,
-    SidebarDirectiveComponent
+    SidebarDirectiveComponent,
+    TitlebarDirectiveComponent
   ],
   imports: [
     BrowserModule,

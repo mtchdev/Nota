@@ -4,10 +4,6 @@ html, body {
     color: $almost-black;
     // user-select: none;
     font-family: 'Open Sans';
-}
-
-#drag-area {
-    height: 50px;
-    width: 100%;
-    -webkit-app-region: drag;
+    overflow: hidden;
+    height: 100%;
 }
