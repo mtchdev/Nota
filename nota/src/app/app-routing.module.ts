@@ -7,15 +7,15 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { InboxComponent } from './components/app/inbox/inbox.component';
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '/onboarding',
-  //   pathMatch: 'full'
-  // },
   {
     path: '',
-    component: InboxComponent
+    redirectTo: '/onboarding',
+    pathMatch: 'full'
   },
+  // {
+  //   path: '',
+  //   component: InboxComponent
+  // },
   {
     path: 'auth/register',
     component: RegisterComponent

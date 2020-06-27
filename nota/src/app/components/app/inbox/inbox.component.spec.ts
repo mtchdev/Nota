@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InboxComponent } from './inbox.component';
+import { SidebarDirectiveComponent } from 'app/directives/sidebar/sidebar.directive';
 
 describe('InboxComponent', () => {
   let component: InboxComponent;
@@ -8,7 +9,7 @@ describe('InboxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InboxComponent ]
+      declarations: [ InboxComponent, SidebarDirectiveComponent ]
     })
     .compileComponents();
   }));
