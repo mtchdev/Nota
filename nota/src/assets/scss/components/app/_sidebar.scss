@@ -10,6 +10,20 @@
         width: 100%;
         height: 80px;
         cursor: pointer;
+        transition: 0.1s linear;
+
+        &--icon {
+            width: 40px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: lighten($primary, $color-coef);
+        }
     }
 
     &__content {
