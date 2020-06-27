@@ -1,8 +1,8 @@
 # Nota
-[![Actions Status](https://github.com/spliitzx/nota/workflows/Client%20(Node%20CI)/badge.svg)](https://github.com/spliitzx/nota/actions)
-[![Actions Status](https://github.com/spliitzx/nota/workflows/API/badge.svg)](https://github.com/spliitzx/nota/actions)
-![Size](https://img.shields.io/github/repo-size/spliitzx/nota)
-![License](https://img.shields.io/github/license/spliitzx/nota)
+[![Actions Status](https://github.com/mtchdev/nota/workflows/Client%20(Node%20CI)/badge.svg)](https://github.com/mtchdev/nota/actions)
+[![Actions Status](https://github.com/mtchdev/nota/workflows/API/badge.svg)](https://github.com/mtchdev/nota/actions)
+![Size](https://img.shields.io/github/repo-size/mtchdev/nota)
+![License](https://img.shields.io/github/license/mtchdev/nota)
 
 An open-source smart, optimized, and modern note-taking desktop application designed with **[Electron](https://github.com/atom/electron)**, **[Angular](https://github.com/angular/angular)**, and **[Flask](https://palletsprojects.com/p/flask/)**. With the option of having your own Nota account, you can synchronize your notes wherever you are.
 
