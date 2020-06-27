@@ -1,7 +1,8 @@
+// app/*
+
 .sidebar {
     width: 175px;
     height: 100%;
-    -webkit-app-region: drag;
     user-select: none;
 
     &__big-button {
@@ -38,6 +39,63 @@
             &--active {
                 color: $primary;
                 font-weight: 600;
+            }
+        }
+    }
+
+    &__notebook {
+        width: calc(100% - 10px);
+        height: 50px;
+        margin-bottom: 2px;
+        background-color: lighten($success, 45%);
+        border-left: 10px solid $success;
+        cursor: pointer;
+        line-height: 50px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        &--title {
+            color: $almost-black;
+            font-weight: 400;
+            font-size: 15px;
+            margin-left: 1rem;
+        }
+    }
+
+    &__user {
+        width: 175px;
+        height: 60px;
+        position: absolute;
+        bottom: 0;
+        background-color: $almost-white;
+        
+        &--avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            background-color: $almost-black;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        &--info {
+            position: relative;
+            top: 10px;
+            left: calc(10px + 40px + 10px);
+            line-height: 20px;
+
+            &-username {
+                color: $almost-black;
+                font-size: 14px;
+            }
+
+            &-settings {
+                display: block;
+                color: $primary;
+                font-size: 12px;
+                cursor: pointer;
             }
         }
     }
