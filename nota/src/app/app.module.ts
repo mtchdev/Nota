@@ -25,6 +25,7 @@ import { HttpErrorInterceptor } from './providers/http.interceptor';
  */
 import { AppRoutingModule } from './app-routing.module';
 import { OnboardingRoutingModule } from './components/onboarding/onboarding-routing.module';
+import { MainRoutingModule } from './components/app/main-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     AppRoutingModule,
     OnboardingRoutingModule,
+    MainRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

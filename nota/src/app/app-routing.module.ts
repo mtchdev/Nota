@@ -9,13 +9,9 @@ import { InboxComponent } from './components/app/inbox/inbox.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/onboarding',
+    redirectTo: '/app/inbox',
     pathMatch: 'full'
   },
-  // {
-  //   path: '',
-  //   component: InboxComponent
-  // },
   {
     path: 'auth/register',
     component: RegisterComponent
