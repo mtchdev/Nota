@@ -16,6 +16,7 @@
         color: $grey;
         line-height: 20px;
         user-select: none;
+        text-align: center;
 
         &--add {
             color: $primary;
@@ -24,7 +25,7 @@
     }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1200px) {
     #editor-pane {
         margin-left: 175px;
         width: calc(100% - 175px);
