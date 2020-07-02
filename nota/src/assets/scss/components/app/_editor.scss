@@ -1,0 +1,32 @@
+.editor {
+    height: 100%;
+    margin-left: calc(175px + 350px);
+    width: calc(100% - (175px + 350px));
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__deselected {
+        color: $grey;
+        line-height: 20px;
+        user-select: none;
+
+        &--add {
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    #editor-pane {
+        margin-left: 175px;
+        width: calc(100% - 175px);
+    }
+}
