@@ -5,11 +5,10 @@
 
     &__container {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        width: 100%;
+        height: calc(100% - 30px);
     }
 
     &__deselected {
@@ -22,6 +21,14 @@
             color: $primary;
             cursor: pointer;
         }
+    }
+
+    &__pane {
+        width: 90%;
+        height: 90%;
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 0 0 .5rem darken($light, 10%);
     }
 }
 
