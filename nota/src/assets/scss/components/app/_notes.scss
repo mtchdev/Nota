@@ -2,7 +2,7 @@
     position: fixed;
 
     &__pane {
-        background-color: $white;
+        background-color: $almost-white;
         width: 400px;
         height: 100%;
         margin-left: 175px;
@@ -26,6 +26,19 @@
     &__notes {
         height: calc(100% - 80px - 30px);
         overflow-y: auto;
+
+        &--empty {
+            margin-top: 40px;
+            color: $grey;
+            line-height: 20px;
+            user-select: none;
+            text-align: center;
+    
+            &--add {
+                color: $primary;
+                cursor: pointer;
+            }
+        }
 
         &--item {
             background-color: $white;

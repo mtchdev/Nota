@@ -11,18 +11,6 @@
         height: calc(100% - 30px);
     }
 
-    &__deselected {
-        color: $grey;
-        line-height: 20px;
-        user-select: none;
-        text-align: center;
-
-        &--add {
-            color: $primary;
-            cursor: pointer;
-        }
-    }
-
     &__pane {
         width: calc(100% - 80px);
         height: calc(100% - 80px);

@@ -1,11 +1,12 @@
 // app/*
 
 .sidebar {
-    width: 175px;
+    width: calc(175px - 1px);
     height: 100%;
     user-select: none;
     position: fixed;
     background-color: $almost-white;
+    border-right: 1px solid #C7C7C7;
 
     &__big-button {
         background-color: $primary;
@@ -75,12 +76,12 @@
 
     &__notebook {
         width: calc(100% - 7.5px);
-        height: 45px;
+        height: 40px;
         margin-bottom: 2px;
         background-color: lighten($success, 50%);
         border-left: 7.5px solid $success;
         cursor: pointer;
-        line-height: 45px;
+        line-height: 40px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -88,13 +89,22 @@
         &--title {
             color: $almost-black;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 15px;
             margin-left: 10px;
         }
     }
 
+    &__link {
+        font-size: 13px;
+        color: $primary;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
     &__user {
-        width: 175px;
+        width: calc(175px - 1px);
         height: 60px;
         position: absolute;
         bottom: 30px;
@@ -116,12 +126,12 @@
             left: calc(10px + 40px + 10px);
             line-height: 20px;
 
-            &-username {
+            &_username {
                 color: $almost-black;
                 font-size: 14px;
             }
 
-            &-settings {
+            &_settings {
                 display: block;
                 color: $primary;
                 font-size: 12px;
