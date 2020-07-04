@@ -41,6 +41,7 @@ import { ColorPickerDirectiveComponent } from './directives/color-picker/color-p
 import { SidebarDirectiveComponent } from './directives/sidebar/sidebar.directive';
 import { TitlebarDirectiveComponent } from './directives/titlebar/titlebar.directive';
 import { NoteItemDirectiveComponent } from './directives/notes/note-item.directive';
+import { EditorDirectiveComponent } from './directives/notes/editor.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -59,7 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     InboxComponent,
     SidebarDirectiveComponent,
     TitlebarDirectiveComponent,
-    NoteItemDirectiveComponent
+    NoteItemDirectiveComponent,
+    EditorDirectiveComponent
   ],
   imports: [
     BrowserModule,
