@@ -878,4 +878,5 @@
   color: #5F65F4;
 }
 .ql-container.ql-snow {
+    height: calc(100% - 80px - 100px);
 }
