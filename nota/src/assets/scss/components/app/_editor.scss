@@ -24,8 +24,8 @@
     }
 
     &__pane {
-        width: 90%;
-        height: 90%;
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
         background-color: $white;
         border-radius: 10px;
         box-shadow: 0 0 .5rem darken($light, 10%);
