@@ -57,9 +57,8 @@
                 font-weight: 400;
                 margin-left: 50px;
                 width: 30vw;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                border: 0;
+                font-size: 26px;
             }
         }
     }
