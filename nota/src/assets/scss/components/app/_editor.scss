@@ -32,6 +32,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
 
     &__editor {
@@ -81,6 +82,10 @@
             &_starred {
                 color: $yellow;
             }
+        }
+
+        &--body {
+            margin-top: 10px;
         }
     }
 }

@@ -25,7 +25,8 @@
               "src/favicon.512x512.png"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/quill.css"
             ],
             "scripts": []
           },
@@ -95,7 +96,8 @@
             "karmaConfig": "src/karma.conf.js",
             "scripts": [],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/quill.css"
             ],
             "assets": [
               "src/assets",
