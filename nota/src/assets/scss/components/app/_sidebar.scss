@@ -47,8 +47,8 @@
         }
 
         &-item {
-            margin-top: .5rem;
-            margin-bottom: .5rem;
+            margin-top: 10px;
+            margin-bottom: 10px;
             cursor: pointer;
             display: inline-block;
             height: 100%;
@@ -61,7 +61,7 @@
             }
 
             &--text {
-                padding-left: 45px;
+                padding-left: 40px;
                 vertical-align: middle;
                 font-size: 18px;
                 color: $almost-black;
