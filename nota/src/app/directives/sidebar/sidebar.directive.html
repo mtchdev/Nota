@@ -28,29 +28,11 @@
             </div>
         </div>
     
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
-        </div>
-        <div class="sidebar__notebook" title="Notebook Title">
-            <span class="sidebar__notebook--title">Notebook Title</span>
+        <div class="sidebar__notebook" *ngFor="let notebook of notebooks" [title]="notebook.title" [ngStyle]="{
+            'background-color': lighten(notebook.color),
+            'border-left': '7px solid ' + notebook.color
+        }">
+            <span class="sidebar__notebook--title">{{ notebook.title }}</span>
         </div>
     
         <div class="sidebar__link">All Notebooks</div>

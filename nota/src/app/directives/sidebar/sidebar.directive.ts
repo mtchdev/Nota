@@ -11,11 +11,21 @@ type MenuType = 'generic' | 'settings';
 export class SidebarDirectiveComponent implements OnInit {
 
     public activeMenu: MenuType;
+    public notebooks: Array<Notebook>;
     public newNotebook: Notebook;
     public showNewNotebook = false;
 
     ngOnInit() {
         this.activeMenu = 'generic';
+
+        this.notebooks = [
+            {
+                title: 'Notebook Title',
+                color: '#00FF31',
+                content: null,
+                tasks: []
+            }
+        ];
     }
 
     public lighten(color: string): string {
