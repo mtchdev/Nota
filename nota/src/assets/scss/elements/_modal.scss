@@ -6,7 +6,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.4);
 
     &--is-visible {
@@ -15,10 +15,21 @@
 
     &__content {
         background-color: $almost-white;
-        margin: 20% auto;
         padding: 20px;
-        width: 40%;
+        width: 600px;
         border-radius: 10px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        &--small {
+            width: 400px;
+        }
+
+        &--medium {
+            width: 500px;
+        }
     }
 
     &__titlebar {

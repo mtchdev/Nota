@@ -24,6 +24,7 @@
     
             <div class="sidebar__section">
                 <span class="sidebar__section-title">Notebooks</span>
+                <span (click)="initiateNewNotebook()">+</span>
             </div>
         </div>
     
@@ -112,5 +113,30 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="modal" [ngClass]="{'modal--is-visible': showNewNotebook}" *ngIf="newNotebook">
+    <div class="modal__content modal__content--medium">
+        <div class="modal__titlebar">
+            <span class="modal__titlebar--title">Create {{ newNotebook.title ? '"' + newNotebook.title + '"' : 'Notebook' }}</span>
+            <span class="modal__titlebar--close" (click)="showNewNotebook = false">X</span>
+        </div>
+        
+        <div class="form form--is-column margin-top--lg">
+            <input type="text" id="notebook-color" class="input margin-right--sm" [ngStyle]="{
+                'background-color': newNotebook.color ? lighten(newNotebook.color) : '#E5E5E5',
+                'border': newNotebook.color ? '1px solid ' + newNotebook.color : '1px solid transparent'
+            }" [(ngModel)]="newNotebook.title" placeholder="Notebook Title">
+        </div>
+
+        <div class="margin-top--lg">
+            <color-picker (color)="newNotebook.color = $event"></color-picker>
+        </div>
+
+        <div class="modal__button-group">
+            <button class="button__grey modal__button" (click)="cancelNewNotebook()">Cancel</button>
+            <button class="button__primary modal__button" (click)="createNotebook()">Create</button>
+        </div>
     </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Notebook } from 'app/models/core/Notebook';
+import * as cl from 'color';
 
 type MenuType = 'generic' | 'settings';
 
@@ -9,8 +11,36 @@ type MenuType = 'generic' | 'settings';
 export class SidebarDirectiveComponent implements OnInit {
 
     public activeMenu: MenuType;
+    public newNotebook: Notebook;
+    public showNewNotebook = false;
 
     ngOnInit() {
         this.activeMenu = 'generic';
+    }
+
+    public lighten(color: string): string {
+        return cl(color).lighten(0.75).hex();
+    }
+
+    public initiateNewNotebook(): void {
+        this.newNotebook = {
+            title: '',
+            color: '',
+            content: '',
+            tasks: []
+        };
+
+        this.showNewNotebook = true;
+    }
+
+    public createNotebook(): void {
+        this.showNewNotebook = false;
+        this.newNotebook = undefined;
+        // TODO
+    }
+
+    public cancelNewNotebook(): void {
+        this.showNewNotebook = false;
+        this.newNotebook = undefined;
     }
 }
