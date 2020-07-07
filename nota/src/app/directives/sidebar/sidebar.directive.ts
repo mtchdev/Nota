@@ -22,8 +22,7 @@ export class SidebarDirectiveComponent implements OnInit {
             {
                 title: 'Notebook Title',
                 color: '#00FF31',
-                content: null,
-                tasks: []
+                notes: []
             }
         ];
     }
@@ -33,12 +32,7 @@ export class SidebarDirectiveComponent implements OnInit {
     }
 
     public initiateNewNotebook(): void {
-        this.newNotebook = {
-            title: '',
-            color: '',
-            content: '',
-            tasks: []
-        };
+        this.newNotebook = new Notebook({});
 
         this.showNewNotebook = true;
     }
