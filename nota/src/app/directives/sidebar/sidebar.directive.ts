@@ -44,9 +44,10 @@ export class SidebarDirectiveComponent implements OnInit {
     }
 
     public createNotebook(): void {
+        // TODO
+        this.notebooks.push(this.newNotebook);
         this.showNewNotebook = false;
         this.newNotebook = undefined;
-        // TODO
     }
 
     public cancelNewNotebook(): void {
