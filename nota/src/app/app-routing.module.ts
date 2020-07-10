@@ -7,7 +7,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/app/inbox',
+    redirectTo: '/onboarding',
     pathMatch: 'full'
   },
   {
