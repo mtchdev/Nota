@@ -8,4 +8,13 @@
 
         text-align: center;
     }
+
+    &__content {
+        &--center {
+            @include flexbox;
+            @include flex-direction(column);
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

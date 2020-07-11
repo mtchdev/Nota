@@ -14,11 +14,13 @@
     }
 
     &__icon {
-        width: 250px;
+        width: 200px;
     }
 
     &__action-button {
         margin-top: 3.5rem;
+        display: block;
+        align-self: center;
     }
 
     &__welcome {
