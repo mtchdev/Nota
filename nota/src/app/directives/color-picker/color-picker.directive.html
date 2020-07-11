@@ -4,6 +4,8 @@
     </div>
 
     <div class="color-picker--container">
-        <div class="color-picker__color" *ngFor="let color of colors" [style.background-color]="[color]" (click)="selectColor(color)" [id]="color.substr(1)"></div>
+        <div class="color-picker__color" *ngFor="let color of colors" [ngStyle]="{
+            'background-color': color
+        }" (click)="selectColor(color)" [id]="color.substr(1)"></div>
     </div>
 </div>
