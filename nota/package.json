@@ -71,6 +71,7 @@
     "@typescript-eslint/eslint-plugin-tslint": "3.3.0",
     "@typescript-eslint/parser": "3.3.0",
     "chai": "4.2.0",
+    "codelyzer": "5.1.2",
     "conventional-changelog-cli": "2.0.34",
     "core-js": "3.6.5",
     "cross-env": "7.0.2",
