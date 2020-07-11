@@ -24,7 +24,7 @@
     
             <div class="sidebar__section">
                 <span class="sidebar__section-title">Notebooks</span>
-                <span (click)="initiateNewNotebook()">+</span>
+                <span id="create-notebook" (click)="initiateNewNotebook()">+</span>
             </div>
         </div>
     
@@ -41,13 +41,13 @@
             <div class="sidebar__user--avatar"></div>
             <div class="sidebar__user--info">
                 <span class="sidebar__user--info_username">@mtchdev</span>
-                <span class="sidebar__user--info_settings" (click)="activeMenu = 'settings'">Settings</span>
+                <span id="toggle-settings" class="sidebar__user--info_settings" (click)="toggleMenu()">Settings</span>
             </div>
         </div>
     </div>
 
     <div id="settings-menu" *ngIf="activeMenu == 'settings'">
-        <div class="sidebar__big-button" (click)="activeMenu = 'generic'">
+        <div id="toggle-generic" class="sidebar__big-button" (click)="toggleMenu()">
             <img src="assets/svg/note-white.svg" class="sidebar__big-button--icon" />
         </div>
     

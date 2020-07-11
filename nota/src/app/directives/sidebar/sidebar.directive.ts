@@ -48,4 +48,8 @@ export class SidebarDirectiveComponent implements OnInit {
         this.showNewNotebook = false;
         this.newNotebook = undefined;
     }
+
+    public toggleMenu(): void {
+        this.activeMenu = this.activeMenu === 'generic' ? 'settings' : 'generic';
+    }
 }
