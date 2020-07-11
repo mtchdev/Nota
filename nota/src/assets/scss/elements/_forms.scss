@@ -53,7 +53,7 @@ input[type="text"], input[type="password"] {
     border: 1px solid transparent;
 
     &--has-error {
-        border: 1px solid $error;
+        border: 1px solid $error !important;
     }
 
     &__label {

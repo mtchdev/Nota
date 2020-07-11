@@ -107,13 +107,14 @@
         
         <div class="form form--is-column margin-top--lg">
             <input type="text" id="notebook-color" class="input margin-right--sm" [ngStyle]="{
-                'background-color': newNotebook.color ? lighten(newNotebook.color) : '#E5E5E5',
-                'border': newNotebook.color ? '1px solid ' + newNotebook.color : '1px solid transparent'
-            }" [(ngModel)]="newNotebook.title" placeholder="Notebook Title">
+                'background-color': newNotebook.color && !newNotebookError ? lighten(newNotebook.color) : '#E5E5E5',
+                'border': newNotebook.color && !newNotebookError ? '1px solid ' + newNotebook.color : '1px solid transparent'
+            }" [(ngModel)]="newNotebook.title" [ngClass]="{'input--has-error': newNotebookError}" (keydown)="newNotebookError = null" placeholder="Notebook Title">
+            <span *ngIf="newNotebookError" class="input__validation input__validation--error">{{ newNotebookError }}</span>
         </div>
 
         <div class="margin-top--lg">
-            <color-picker (color)="newNotebook.color = $event"></color-picker>
+            <color-picker (color)="selectColor($event)"></color-picker>
         </div>
 
         <div class="modal__button-group">

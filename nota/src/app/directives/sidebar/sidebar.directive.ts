@@ -14,6 +14,7 @@ export class SidebarDirectiveComponent implements OnInit {
     public notebooks: Array<Notebook>;
     public newNotebook: Notebook;
     public showNewNotebook = false;
+    public newNotebookError = null;
 
     ngOnInit() {
         this.activeMenu = 'generic';
@@ -37,8 +38,24 @@ export class SidebarDirectiveComponent implements OnInit {
         this.showNewNotebook = true;
     }
 
+    public selectColor(color: string): void {
+        this.newNotebook.color = color;
+        this.newNotebookError = null;
+    }
+
     public createNotebook(): void {
-        // TODO
+        this.newNotebookError = null;
+
+        if (!this.newNotebook.title) {
+            this.newNotebookError = 'Please enter a notebook title.';
+            return;
+        }
+
+        if (!this.newNotebook.color) {
+            this.newNotebookError = 'Please select a color.';
+            return;
+        }
+
         this.notebooks.push(this.newNotebook);
         this.showNewNotebook = false;
         this.newNotebook = undefined;
