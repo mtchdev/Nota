@@ -1,24 +1,55 @@
-// Global Variables
+// GLOBAL APP STYLE VARIABLES
 
+
+// -- COLORS -- //
+
+// Brand
 $primary: #5F65F4;
 $secondary: #B95FF4;
 
+// Generic
+$white: #FFFFFF;
+$light: #F8F8F8;
+$light-grey: #E8E8E8;
+$grey: #6E6E6E;
 $almost-black: #2E2E2E;
 $black: #000000;
-$grey: #6E6E6E;
-$almost-white: #F8F8F8;
-$white: #FFFFFF;
-$light: #E5E5E5;
-$yellow: #FFE30A;
 
+$red: #FF0000;
+$orange: #FF9100;
+$yellow: #F7FF00;
+$green: #00FF08;
+$light-blue: #00F6FF;
+$dark-blue: #0055FF;
+$purple: #9100FF;
+$pink: #FF00DD;
+
+
+// -- FONT SIZES -- //
+$font-light: 300;
+$font-regular: 400;
+$font-semibold: 600;
+$font-bold: 700;
+$font-extrabold: 800;
+
+
+// -- VALIDATION -- //
 $error: #F35757;
 $success: #0CC23D;
 
-// Coefficients
+
+// -- COEFFICIENTS -- //
 $color-coef: 5%;
 
-// Margins
+
+// -- MARGINS -- //
 $mar: 1rem;
 $mar-lg: 2.5rem;
 $mar-sm: .5rem;
 $mar-xl: 3.5rem;
+
+
+// -- ANIMATIONS -- //
+$transition: all .1s linear;
+$transition-long: all .2s linear;
+$transition-short: all .05s linear;

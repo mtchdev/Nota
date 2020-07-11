@@ -14,7 +14,7 @@
     }
 
     &__content {
-        background-color: $almost-white;
+        background-color: $light;
         padding: 20px;
         width: 600px;
         border-radius: 10px;
@@ -47,7 +47,7 @@
         &--close {
             cursor: pointer;
             color: $grey;
-            transition: .1s linear;
+            transition: $transition;
 
             &:hover {
                 color: lighten($grey, $color-coef);

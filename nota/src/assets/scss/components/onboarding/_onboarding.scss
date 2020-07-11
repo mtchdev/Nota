@@ -3,7 +3,7 @@
 .onboarding {
 
     &__title {
-        font-weight: 600;
+        font-weight: $font-semibold;
         font-size: 3.8rem;
         margin-bottom: .5rem;
     }
@@ -23,12 +23,12 @@
 
     &__welcome {
         &-text {
-            font-weight: 300;
+            font-weight: $font-light;
             color: $grey;
             line-height: 1rem;
 
             strong {
-                font-weight: 700;
+                font-weight: $font-bold;
                 color: $primary;
             }
         }

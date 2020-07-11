@@ -10,9 +10,9 @@
     line-height: 30px;
 
     &__title {
-        color: $almost-white;
+        color: $light;
         font-size: 15px;
-        font-weight: 300;
+        font-weight: $font-light;
         user-select: none;
     }
 }

@@ -29,7 +29,7 @@ span {
 a {
     text-decoration: underline;
     color: $primary;
-    transition: 0.2s linear;
+    transition: $transition-long;
 
     &:hover {
         color: lighten($primary, $color-coef);

@@ -9,7 +9,7 @@
     &__title {
         text-transform: uppercase;
         color: $grey;
-        font-weight: 600;
+        font-weight: $font-semibold;
         font-size: 11px;
         float: left;
         padding-top: .8rem;

@@ -2,7 +2,7 @@
     position: fixed;
 
     &__pane {
-        background-color: $almost-white;
+        background-color: $light;
         width: 400px;
         height: 100%;
         margin-left: 175px;
@@ -12,7 +12,7 @@
         width: 100%;
         height: calc(80px - 1px);
         border-bottom: 1px solid #F1F1F1;
-        background-color: $almost-white;
+        background-color: $light;
 
         &--input {
             width: 90%;
@@ -47,7 +47,7 @@
             width: calc(100% - 7.5px);
             margin-bottom: 1px;
             cursor: pointer;
-            transition: .1s linear;
+            transition: $transition;
             user-select: none;
 
             &-container {
@@ -64,20 +64,20 @@
 
             &-date {
                 margin-left: auto;
-                font-weight: 400;
+                font-weight: $font-regular;
                 font-size: 13px;
                 color: $grey;
             }
 
             &-user {
-                font-weight: 300;
+                font-weight: $font-light;
                 font-size: 13px;
                 color: $grey;
             }
 
             &-title {
                 font-size: 15px;
-                font-weight: 600;
+                font-weight: $font-semibold;
                 color: $almost-black;
                 padding-bottom: 5px;
                 overflow: hidden;

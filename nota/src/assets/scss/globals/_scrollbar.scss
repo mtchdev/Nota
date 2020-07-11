@@ -7,14 +7,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: darken($almost-white, $color-coef);
+    background: darken($light, $color-coef);
     border: 3px solid transparent;
     border-radius: 5px;
     background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: darken($almost-white, $color-coef * 2);
+    background: darken($light, $color-coef * 2);
     border: 3px solid transparent;
     border-radius: 5px;
     background-clip: content-box;

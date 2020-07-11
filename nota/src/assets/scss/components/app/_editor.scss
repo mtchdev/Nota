@@ -43,7 +43,7 @@
 
             &_title {
                 color: $grey;
-                font-weight: 400;
+                font-weight: $font-regular;
                 margin-left: 50px;
                 width: 30vw;
                 border: 0;
@@ -61,7 +61,7 @@
                 margin-left: 15px;
                 cursor: pointer;
                 color: $almost-black;
-                transition: .1s linear;
+                transition: $transition;
 
                 &:hover {
                     color: lighten($almost-black, $color-coef * 3);

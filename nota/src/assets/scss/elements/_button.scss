@@ -2,7 +2,7 @@
 
 button {
     color: $white;
-    font-weight: 400;
+    font-weight: $font-regular;
     font-size: 1rem;
     border-radius: 10px;
     box-sizing: border-box;
@@ -51,7 +51,7 @@ button {
     
         &__grey {
             background-color: $grey;
-            transition: 0.15s linear;
+            transition: $transition-long;
             &:hover {
                 background-color: darken($grey, $color-coef);
             }
@@ -59,7 +59,7 @@ button {
     
         &__primary {
             background-color: $primary;
-            transition: 0.15s linear;
+            transition: $transition-long;
             &:hover {
                 background-color: darken($primary, $color-coef);
             }
@@ -67,7 +67,7 @@ button {
     
         &__almost-black {
             background-color: $almost-black;
-            transition: 0.15s linear;
+            transition: $transition-long;
             &:hover {
                 background-color: darken($almost-black, $color-coef);
             }
