@@ -16,6 +16,9 @@
       "dom"
     ]
   },
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
   "include": [
     "main.ts"
   ],

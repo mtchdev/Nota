@@ -25,6 +25,9 @@
       "providers/*": [ "app/providers/*" ] 
     }
   },
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
   "include": [
     "main.ts",
     "src/**/*"

@@ -19,6 +19,7 @@
     "postinstall:web": "node postinstall-web",
     "postinstall:electron": "node postinstall",
     "ng": "ng",
+    "ngcc": "ngcc",
     "start": "npm run postinstall:electron && npm-run-all -p ng:serve electron:serve",
     "start:dev": "npm run postinstall:electron && npm-run-all -p ng:serve:dev electron:serve",
     "start:prod": "npm run postinstall:electron && npm-run-all -p ng:serve:prod electron:serve",
