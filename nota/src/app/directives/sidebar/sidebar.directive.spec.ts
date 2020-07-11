@@ -61,8 +61,11 @@ describe('SidebarDirectiveComponent', () => {
         expect(component.newNotebook).toBeUndefined();
     });
 
-    it('should open create notebook modal when button is clicked', () => {
+    it('should open create notebook modal with new object when button is clicked', () => {
+        spyOn(component, 'initiateNewNotebook').and.callThrough();
         debug.query(By.css('#create-notebook')).nativeElement.click();
+        expect(component.initiateNewNotebook).toHaveBeenCalled();
+        expect(component.newNotebook).not.toBeUndefined();
         expect(component.showNewNotebook).toBeTruthy();
     });
 });
