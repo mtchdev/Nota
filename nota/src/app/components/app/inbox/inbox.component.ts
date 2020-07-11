@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-inbox',
-  templateUrl: './inbox.component.html'
+    selector: 'app-inbox',
+    templateUrl: './inbox.component.html'
 })
 export class InboxComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
