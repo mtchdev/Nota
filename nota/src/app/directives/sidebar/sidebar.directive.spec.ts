@@ -68,4 +68,19 @@ describe('SidebarDirectiveComponent', () => {
         expect(component.newNotebook).not.toBeUndefined();
         expect(component.showNewNotebook).toBeTruthy();
     });
+
+    it('should produce errors when the title is null for a new notebook', () => {
+        component.initiateNewNotebook();
+        component.createNotebook();
+        expect(component.newNotebookError).toBeTruthy();
+        expect(component.notebooks.length).toEqual(1);
+    });
+
+    it('should produce an error when no color is selected for a new notebook', () => {
+        component.initiateNewNotebook();
+        component.newNotebook.title = 'Test';
+        component.createNotebook();
+        expect(component.newNotebookError).toBeTruthy();
+        expect(component.notebooks.length).toEqual(1);
+    });
 });
