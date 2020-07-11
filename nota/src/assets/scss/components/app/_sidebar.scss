@@ -5,7 +5,7 @@
     height: 100%;
     user-select: none;
     position: fixed;
-    background-color: $almost-white;
+    background-color: $light;
     border-right: 1px solid #F1F1F1;
 
     &__big-button {
@@ -13,7 +13,7 @@
         width: 100%;
         height: 80px;
         cursor: pointer;
-        transition: 0.1s linear;
+        transition: $transition;
 
         &--icon {
             width: 40px;
@@ -43,7 +43,20 @@
             text-transform: uppercase;
             color: $grey;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: $font-semibold;
+
+            &--action {
+                color: $grey;
+                font-size: 13px;
+                cursor: pointer;
+                margin-left: auto;
+                margin-right: 8px;
+                transition: $transition;
+
+                &:hover {
+                    color: lighten($grey, $color-coef);
+                }
+            }
         }
 
         &-item {
@@ -68,9 +81,14 @@
 
                 &-active {
                     color: $primary;
-                    font-weight: 600;
+                    font-weight: $font-semibold;
                 }
             }
+        }
+
+        &--has-action {
+            @include flexbox;
+            align-items: center;
         }
     }
 
@@ -88,7 +106,7 @@
 
         &--title {
             color: $almost-black;
-            font-weight: 400;
+            font-weight: $font-regular;
             font-size: 15px;
             margin-left: 10px;
         }
@@ -108,7 +126,7 @@
         height: 60px;
         position: absolute;
         bottom: 30px;
-        background-color: $almost-white;
+        background-color: $light;
         
         &--avatar {
             width: 40px;
@@ -136,7 +154,7 @@
                 color: $primary;
                 font-size: 12px;
                 cursor: pointer;
-                transition: 0.1s linear;
+                transition: $transition;
                 width: 50px;
 
                 &:hover {

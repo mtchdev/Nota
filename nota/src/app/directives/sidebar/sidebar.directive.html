@@ -22,9 +22,9 @@
                 </div>
             </div>
     
-            <div class="sidebar__section">
+            <div class="sidebar__section sidebar__section--has-action">
                 <span class="sidebar__section-title">Notebooks</span>
-                <span id="create-notebook" (click)="initiateNewNotebook()">+</span>
+                <i class="sidebar__section-title--action fa fa-plus" id="create-notebook" (click)="initiateNewNotebook()"></i>
             </div>
         </div>
     
@@ -102,7 +102,7 @@
     <div class="modal__content modal__content--medium">
         <div class="modal__titlebar">
             <span class="modal__titlebar--title">Create {{ newNotebook.title ? '"' + newNotebook.title + '"' : 'Notebook' }}</span>
-            <span class="modal__titlebar--close" (click)="showNewNotebook = false">X</span>
+            <i class="modal__titlebar--close fa fa-times" (click)="cancelNewNotebook()"></i>
         </div>
         
         <div class="form form--is-column margin-top--lg">

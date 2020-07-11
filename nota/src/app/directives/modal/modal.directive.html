@@ -2,7 +2,7 @@
     <div class="modal__content">
         <div class="modal__titlebar">
             <span class="modal__titlebar--title">{{ header || 'Modal' }}</span>
-            <span class="modal__titlebar--close" (click)="cancel()">X</span>
+            <i class="modal__titlebar--close fa fa-times" (click)="cancel()"></i>
         </div>
         
         {{ message }}
