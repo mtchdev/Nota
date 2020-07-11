@@ -18,9 +18,9 @@
     }
 
     &--container {
+        @include flexbox;
+        @include flex-wrap(wrap);
         margin-bottom: 1rem;
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
     }
 

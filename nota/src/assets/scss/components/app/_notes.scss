@@ -58,8 +58,8 @@
             }
 
             &-row {
-                display: flex;
-                flex-direction: row;
+                @include flexbox;
+                @include flex-direction(row);;;
             }
 
             &-date {

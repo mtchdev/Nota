@@ -1,17 +1,17 @@
 .form {
-    display: flex;
+    @include flexbox;
 
     &--is-row {
-        flex-direction: row;        
+        @include flex-direction(row);;;        
     }
 
     &--is-column {
-        flex-direction: column;
+        @include flex-direction(column);
     }
 
     &--button-group {
-        display: flex;
-        flex-direction: row;
+        @include flexbox;
+        @include flex-direction(row);;;
         justify-content: space-between;
     }
 

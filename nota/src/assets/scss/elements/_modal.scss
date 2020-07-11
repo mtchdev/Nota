@@ -33,24 +33,31 @@
     }
 
     &__titlebar {
+        @include flexbox;
+        @include flex-direction(row);;
         height: 20px;
-        display: flex;
-        flex-direction: row;
         justify-content: space-between;
         margin-bottom: $mar-lg;
 
         &--title {
             font-weight: bold;
+            user-select: none;
         }
 
         &--close {
             cursor: pointer;
+            color: $grey;
+            transition: .1s linear;
+
+            &:hover {
+                color: lighten($grey, $color-coef);
+            }
         }
     }
 
     &__button-group {
-        display: flex;
-        flex-direction: row;
+        @include flexbox;
+        @include flex-direction(row);;
         justify-content: space-between;
         margin-top: $mar-xl;
     }

@@ -1,13 +1,13 @@
 // Some easy-to-access styles go here, more intricate styles that require customs can have their own classes.
 
 .flex {
-    display: flex;
+    @include flexbox;
 
     &.row {
-        flex-direction: row;
+        @include flex-direction(row);;;
     }
 
     &.col {
-        flex-direction: column;
+        @include flex-direction(column);
     }
 }

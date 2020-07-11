@@ -1,11 +1,11 @@
 .flex {
-    display: flex;
+    @include flexbox;
 
     &--row {
-        flex-direction: row;
+        @include flex-direction(row);;;
     }
 
     &--col {
-        flex-direction: column;
+        @include flex-direction(column);
     }
 }
