@@ -5,15 +5,18 @@ import { AppModule } from 'app/app.module';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Notebook } from 'app/models/core/Notebook';
+import { AuthService } from 'app/components/auth/auth.service';
 
 describe('SidebarDirectiveComponent', () => {
     let component: SidebarDirectiveComponent;
     let fixture: ComponentFixture<SidebarDirectiveComponent>;
     let debug: DebugElement;
+    let authService: MockAuthService;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [ AppModule ]
+            imports: [ AppModule ],
+            providers: [ {provide: AuthService, useClass: MockAuthService} ]
         })
         .compileComponents();
     }));
@@ -21,12 +24,9 @@ describe('SidebarDirectiveComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(SidebarDirectiveComponent);
         component = fixture.componentInstance;
+        authService = TestBed.get(AuthService);
         debug = fixture.debugElement;
         fixture.detectChanges();
-    });
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
     });
 
     it('should go to settings menu when clicked', () => {
@@ -84,3 +84,12 @@ describe('SidebarDirectiveComponent', () => {
         expect(component.notebooks.length).toEqual(1);
     });
 });
+
+class MockAuthService {
+    
+    user = {
+        username: 'test',
+        email: 'test'
+    };
+    
+}

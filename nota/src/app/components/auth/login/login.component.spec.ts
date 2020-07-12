@@ -94,6 +94,10 @@ class MockAuthService {
     });
   }
 
+  public isAuthenticated(): boolean {
+    return true;
+  }
+
 }
 
 interface AuthResponse {

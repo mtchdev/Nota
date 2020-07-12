@@ -130,6 +130,10 @@ class MockAuthService {
         this.token = data.token;
     }
 
+    public isAuthenticated(): boolean {
+        return true;
+    }
+
 }
 
 interface RegisterForm {
