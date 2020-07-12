@@ -1,22 +1,21 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarDirectiveComponent } from './sidebar.directive';
 import { AppModule } from 'app/app.module';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Notebook } from 'app/models/core/Notebook';
-import { AuthService } from 'app/components/auth/auth.service';
+import { MOCK_AUTH_PROVIDER } from 'app/providers/tests/auth.mock.service';
 
 describe('SidebarDirectiveComponent', () => {
     let component: SidebarDirectiveComponent;
     let fixture: ComponentFixture<SidebarDirectiveComponent>;
     let debug: DebugElement;
-    let authService: MockAuthService;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [ AppModule ],
-            providers: [ {provide: AuthService, useClass: MockAuthService} ]
+            providers: [ MOCK_AUTH_PROVIDER ]
         })
         .compileComponents();
     }));
@@ -24,7 +23,6 @@ describe('SidebarDirectiveComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(SidebarDirectiveComponent);
         component = fixture.componentInstance;
-        authService = TestBed.get(AuthService);
         debug = fixture.debugElement;
         fixture.detectChanges();
     });

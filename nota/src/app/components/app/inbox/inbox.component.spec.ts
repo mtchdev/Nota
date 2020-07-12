@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InboxComponent } from './inbox.component';
 import { AppModule } from 'app/app.module';
+import { MOCK_AUTH_PROVIDER } from 'app/providers/tests/auth.mock.service';
 
 describe('InboxComponent', () => {
     let component: InboxComponent;
@@ -9,7 +10,8 @@ describe('InboxComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [ AppModule ]
+            imports: [ AppModule ],
+            providers: [ MOCK_AUTH_PROVIDER ]
         })
         .compileComponents();
     }));
@@ -20,7 +22,7 @@ describe('InboxComponent', () => {
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
