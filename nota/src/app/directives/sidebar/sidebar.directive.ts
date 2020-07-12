@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Notebook } from 'app/models/core/Notebook';
+import { AuthService } from 'app/components/auth/auth.service';
 import * as cl from 'color';
 
 type MenuType = 'generic' | 'settings';
@@ -15,6 +16,8 @@ export class SidebarDirectiveComponent implements OnInit {
     public newNotebook: Notebook;
     public showNewNotebook = false;
     public newNotebookError = null;
+
+    constructor(public authService: AuthService) {}
 
     ngOnInit() {
         this.activeMenu = 'generic';
