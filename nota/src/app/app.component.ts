@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
       }
 
       this.loadingApplication = false;
+    } else {
+      this.loadingApplication = false;
     }
   }
 }
