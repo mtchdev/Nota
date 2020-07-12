@@ -57,6 +57,8 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem(AppVariables.authTokenIdentifier, data.data.token);
                 this.authService.user = data.data.user;
                 this.authService.token = data.data.token;
+
+                this.router.navigate(['app/inbox']);
             },
             error => {
                 this.loginLoading = false;

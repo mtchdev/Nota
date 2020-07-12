@@ -19,6 +19,7 @@ import { AuthService } from './components/auth/auth.service';
 import { AppService } from './app.service';
 import { HttpService } from './providers/http.service';
 import { HttpErrorInterceptor } from './providers/http.interceptor';
+import { AuthGuardService } from './providers/auth-guard.service';
 
 /**
  * Imports
@@ -85,6 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpService,
     AppService,
     HttpService,
+    AuthGuardService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: HttpErrorInterceptor,

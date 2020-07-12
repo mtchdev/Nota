@@ -4,6 +4,7 @@ import { User } from 'models/auth/User';
 import { API } from 'app/app.constants';
 import { Observable } from 'rxjs';
 import { AppVariables } from 'app/app.constants';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 interface AuthResponse {
     token: string;
@@ -15,6 +16,7 @@ export class AuthService {
 
     private _user: User;
     private _token: string;
+    private jwt: JwtHelperService = new JwtHelperService();
 
     constructor(private http: HttpService) { }
 
@@ -57,5 +59,9 @@ export class AuthService {
         localStorage.setItem(AppVariables.authTokenIdentifier, data.token);
         this.user = data.user;
         this.token = data.token;
+    }
+
+    public isAuthenticated(): boolean {
+        return !this.jwt.isTokenExpired(this.token);
     }
 }
