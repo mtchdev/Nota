@@ -1,2 +1,6 @@
-<titlebar></titlebar>
-<router-outlet></router-outlet>
+<!-- Application -->
+
+<ng-container *ngIf="!loadingApplication">
+    <titlebar></titlebar>
+    <router-outlet></router-outlet>
+</ng-container>

@@ -28,14 +28,20 @@ export class AuthService {
         return this.http.post<AuthResponse>(API.format('auth/login'), form);
     }
 
-    public refresh(): void {
-        this.http.get<AuthResponse>(API.format('auth/refresh')).subscribe(
-            data => {
-                localStorage.setItem(AppVariables.authTokenIdentifier, data.data.token);
-                this.user = data.data.user;
-                this.token = data.data.token;
-            }
-        );
+    public refresh(): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            this.http.get<AuthResponse>(API.format('auth/refresh')).subscribe(
+                data => {
+                    localStorage.setItem(AppVariables.authTokenIdentifier, data.data.token);
+                    this.user = data.data.user;
+                    this.token = data.data.token;
+                    resolve(data.data.token);
+                },
+                error => {
+                    reject(error);
+                }
+            );
+        })
     }
 
     public set token(token: string) {

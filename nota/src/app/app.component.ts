@@ -5,6 +5,7 @@ import { AppService } from 'app/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'app/components/auth/auth.service';
 import { AppVariables } from 'app/app.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,12 @@ import { AppVariables } from 'app/app.constants';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public electronService: ElectronService, private appService: AppService, private translateService: TranslateService, private authService: AuthService) {}
+  public loadingApplication: boolean;
+
+  constructor(public electronService: ElectronService, private appService: AppService, private translateService: TranslateService, private authService: AuthService, private router: Router) {}
 
   public ngOnInit(): void {
+    this.loadingApplication = true;
     console.log(`${Metadata.Name} on v${Metadata.Version}`);
     this.translateService.setDefaultLang('en-US');
     this.translateService.use('en-US');
@@ -22,9 +26,15 @@ export class AppComponent implements OnInit {
     this.checkAuth();
   }
 
-  private checkAuth(): void {
+  private async checkAuth() {
     if (localStorage.getItem(AppVariables.authTokenIdentifier)) {
-      this.authService.refresh();
+      await this.authService.refresh();
+
+      if (this.authService.isAuthenticated()) {
+        this.router.navigate(['app/inbox']);
+      }
+
+      this.loadingApplication = false;
     }
   }
 }
