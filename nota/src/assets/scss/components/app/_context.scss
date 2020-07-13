@@ -8,15 +8,20 @@
     background-color: $white;
 
     &__options {
-        list-style: none;
         margin: 0;
         padding: 0;
 
         &--item {
-            font-weight: 400;
-            font-size: 14px;
-            cursor: pointer;
-            margin: 10px 20px 10px 20px;
+            height: 35px;
+            width: 100%;
+
+            &_label {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 35px;
+                padding: 0 20px 0 20px;
+                cursor: pointer;
+            }
 
             &_red {
                 color: $red;
