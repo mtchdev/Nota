@@ -8,7 +8,7 @@ from util import parse_params
 from util import auth
 
 
-class CreateNotebookResource(Resource):
+class NotebookResource(Resource):
 
     @staticmethod
     @auth
@@ -23,3 +23,13 @@ class CreateNotebookResource(Resource):
         )
 
         return jsonify({"data": notebook})
+
+    @staticmethod
+    @auth
+    @swag_from("../swagger/auth/register.yml")
+    def get(user):
+        notebooks = NotebookRepository.getAll(
+            user=user
+        )
+
+        return jsonify({"data": notebooks})

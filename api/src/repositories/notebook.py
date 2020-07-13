@@ -27,3 +27,18 @@ class NotebookRepository:
         notebook.save()
 
         return notebook.transform()
+    
+    @staticmethod
+    def getAll(user):
+        """ Get all notebooks for the authenticated user """
+
+        notebooks = Notebook.query.filter_by(user=user.id).all()
+
+        ret = []
+        for notebook in notebooks:
+            ret.append({
+                'name': notebook.name,
+                'color': notebook.color
+            })
+        
+        return ret
