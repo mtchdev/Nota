@@ -20,6 +20,7 @@ import { AppService } from './app.service';
 import { HttpService } from './providers/http.service';
 import { HttpErrorInterceptor } from './providers/http.interceptor';
 import { AuthGuardService } from './providers/auth-guard.service';
+import { NotebookService } from './components/app/notebook.service';
 
 /**
  * Imports
@@ -95,7 +96,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         provide: HTTP_INTERCEPTORS,
         useClass: HttpErrorInterceptor,
         multi: true
-    }
+    },
+    NotebookService
   ],
   bootstrap: [AppComponent]
 })

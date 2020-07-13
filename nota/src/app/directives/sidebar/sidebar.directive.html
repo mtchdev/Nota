@@ -29,11 +29,11 @@
         </div>
     
         <div id="notebook-drag-area" cdkDropList (cdkDropListDropped)="dropNotebook($event)">
-            <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks | slice:0:8" [title]="notebook.title" [ngStyle]="{
+            <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks | slice:0:8" [title]="notebook.name" [ngStyle]="{
                 'background-color': lighten(notebook.color),
                 'border-left': '7px solid ' + notebook.color
             }" cdkDrag cdkDragBoundary="#notebook-drag-area" (contextmenu)="showNotebookContext($event, notebook)" >
-                <span class="sidebar__notebook--title">{{ notebook.title }}</span>
+                <span class="sidebar__notebook--title">{{ notebook.name }}</span>
             </div>
         </div>
     
@@ -103,7 +103,7 @@
 <div class="modal" [ngClass]="{'modal--is-visible': showNewNotebook}" *ngIf="newNotebook">
     <div class="modal__content modal__content--medium">
         <div class="modal__titlebar">
-            <span class="modal__titlebar--title">Create {{ newNotebook.title ? '"' + newNotebook.title + '"' : 'Notebook' }}</span>
+            <span class="modal__titlebar--title">Create {{ newNotebook.name ? '"' + newNotebook.name + '"' : 'Notebook' }}</span>
             <i class="modal__titlebar--close fa fa-times" (click)="cancelNewNotebook()"></i>
         </div>
         
@@ -111,7 +111,7 @@
             <input type="text" id="notebook-color" class="input margin-right--sm" [ngStyle]="{
                 'background-color': newNotebook.color && !newNotebookError ? lighten(newNotebook.color) : '#E5E5E5',
                 'border': newNotebook.color && !newNotebookError ? '1px solid ' + newNotebook.color : '1px solid transparent'
-            }" [(ngModel)]="newNotebook.title" [ngClass]="{'input--has-error': newNotebookError}" (keydown)="newNotebookError = null" (keydown.enter)="createNotebook()" placeholder="Notebook Title">
+            }" [(ngModel)]="newNotebook.name" [ngClass]="{'input--has-error': newNotebookError}" (keydown)="newNotebookError = null" (keydown.enter)="createNotebook()" placeholder="Notebook Title">
             <span *ngIf="newNotebookError" class="input__validation input__validation--error">{{ newNotebookError }}</span>
         </div>
 

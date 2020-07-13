@@ -3,6 +3,7 @@ import { Notebook } from 'app/models/core/Notebook';
 import { AuthService } from 'app/components/auth/auth.service';
 import * as cl from 'color';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { NotebookService } from 'app/components/app/notebook.service';
 
 type MenuType = 'generic' | 'settings';
 
@@ -25,14 +26,14 @@ export class SidebarDirectiveComponent implements OnInit {
     };
     public contextNotebook: Notebook;
 
-    constructor(public authService: AuthService) {}
+    constructor(public authService: AuthService, private notebookService: NotebookService) {}
 
     ngOnInit() {
         this.activeMenu = 'generic';
 
         this.notebooks = [
             {
-                title: 'Notebook Title',
+                name: 'Notebook Title',
                 color: '#00FF31',
                 notes: []
             }
@@ -57,7 +58,7 @@ export class SidebarDirectiveComponent implements OnInit {
     public createNotebook(): void {
         this.newNotebookError = null;
 
-        if (!this.newNotebook.title) {
+        if (!this.newNotebook.name) {
             this.newNotebookError = 'Please enter a notebook title.';
             return;
         }
@@ -67,9 +68,17 @@ export class SidebarDirectiveComponent implements OnInit {
             return;
         }
 
-        this.notebooks.push(this.newNotebook);
-        this.showNewNotebook = false;
-        this.newNotebook = undefined;
+        this.notebookService.createNotebook(this.newNotebook).subscribe(
+            data => {
+                console.log(data.data);
+                this.notebooks.push(this.newNotebook);
+                this.newNotebook = undefined;
+                this.showNewNotebook = false;
+            },
+            error => {
+                console.log(error);
+            }
+        );
     }
 
     public cancelNewNotebook(): void {
