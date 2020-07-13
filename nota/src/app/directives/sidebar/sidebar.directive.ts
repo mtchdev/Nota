@@ -36,8 +36,6 @@ export class SidebarDirectiveComponent implements OnInit {
                 data.data.forEach((notebook: Notebook) => {
                     this.notebooks.push(notebook);
                 });
-
-                console.log(this.notebooks)
             }
         );
     }
