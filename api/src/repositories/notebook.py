@@ -19,7 +19,7 @@ class NotebookRepository:
         notebook = Notebook(
             name=name,
             color=color,
-            user=1,
+            user=user.id,
             created_at=current_time,
             updated_at=current_time
         )

@@ -7,7 +7,8 @@ class User(db.Model, BaseModel, metaclass=MetaBaseModel):
 
     __tablename__ = "users"
 
-    username = db.Column(db.String(24), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(24))
     email = db.Column(db.String(255))
     password = db.Column(db.Binary())
     secret = db.Column(db.String(19))
