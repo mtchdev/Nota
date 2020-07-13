@@ -70,13 +70,9 @@ export class SidebarDirectiveComponent implements OnInit {
 
         this.notebookService.createNotebook(this.newNotebook).subscribe(
             data => {
-                console.log(data.data);
                 this.notebooks.push(this.newNotebook);
                 this.newNotebook = undefined;
                 this.showNewNotebook = false;
-            },
-            error => {
-                console.log(error);
             }
         );
     }

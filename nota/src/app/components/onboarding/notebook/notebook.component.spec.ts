@@ -39,10 +39,10 @@ describe('NotebookComponent', () => {
     });
 
     it('should successfully set a notebook title', (() => {
-        expect(component.notebook.title).toBeNull();
+        expect(component.notebook.name).toBeNull();
         component.notebookTitle = 'English Homework';
         component.createNotebook();
-        expect(component.notebook.title).toBeTruthy();
+        expect(component.notebook.name).toBeTruthy();
     }));
 
     it('should go to the `color` step after setting a notebook title', (() => {
@@ -66,7 +66,7 @@ describe('NotebookComponent', () => {
         component.step = 'color';
         fixture.detectChanges();
         debug.query(By.css('#FF0000')).nativeElement.click();
-        expect(component.notebook.color).toBe('#FF0000');
+        expect(component.notebook.color).toBe('FF0000');
     }));
 });
 
