@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Notebook } from 'app/models/core/Notebook';
 import { AuthService } from 'app/components/auth/auth.service';
 import * as cl from 'color';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 type MenuType = 'generic' | 'settings';
 
@@ -27,7 +28,62 @@ export class SidebarDirectiveComponent implements OnInit {
                 title: 'Notebook Title',
                 color: '#00FF31',
                 notes: []
-            }
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
+            {
+                title: 'Nota Title',
+                color: '#00FF31',
+                notes: []
+            },
         ];
     }
 
@@ -71,5 +127,9 @@ export class SidebarDirectiveComponent implements OnInit {
 
     public toggleMenu(): void {
         this.activeMenu = this.activeMenu === 'generic' ? 'settings' : 'generic';
+    }
+
+    public dropNotebook(event: CdkDragDrop<string[]>): void {
+        moveItemInArray(this.notebooks, event.previousIndex, event.currentIndex);
     }
 }

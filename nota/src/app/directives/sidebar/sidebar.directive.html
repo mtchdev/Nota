@@ -28,11 +28,13 @@
             </div>
         </div>
     
-        <div class="sidebar__notebook" *ngFor="let notebook of notebooks" [title]="notebook.title" [ngStyle]="{
-            'background-color': lighten(notebook.color),
-            'border-left': '7px solid ' + notebook.color
-        }">
-            <span class="sidebar__notebook--title">{{ notebook.title }}</span>
+        <div id="notebook-drag-area" cdkDropList (cdkDropListDropped)="dropNotebook($event)">
+            <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks  | slice:0:8" [title]="notebook.title" [ngStyle]="{
+                'background-color': lighten(notebook.color),
+                'border-left': '7px solid ' + notebook.color
+            }" cdkDrag cdkDragBoundary="#notebook-drag-area">
+                <span class="sidebar__notebook--title">{{ notebook.title }}</span>
+            </div>
         </div>
     
         <div class="sidebar__link">All Notebooks</div>
