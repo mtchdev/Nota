@@ -28,8 +28,8 @@ describe('NotebookComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(OnboardingNotebookComponent);
         component = fixture.componentInstance;
-        location = TestBed.get(Location);
-        router = TestBed.get(Router);
+        location = TestBed.inject(Location);
+        router = TestBed.inject(Router);
         debug = fixture.debugElement;
         fixture.detectChanges();
     });

@@ -18,4 +18,4 @@ export class MockAuthService {
 export const MOCK_AUTH_PROVIDER: object = {
     provide: AuthService,
     useClass: MockAuthService
-}
+};

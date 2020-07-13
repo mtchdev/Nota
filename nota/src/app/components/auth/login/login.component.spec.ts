@@ -28,8 +28,8 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    service = TestBed.get(AuthService);
-    location = TestBed.get(Location);
+    service = TestBed.inject(AuthService);
+    location = TestBed.inject(Location);
     debug = fixture.debugElement;
     fixture.detectChanges();
   });

@@ -28,8 +28,8 @@ describe('RegisterComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(RegisterComponent);
         component = fixture.componentInstance;
-        service = TestBed.get(AuthService);
-        location = TestBed.get(Location);
+        service = TestBed.inject(AuthService);
+        location = TestBed.inject(Location);
         debug = fixture.debugElement;
         fixture.detectChanges();
     });

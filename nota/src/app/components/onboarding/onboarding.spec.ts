@@ -25,8 +25,8 @@ describe('OnboardingComponent', () => {
         fixture = TestBed.createComponent(OnboardingComponent);
         component = fixture.componentInstance;
         de = fixture.debugElement;
-        location = TestBed.get(Location);
-        router = TestBed.get(Router);
+        location = TestBed.inject(Location);
+        router = TestBed.inject(Router);
         router.initialNavigation();
         fixture.detectChanges();
     });

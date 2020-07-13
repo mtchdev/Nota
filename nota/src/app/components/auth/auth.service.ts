@@ -41,7 +41,7 @@ export class AuthService {
                     reject(error);
                 }
             );
-        })
+        });
     }
 
     public set token(token: string) {
