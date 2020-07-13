@@ -25,6 +25,6 @@ export class ColorPickerDirectiveComponent implements OnInit {
     }
 
     selectColor(color: string): void {
-        this.color.emit(color);
+        this.color.emit(color.substr(1));
     }
 }

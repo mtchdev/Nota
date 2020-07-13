@@ -14,7 +14,7 @@ type MenuType = 'generic' | 'settings';
 export class SidebarDirectiveComponent implements OnInit {
 
     public activeMenu: MenuType;
-    public notebooks: Array<Notebook>;
+    public notebooks: Notebook[] = [];
     public newNotebook: Notebook;
     public showNewNotebook = false;
     public newNotebookError = null;
@@ -31,17 +31,19 @@ export class SidebarDirectiveComponent implements OnInit {
     ngOnInit() {
         this.activeMenu = 'generic';
 
-        this.notebooks = [
-            {
-                name: 'Notebook Title',
-                color: '#00FF31',
-                notes: []
+        this.notebookService.getAllNotebooks().subscribe(
+            data => {
+                data.data.forEach((notebook: Notebook) => {
+                    this.notebooks.push(notebook);
+                });
+
+                console.log(this.notebooks)
             }
-        ];
+        );
     }
 
     public lighten(color: string): string {
-        return cl(color).lighten(0.75).hex();
+        return cl('#' + color).lighten(0.75).hex();
     }
 
     public initiateNewNotebook(): void {

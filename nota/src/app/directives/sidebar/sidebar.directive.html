@@ -31,7 +31,7 @@
         <div id="notebook-drag-area" cdkDropList (cdkDropListDropped)="dropNotebook($event)">
             <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks | slice:0:8" [title]="notebook.name" [ngStyle]="{
                 'background-color': lighten(notebook.color),
-                'border-left': '7px solid ' + notebook.color
+                'border-left': '7px solid #' + notebook.color
             }" cdkDrag cdkDragBoundary="#notebook-drag-area" (contextmenu)="showNotebookContext($event, notebook)" >
                 <span class="sidebar__notebook--title">{{ notebook.name }}</span>
             </div>
@@ -110,7 +110,7 @@
         <div class="form form--is-column margin-top--lg">
             <input type="text" id="notebook-color" class="input margin-right--sm" [ngStyle]="{
                 'background-color': newNotebook.color && !newNotebookError ? lighten(newNotebook.color) : '#E5E5E5',
-                'border': newNotebook.color && !newNotebookError ? '1px solid ' + newNotebook.color : '1px solid transparent'
+                'border': newNotebook.color && !newNotebookError ? '1px solid #' + newNotebook.color : '1px solid transparent'
             }" [(ngModel)]="newNotebook.name" [ngClass]="{'input--has-error': newNotebookError}" (keydown)="newNotebookError = null" (keydown.enter)="createNotebook()" placeholder="Notebook Title">
             <span *ngIf="newNotebookError" class="input__validation input__validation--error">{{ newNotebookError }}</span>
         </div>

@@ -12,7 +12,7 @@ type Step = 'notebook' | 'color' | 'finish';
 export class OnboardingNotebookComponent implements OnInit {
 
     public notebook: Notebook = {
-        title: null,
+        name: null,
         color: null,
         notes: []
     };
@@ -40,7 +40,7 @@ export class OnboardingNotebookComponent implements OnInit {
 
         if (this.errors.notebook) { return; }
 
-        this.notebook.title = this.notebookTitle;
+        this.notebook.name = this.notebookTitle;
         this.step = 'color';
     }
 

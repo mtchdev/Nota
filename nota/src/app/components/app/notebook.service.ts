@@ -13,4 +13,8 @@ export class NotebookService {
         return this.http.post<Notebook>(API.format('app/notebook'), notebook);
     }
 
+    public getAllNotebooks(): Observable<APIResponse<Notebook[]>> {
+        return this.http.get<Notebook[]>(API.format('app/notebook'));
+    }
+
 }

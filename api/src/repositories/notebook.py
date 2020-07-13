@@ -18,7 +18,7 @@ class NotebookRepository:
         current_time = int(time.time())
         notebook = Notebook(
             name=name,
-            color=color[1:],
+            color=color,
             user=user.id,
             created_at=current_time,
             updated_at=current_time
