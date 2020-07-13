@@ -32,7 +32,7 @@
             <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks | slice:0:8" [title]="notebook.title" [ngStyle]="{
                 'background-color': lighten(notebook.color),
                 'border-left': '7px solid ' + notebook.color
-            }" cdkDrag cdkDragBoundary="#notebook-drag-area">
+            }" cdkDrag cdkDragBoundary="#notebook-drag-area" (contextmenu)="showNotebookContext($event, notebook)" >
                 <span class="sidebar__notebook--title">{{ notebook.title }}</span>
             </div>
         </div>
@@ -125,3 +125,5 @@
         </div>
     </div>
 </div>
+
+<context-notebook [props]="contextMenuProps" [notebook]="contextNotebook"></context-notebook>

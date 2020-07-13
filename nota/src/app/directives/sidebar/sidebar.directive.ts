@@ -18,6 +18,13 @@ export class SidebarDirectiveComponent implements OnInit {
     public showNewNotebook = false;
     public newNotebookError = null;
 
+    public contextMenuProps = {
+        x: 0,
+        y: 0,
+        show: false
+    };
+    public contextNotebook: Notebook;
+
     constructor(public authService: AuthService) {}
 
     ngOnInit() {
@@ -76,5 +83,17 @@ export class SidebarDirectiveComponent implements OnInit {
 
     public dropNotebook(event: CdkDragDrop<string[]>): void {
         moveItemInArray(this.notebooks, event.previousIndex, event.currentIndex);
+    }
+
+    public showNotebookContext(event: any, notebook: Notebook): void {
+        this.contextMenuProps = {
+            x: event.pageX,
+            y: event.pageY,
+            show: true
+        };
+
+        console.log(this.contextMenuProps);
+
+        this.contextNotebook = notebook;
     }
 }
