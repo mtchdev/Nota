@@ -29,7 +29,7 @@
         </div>
     
         <div id="notebook-drag-area" cdkDropList (cdkDropListDropped)="dropNotebook($event)">
-            <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks  | slice:0:8" [title]="notebook.title" [ngStyle]="{
+            <div id="drag-notebook" class="sidebar__notebook" *ngFor="let notebook of notebooks | slice:0:8" [title]="notebook.title" [ngStyle]="{
                 'background-color': lighten(notebook.color),
                 'border-left': '7px solid ' + notebook.color
             }" cdkDrag cdkDragBoundary="#notebook-drag-area">

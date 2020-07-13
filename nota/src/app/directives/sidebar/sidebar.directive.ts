@@ -28,62 +28,7 @@ export class SidebarDirectiveComponent implements OnInit {
                 title: 'Notebook Title',
                 color: '#00FF31',
                 notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
-            {
-                title: 'Nota Title',
-                color: '#00FF31',
-                notes: []
-            },
+            }
         ];
     }
 
