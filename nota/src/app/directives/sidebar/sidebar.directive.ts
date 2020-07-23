@@ -68,6 +68,11 @@ export class SidebarDirectiveComponent implements OnInit {
             return;
         }
 
+        if (this.newNotebook.name.length > 24) {
+            this.newNotebookError = 'The notebook name must be 24 characters or less.';
+            return;
+        }
+
         this.notebookService.createNotebook(this.newNotebook).subscribe(
             data => {
                 this.notebooks.push(this.newNotebook);

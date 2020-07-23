@@ -85,6 +85,14 @@ describe('SidebarDirectiveComponent', () => {
         expect(component.newNotebookError).toBeTruthy();
         expect(component.notebooks.length).toEqual(1);
     });
+
+    it('should produce an error if the new notebook name is > 24 characters', () => {
+        component.initiateNewNotebook();
+        component.newNotebook.name = '123456789012345678901234567689';
+        component.createNotebook();
+        expect(component.newNotebookError).toBeTruthy();
+        expect(component.notebooks.length).toEqual(1);
+    });
 });
 
 class MockNotebookService {

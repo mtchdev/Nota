@@ -15,6 +15,9 @@ class NotebookRepository:
     def create(user, name, color):
         """ Create a new notebook """
 
+        if len(name) > 24:
+            raise UnprocessableEntity(description="NOTEBOOK_NAME_MAX_LENGTH")
+
         current_time = int(time.time())
         notebook = Notebook(
             name=name,
