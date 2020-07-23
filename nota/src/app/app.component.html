@@ -2,5 +2,9 @@
 
 <ng-container *ngIf="!loadingApplication">
     <titlebar></titlebar>
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="isConnected"></router-outlet>
+
+    <ng-container *ngIf="!isConnected">
+        <div>Failed to connect to server</div>
+    </ng-container>
 </ng-container>

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   public loadingApplication: boolean;
+  public isConnected: boolean;
 
   constructor(public electronService: ElectronService, private appService: AppService, private translateService: TranslateService, private authService: AuthService, private router: Router) {}
 
@@ -28,15 +29,26 @@ export class AppComponent implements OnInit {
 
   private async checkAuth() {
     if (localStorage.getItem(AppVariables.authTokenIdentifier)) {
-      await this.authService.refresh();
+      try {
+        await this.authService.refresh();
+      } catch (e) {
+        this.loadingApplication = false;
+        this.isConnected = false;
+        return;
+      }
 
       if (this.authService.isAuthenticated()) {
         this.router.navigate(['app/inbox']);
       }
 
-      this.loadingApplication = false;
+      this.initialize();
     } else {
-      this.loadingApplication = false;
+      this.initialize();
     }
+  }
+
+  private initialize(): void {
+    this.loadingApplication = false;
+    this.isConnected = true;
   }
 }
