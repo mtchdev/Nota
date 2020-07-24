@@ -75,7 +75,7 @@ export class SidebarDirectiveComponent implements OnInit {
 
         this.notebookService.createNotebook(this.newNotebook).subscribe(
             data => {
-                this.notebooks.push(this.newNotebook);
+                this.notebooks.push(data.data);
                 this.newNotebook = undefined;
                 this.showNewNotebook = false;
             }
