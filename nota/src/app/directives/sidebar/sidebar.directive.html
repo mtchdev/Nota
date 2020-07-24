@@ -126,4 +126,4 @@
     </div>
 </div>
 
-<context-notebook [props]="contextMenuProps" [notebook]="contextNotebook"></context-notebook>
+<context-notebook [props]="contextMenuProps" [notebook]="contextNotebook" (delete)="deleteNotebook($event)"></context-notebook>

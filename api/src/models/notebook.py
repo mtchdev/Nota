@@ -24,6 +24,7 @@ class Notebook(db.Model, BaseModel, metaclass=MetaBaseModel):
     
     def transform(self):
         return {
+            'id': self.id,
             'name': self.name,
             'color': self.color,
             'created_at': self.created_at,

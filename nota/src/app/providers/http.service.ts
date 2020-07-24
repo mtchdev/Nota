@@ -27,7 +27,7 @@ export class HttpService {
   }
 
   public delete<T = any>(url: string): Observable<APIResponse<T>> {
-    return this.http.put<APIResponse<T>>(url, this.createRequestOptions());
+    return this.http.delete<APIResponse<T>>(url, this.createRequestOptions());
   }
 
   createRequestOptions(): object {

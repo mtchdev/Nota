@@ -17,4 +17,8 @@ export class NotebookService {
         return this.http.get<Notebook[]>(API.format('app/notebook'));
     }
 
+    public deleteNotebook(id: number): Observable<APIResponse<any>> {
+        return this.http.delete<any>(API.format(`app/notebook?id=${id}`));
+    }
+
 }

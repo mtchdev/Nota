@@ -106,4 +106,12 @@ export class SidebarDirectiveComponent implements OnInit {
 
         this.contextNotebook = notebook;
     }
+
+    public deleteNotebook(notebook: Notebook): void {
+        this.notebookService.deleteNotebook(notebook.id).subscribe(
+            () => {
+                console.log('success');
+            }
+        );
+    }
 }

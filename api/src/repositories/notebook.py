@@ -39,10 +39,7 @@ class NotebookRepository:
 
         ret = []
         for notebook in notebooks:
-            ret.append({
-                'name': notebook.name,
-                'color': notebook.color
-            })
+            ret.append(notebook.transform())
         
         return ret
     
