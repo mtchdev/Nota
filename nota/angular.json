@@ -71,7 +71,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "nota:build",
-            "port": 1338
+            "port": 4001
           },
           "configurations": {
             "dev": {

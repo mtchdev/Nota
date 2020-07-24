@@ -29,7 +29,7 @@ function createWindow() {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
     });
-    win.loadURL('http://localhost:1338');
+    win.loadURL('http://localhost:4001');
   } else {
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
