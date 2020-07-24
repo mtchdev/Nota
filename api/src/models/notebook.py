@@ -7,7 +7,8 @@ class Notebook(db.Model, BaseModel, metaclass=MetaBaseModel):
 
     __tablename__ = "notebooks"
 
-    name = db.Column(db.String(24), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(24))
     color = db.Column(db.String(6))
     user = db.Column(db.Integer())
     created_at = db.Column(db.Integer())

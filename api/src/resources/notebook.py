@@ -33,3 +33,17 @@ class NotebookResource(Resource):
         )
 
         return jsonify({"data": notebooks})
+    
+    @staticmethod
+    @auth
+    @parse_params(
+        Argument("id", location="args", required=True, help="Notebook ID.")
+    )
+    @swag_from("../swagger/auth/register.yml")
+    def delete(user, id):
+        notebook = NotebookRepository.delete(
+            user=user,
+            id=id
+        )
+
+        return jsonify({"data": notebook})

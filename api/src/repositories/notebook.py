@@ -45,3 +45,16 @@ class NotebookRepository:
             })
         
         return ret
+    
+    @staticmethod
+    def delete(user, id):
+        """ Delete a specific notebook by ID """
+
+        notebook = Notebook.query.filter_by(id=id, user=user.id).first()
+
+        if not notebook:
+            raise UnprocessableEntity(description="NOTEBOOK_NOT_FOUND")
+    
+        notebook.delete()
+
+        return 200
