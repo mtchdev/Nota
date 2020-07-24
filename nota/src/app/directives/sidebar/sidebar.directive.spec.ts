@@ -113,6 +113,7 @@ class MockNotebookService {
         return of({
             data: [
                 {
+                    id: 1,
                     name: 'Test',
                     color: 'FFFFFF',
                     notes: []

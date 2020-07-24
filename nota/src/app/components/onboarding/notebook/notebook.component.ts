@@ -12,6 +12,7 @@ type Step = 'notebook' | 'color' | 'finish';
 export class OnboardingNotebookComponent implements OnInit {
 
     public notebook: Notebook = {
+        id: 0,
         name: null,
         color: null,
         notes: []
