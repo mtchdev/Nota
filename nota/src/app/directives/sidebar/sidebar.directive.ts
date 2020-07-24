@@ -110,7 +110,7 @@ export class SidebarDirectiveComponent implements OnInit {
     public deleteNotebook(notebook: Notebook): void {
         this.notebookService.deleteNotebook(notebook.id).subscribe(
             () => {
-                console.log('success');
+                this.notebooks.splice(this.notebooks.indexOf(notebook), 1);
             }
         );
     }
