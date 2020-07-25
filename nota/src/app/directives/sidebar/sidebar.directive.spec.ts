@@ -93,6 +93,17 @@ describe('SidebarDirectiveComponent', () => {
         expect(component.newNotebookError).toBeTruthy();
         expect(component.notebooks.length).toEqual(1);
     });
+
+    it('should delete a specific notebook by id', () => {
+        component.notebooks = [];
+        let notebook = new Notebook({
+            id: 22,
+        });
+
+        component.notebooks.push(notebook);
+        component.deleteNotebook(notebook);
+        expect(component.notebooks.length).toEqual(0);
+    });
 });
 
 class MockNotebookService {
@@ -119,6 +130,13 @@ class MockNotebookService {
                     notes: []
                 }
             ],
+            status: 200
+        });
+    }
+
+    public deleteNotebook(id: number): Observable<APIResponse<any>> {
+        return of({
+            data: 200,
             status: 200
         });
     }
