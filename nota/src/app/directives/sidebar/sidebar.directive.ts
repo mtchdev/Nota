@@ -18,6 +18,7 @@ export class SidebarDirectiveComponent implements OnInit {
     public newNotebook: Notebook;
     public showNewNotebook = false;
     public newNotebookError = null;
+    public newNotebookLoading = false;
 
     public contextMenuProps = {
         x: 0,
@@ -73,11 +74,14 @@ export class SidebarDirectiveComponent implements OnInit {
             return;
         }
 
+        this.newNotebookLoading = true;
+
         this.notebookService.createNotebook(this.newNotebook).subscribe(
             data => {
                 this.notebooks.push(data.data);
                 this.newNotebook = undefined;
                 this.showNewNotebook = false;
+                this.newNotebookLoading = false;
             }
         );
     }

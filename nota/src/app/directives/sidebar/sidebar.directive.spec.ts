@@ -52,7 +52,7 @@ describe('SidebarDirectiveComponent', () => {
         });
     });
 
-    it('should push a new notebook to notebooks when created', () => {
+    it('should create a new notebook and push it to the notebooks array', () => {
         component.newNotebook = new Notebook({
             title: 'Notebook Title',
             color: '00FF31',

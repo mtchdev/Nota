@@ -121,7 +121,7 @@
 
         <div class="modal__button-group">
             <button class="button__grey modal__button" (click)="cancelNewNotebook()">Cancel</button>
-            <button class="button__primary modal__button" (click)="createNotebook()">Create</button>
+            <button class="button__primary modal__button" (click)="createNotebook()" [disabled]="newNotebookLoading">{{ newNotebookLoading ? 'Creating...' : 'Create' }}</button>
         </div>
     </div>
 </div>
