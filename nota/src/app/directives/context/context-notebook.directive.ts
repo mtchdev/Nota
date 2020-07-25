@@ -15,14 +15,24 @@ export class ContextNotebookDirectiveComponent implements OnInit {
     @Input() props: ContextMenuProps;
     @Input() notebook: Notebook;
     @Output() delete = new EventEmitter<Notebook>();
+    public confirmation = false;
 
     ngOnInit() {
-        window.addEventListener('click', (): void => {
-            this.props.show = false;
+        window.addEventListener('click', (e: any): void => {
+            if (!document.getElementById('context-menu').contains(e.target)) {
+                this.props.show = false;
+            }
         });
     }
 
     public deleteNotebook(): void {
+        if (!this.confirmation) {
+            this.confirmation = true;
+            return;
+        }
+
         this.delete.emit(this.notebook);
+        this.props.show = false;
+        this.confirmation = false;
     }
 }

@@ -106,8 +106,6 @@ export class SidebarDirectiveComponent implements OnInit {
             show: true
         };
 
-        console.log(this.contextMenuProps);
-
         this.contextNotebook = notebook;
     }
 

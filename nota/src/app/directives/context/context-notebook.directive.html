@@ -1,11 +1,13 @@
-<div class="context" [ngStyle]="{
+<div id="context-menu" class="context" [ngStyle]="{
     'left': props.x + 'px',
     'top': props.y + 'px',
     'display': props.show ? 'block' : 'none'
 }">
     <div class="context__options">
         <div class="context__options--item">
-            <div class="context__options--item_label context__options--item_red" (click)="deleteNotebook()">Delete</div>
+            <div class="context__options--item_label context__options--item_red" (click)="deleteNotebook()">
+                {{ confirmation ? 'Are you sure?' : 'Delete' }}
+            </div>
         </div>
         <div class="context__options--item">
             <div class="context__options--item_label">Rename</div>
