@@ -9,9 +9,37 @@ from util import auth
 
 
 class NotebookResource(Resource):
-
     @staticmethod
-    @auth
+    @auth(id)
+    @swag_from("../swagger/auth/register.yml")
+    def delete(id, user):
+        notebook = NotebookRepository.delete(
+            user=user,
+            id=id
+        )
+
+        return jsonify({"data": notebook})
+    
+    @staticmethod
+    @auth(id)
+    @parse_params(
+        Argument("name", location="json", required=True, help="Notebook Name."),
+        Argument("color", location="json", required=True, help="Notebook Color."),
+    )
+    @swag_from("../swagger/auth/register.yml")
+    def put(id, user, name, color):
+        notebook = NotebookRepository.update(
+            user=user,
+            id=id,
+            name=name,
+            color=color
+        )
+
+        return jsonify({"data": notebook})
+
+class NotebooksResource(Resource):
+    @staticmethod
+    @auth()
     @parse_params(
         Argument("name", location="json", required=True, help="Notebook Name."),
         Argument("color", location="json", required=True, help="Notebook Color."),
@@ -25,7 +53,7 @@ class NotebookResource(Resource):
         return jsonify({"data": notebook})
 
     @staticmethod
-    @auth
+    @auth()
     @swag_from("../swagger/auth/register.yml")
     def get(user):
         notebooks = NotebookRepository.getAll(
@@ -33,17 +61,3 @@ class NotebookResource(Resource):
         )
 
         return jsonify({"data": notebooks})
-    
-    @staticmethod
-    @auth
-    @parse_params(
-        Argument("id", location="args", required=True, help="Notebook ID.")
-    )
-    @swag_from("../swagger/auth/register.yml")
-    def delete(user, id):
-        notebook = NotebookRepository.delete(
-            user=user,
-            id=id
-        )
-
-        return jsonify({"data": notebook})

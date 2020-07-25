@@ -10,15 +10,15 @@ export class NotebookService {
     constructor(private http: HttpService) { }
 
     public createNotebook(notebook: Notebook): Observable<APIResponse<Notebook>> {
-        return this.http.post<Notebook>(API.format('app/notebook'), notebook);
+        return this.http.post<Notebook>(API.format('app/notebooks'), notebook);
     }
 
     public getAllNotebooks(): Observable<APIResponse<Notebook[]>> {
-        return this.http.get<Notebook[]>(API.format('app/notebook'));
+        return this.http.get<Notebook[]>(API.format('app/notebooks'));
     }
 
     public deleteNotebook(id: number): Observable<APIResponse<any>> {
-        return this.http.delete<any>(API.format(`app/notebook?id=${id}`));
+        return this.http.delete<any>(API.format(`app/notebook/${id}`));
     }
 
 }

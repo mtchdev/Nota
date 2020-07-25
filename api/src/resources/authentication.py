@@ -42,7 +42,7 @@ class LoginResource(Resource):
 class RefreshResource(Resource):
 
     @staticmethod
-    @auth
+    @auth()
     @swag_from("../swagger/auth/refresh.yml")
     def get(user):
         user = UserRepository.refresh(user=user)

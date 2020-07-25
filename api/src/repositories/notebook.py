@@ -55,3 +55,19 @@ class NotebookRepository:
         notebook.delete()
 
         return 200
+    
+    @staticmethod
+    def update(user, id, name, color):
+        """ Update a notebook by ID """
+
+        notebook = Notebook.query.filter_by(id=id, user=user.id).first()
+
+        if not notebook:
+            raise UnprocessableEntity(description="NOTEBOOK_NOT_FOUND")
+    
+        notebook.name = name
+        notebook.color = color
+        notebook.updated_at = int(time.time())
+        notebook.save()
+
+        return notebook.transform()
