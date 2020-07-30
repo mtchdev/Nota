@@ -1,4 +1,4 @@
-name: Client (Node CI)
+name: CLIENT-Test-DEV
 
 on: [push]
 
