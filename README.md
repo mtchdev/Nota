@@ -1,6 +1,6 @@
 ![Nota Logo](https://raw.githubusercontent.com/mtchdev/Nota/master/nota/src/assets/logo/nota_banner_full.png)
-[![Actions Status](https://github.com/mtchdev/nota/workflows/Client%20(Node%20CI)/badge.svg)](https://github.com/mtchdev/nota/actions)
-[![Actions Status](https://github.com/mtchdev/nota/workflows/API/badge.svg)](https://github.com/mtchdev/nota/actions)
+![CLIENT-Test-DEV](https://github.com/mtchdev/Nota/workflows/CLIENT-Test-DEV/badge.svg)
+![API-Test-DEV](https://github.com/mtchdev/Nota/workflows/API-Test-DEV/badge.svg)
 ![Size](https://img.shields.io/github/repo-size/mtchdev/nota)
 ![License](https://img.shields.io/github/license/mtchdev/nota)
 
